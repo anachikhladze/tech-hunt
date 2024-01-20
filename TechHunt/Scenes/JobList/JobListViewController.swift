@@ -9,6 +9,8 @@ import UIKit
 
 final class JobListViewController: UIViewController {
     
+    var viewModel = JobListViewModel()
+    
     // MARK: - Properties
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -16,7 +18,7 @@ final class JobListViewController: UIViewController {
         return tableView
     }()
     
-    private var jobs = Job.dummyData
+    private var jobs: [Job] = []
     
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
@@ -26,6 +28,8 @@ final class JobListViewController: UIViewController {
         setupSubviews()
         setupConstraints()
         setupTableView()
+        
+        viewModel.delegate = self
     }
     
     // MARK: - Private Methods
@@ -45,7 +49,7 @@ final class JobListViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
     }
-
+    
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -73,5 +77,13 @@ extension JobListViewController: UITableViewDataSource {
 extension JobListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Navigation to details...
+    }
+}
+
+// MARK: - JobListViewModelDelegate
+extension JobListViewController: JobListViewModelDelegate {
+    func didFetchJobs() {
+        jobs = viewModel.jobs
+        tableView.reloadData()
     }
 }
