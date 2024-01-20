@@ -17,9 +17,46 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = createTabbar()
         window?.makeKeyAndVisible()
+    }
+    
+    func createHomeNavigationController() -> UINavigationController {
+        let homeVC = ViewController()
+        homeVC.title = "Home"
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
+       
+        return UINavigationController(rootViewController: homeVC)
+    }
+    
+    func createJobsNavigationController() -> UINavigationController {
+        let jobsVC = ViewController()
+        jobsVC.title = "Jobs"
+        jobsVC.tabBarItem = UITabBarItem(title: "Jobs", image: UIImage(systemName: "list.bullet.circle.fill"), tag: 1)
+    
+        return UINavigationController(rootViewController: jobsVC)
+    }
+    
+    func createProfileNavigationController() -> UINavigationController {
+        let profileVC = ViewController()
+        profileVC.title = "Profile"
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 2)
+    
+        return UINavigationController(rootViewController: profileVC)
+    }
+    
+    func createTabbar() -> UITabBarController {
+        let tabbar = UITabBarController()
+        
+        UITabBar.appearance().tintColor = .systemTeal
+        UITabBar.appearance().unselectedItemTintColor = .black
+        // need to learn how to change background colors
+        tabbar.viewControllers = [createHomeNavigationController(), createJobsNavigationController(), createProfileNavigationController()]
+        
+        return tabbar
     }
 
 
