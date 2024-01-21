@@ -51,6 +51,38 @@ final class JobListViewModel {
         }
     }
     
+    
+    func fetchJob(withSearchText: String) {
+        let db = Firestore.firestore()
+        let ref = db.collection("Jobs")
+        ref.getDocuments { snapshot, error in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let snapshot = snapshot {
+                self.jobs.removeAll()
+                for document in snapshot.documents {
+                    let data = document.data()
+                    
+                    let id = data["id"] as? String ?? ""
+                    let title = data["title"] as? String ?? ""
+                    let company = data["company"] as? String ?? ""
+                    let description = data["description"] as? String ?? ""
+                    let type = data["type"] as? String ?? ""
+                    let category = data["category"] as? String ?? ""
+                    
+                    if title.lowercased().contains(withSearchText.lowercased()) {
+                        let job = Job(id: id, title: title, company: company, description: description, type: type, category: category)
+                        self.jobs.append(job)
+                    }
+                }
+                self.delegate?.didFetchJobs()
+            }
+        }
+    }
+
 //    func uploadJobs() {
 //        let db = Firestore.firestore()
 //        let ref = db.collection("Jobs")

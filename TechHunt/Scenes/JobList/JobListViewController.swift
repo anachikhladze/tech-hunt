@@ -71,11 +71,12 @@ final class JobListViewController: UIViewController {
     
     @objc private func searchButtonPressed() {
         dismissSearchBar()
-        guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
+        guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines), !searchText.isEmpty else {
             return
         }
-        //viewModel.fetchAirQuality(with: searchText) რაღაც ესეთი
+        viewModel.fetchJob(withSearchText: searchText)
     }
+
     
     private func setupSubviews() {
         view.addSubview(tableView)
@@ -130,8 +131,10 @@ extension JobListViewController: UITableViewDelegate {
 // MARK: - JobListViewModelDelegate
 extension JobListViewController: JobListViewModelDelegate {
     func didFetchJobs() {
-        jobs = viewModel.jobs
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.jobs = self.viewModel.jobs
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -141,7 +144,8 @@ extension JobListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-           //
+            viewModel.fetchJobs()
         }
     }
+
 }
