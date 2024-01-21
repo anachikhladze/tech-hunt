@@ -18,6 +18,17 @@ final class JobListViewController: UIViewController {
         return tableView
     }()
     
+    private let searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchBar.placeholder = "Enter job title (e.g. iOS Developer)"
+        controller.hidesNavigationBarDuringPresentation = false
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.searchBar.showsCancelButton = false
+        controller.searchBar.searchTextField.textColor = UIColor.black
+        
+        return controller
+    }()
+    
     private var jobs: [Job] = []
     
     // MARK: - ViewLifeCycle
@@ -29,12 +40,41 @@ final class JobListViewController: UIViewController {
         setupConstraints()
         setupTableView()
         
-        viewModel.delegate = self
+        setDelegates()
+        setupSearchController()
+        setupNavigationItems()
     }
     
     // MARK: - Private Methods
     private func setupBackground() {
         view.backgroundColor = .white
+    }
+    
+    private func setDelegates() {
+        viewModel.delegate = self
+        searchController.searchBar.delegate = self
+    }
+    
+    private func setupSearchController() {
+        definesPresentationContext = true
+    }
+    
+    private func setupNavigationItems() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Search",
+            style: .plain,
+            target: self,
+            action: #selector(searchButtonPressed)
+        )
+        navigationItem.titleView = searchController.searchBar
+    }
+    
+    @objc private func searchButtonPressed() {
+        dismissSearchBar()
+        guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
+            return
+        }
+        //viewModel.fetchAirQuality(with: searchText) რაღაც ესეთი
     }
     
     private func setupSubviews() {
@@ -48,6 +88,10 @@ final class JobListViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
+    }
+    
+    private func dismissSearchBar() {
+        searchController.searchBar.resignFirstResponder()
     }
     
     private func setupTableView() {
@@ -88,5 +132,16 @@ extension JobListViewController: JobListViewModelDelegate {
     func didFetchJobs() {
         jobs = viewModel.jobs
         tableView.reloadData()
+    }
+}
+
+
+// MARK: - UISearchBarDelegate
+extension JobListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+           //
+        }
     }
 }
