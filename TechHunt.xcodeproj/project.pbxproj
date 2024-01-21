@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */; };
 		A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E62B5C2CBE0079688D /* Job.swift */; };
 		A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E92B5C2D230079688D /* JobListViewController.swift */; };
 		A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0EB2B5C2DB00079688D /* JobTableViewCell.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
 		A11CC0E62B5C2CBE0079688D /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A11CC0E92B5C2D230079688D /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
 		A11CC0EB2B5C2DB00079688D /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				A11CC0E82B5C2CF50079688D /* TableViewCell */,
 				A11CC0E92B5C2D230079688D /* JobListViewController.swift */,
 				A11CC1262B5C48B50079688D /* JobListViewModel.swift */,
+				A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */,
 			);
 			path = JobList;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				A181BBE82B59A6D800E68302 /* ViewController.swift in Sources */,
 				A181BBFF2B59ABAF00E68302 /* NavigationManager.swift in Sources */,
 				A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */,
+				A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */,
 				A11CC1272B5C48B50079688D /* JobListViewModel.swift in Sources */,
 				A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */,
 				A181BBE62B59A6D800E68302 /* SceneDelegate.swift in Sources */,
