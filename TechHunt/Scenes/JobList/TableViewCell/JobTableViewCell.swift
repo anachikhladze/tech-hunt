@@ -22,7 +22,7 @@ final class JobTableViewCell: UITableViewCell {
     private let infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 0
+        stackView.spacing = 2
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = .init(top: 8, left: 16, bottom: 8, right: 16)
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +50,13 @@ final class JobTableViewCell: UITableViewCell {
         return label
     }()
     
+    private let typeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Helvetica-bold", size: 14)
+        label.textColor = .secondaryLabel
+        return label
+    }()
+    
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -70,6 +77,7 @@ final class JobTableViewCell: UITableViewCell {
         jobImageView.image = nil
         titleLabel.text = nil
         companyLabel.text = nil
+        typeLabel.text = nil
     }
     
     // MARK: - Configure
@@ -77,6 +85,7 @@ final class JobTableViewCell: UITableViewCell {
         // image, description...
         titleLabel.text = job.title
         companyLabel.text = job.company
+        typeLabel.text = job.type
         //        if job.category == "Development" {
         //            jobImageView.image = UIImage(named: "vacancy")
         //        }
@@ -91,6 +100,7 @@ final class JobTableViewCell: UITableViewCell {
         mainStackView.addArrangedSubview(infoStackView)
         infoStackView.addArrangedSubview(titleLabel)
         infoStackView.addArrangedSubview(companyLabel)
+        infoStackView.addArrangedSubview(typeLabel)
     }
     
     private func setupConstraints() {
@@ -102,6 +112,11 @@ final class JobTableViewCell: UITableViewCell {
             
             jobImageView.widthAnchor.constraint(equalToConstant: 80),
             jobImageView.heightAnchor.constraint(equalToConstant: 80),
+            
+            infoStackView.topAnchor.constraint(equalTo: mainStackView.topAnchor),
+            infoStackView.leftAnchor.constraint(equalTo: jobImageView.rightAnchor, constant: 0),
+            infoStackView.rightAnchor.constraint(equalTo: mainStackView.rightAnchor),
+            infoStackView.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor)
         ])
     }
 }
