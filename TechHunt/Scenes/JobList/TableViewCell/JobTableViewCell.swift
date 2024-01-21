@@ -12,13 +12,23 @@ final class JobTableViewCell: UITableViewCell {
     // MARK: - Properties
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 8
+        stackView.spacing = 4
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = .init(top: 8, left: 16, bottom: 8, right: 16)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-
+    
+    private let infoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 8, left: 16, bottom: 8, right: 16)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     
     private let jobImageView: UIImageView = {
         let imageView = UIImageView()
@@ -28,11 +38,18 @@ final class JobTableViewCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Helvetica-Bold", size: 18)
-        label.textColor = .purple
+        label.font = UIFont(name: "Helvetica-bold", size: 16)
+        label.textColor = .black
         return label
     }()
-
+    
+    private let companyLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Helvetica-bold", size: 14)
+        label.textColor = .secondaryLabel
+        return label
+    }()
+    
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,7 +58,7 @@ final class JobTableViewCell: UITableViewCell {
         addSubviews()
         setupConstraints()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -52,20 +69,28 @@ final class JobTableViewCell: UITableViewCell {
         
         jobImageView.image = nil
         titleLabel.text = nil
+        companyLabel.text = nil
     }
     
     // MARK: - Configure
     func configure(with job: Job) {
         // image, description...
         titleLabel.text = job.title
+        companyLabel.text = job.company
+        //        if job.category == "Development" {
+        //            jobImageView.image = UIImage(named: "vacancy")
+        //        }
+        jobImageView.image = UIImage(named: "vacancy")
     }
-
+    
     // MARK: - Private Methods
     
     private func addSubviews() {
         addSubview(mainStackView)
         mainStackView.addArrangedSubview(jobImageView)
-        mainStackView.addArrangedSubview(titleLabel)
+        mainStackView.addArrangedSubview(infoStackView)
+        infoStackView.addArrangedSubview(titleLabel)
+        infoStackView.addArrangedSubview(companyLabel)
     }
     
     private func setupConstraints() {

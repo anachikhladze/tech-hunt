@@ -5,7 +5,7 @@
 //  Created by Anna Sumire on 20.01.24.
 //
 
-import Foundation
+import UIKit
 import Firebase
 
 protocol JobListViewModelDelegate: AnyObject {
@@ -18,6 +18,7 @@ final class JobListViewModel {
     
     init() {
         fetchJobs()
+//        uploadJobs()
     }
     
     func fetchJobs() {
@@ -31,19 +32,44 @@ final class JobListViewModel {
                 return
             }
             
-            
             if let snapshot = snapshot {
                 for document in snapshot.documents {
                     let data = document.data()
                     
                     let id = data["id"] as? String ?? ""
                     let title = data["title"] as? String ?? ""
+                    let company = data["company"] as? String ?? ""
+                    let description = data["description"] as? String ?? ""
+                    let type = data["type"] as? String ?? ""
+                    let category = data["category"] as? String ?? ""
                     
-                    let job = Job(jobId: id, title: title)
+                    let job = Job(id: id, title: title, company: company, description: description, type: type, category: category)
                     self.jobs.append(job)
                 }
                 self.delegate?.didFetchJobs()
             }
         }
     }
+    
+//    func uploadJobs() {
+//        let db = Firestore.firestore()
+//        let ref = db.collection("Jobs")
+//        
+//        for job in Job.techJobVacancies {
+//            ref.addDocument(data: [
+//                "id": job.id,
+//                "title": job.title,
+//                "company": job.company,
+//                "description": job.description,
+//                "type": job.type,
+//                "category": job.category
+//            ]) { error in
+//                if let error = error {
+//                    print("Error adding document: \(error)")
+//                } else {
+//                    print("Document added with ID: \(ref.document().documentID)")
+//                }
+//            }
+//        }
+//    }
 }
