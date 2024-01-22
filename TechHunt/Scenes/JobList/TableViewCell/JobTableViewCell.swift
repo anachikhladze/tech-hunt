@@ -9,6 +9,8 @@ import UIKit
 
 final class JobTableViewCell: UITableViewCell {
     
+    var viewModel = JobListViewModel()
+    
     // MARK: - Properties
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
@@ -45,14 +47,14 @@ final class JobTableViewCell: UITableViewCell {
     
     private let companyLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Helvetica-bold", size: 14)
+        label.font = UIFont(name: "Helvetica", size: 15)
         label.textColor = .secondaryLabel
         return label
     }()
     
     private let typeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Helvetica-bold", size: 14)
+        label.font = UIFont(name: "Helvetica", size: 15)
         label.textColor = .secondaryLabel
         return label
     }()
@@ -84,12 +86,29 @@ final class JobTableViewCell: UITableViewCell {
     func configure(with job: Job) {
         // image, description...
         titleLabel.text = job.title
-        companyLabel.text = job.company
-        typeLabel.text = job.type
-        //        if job.category == "Development" {
-        //            jobImageView.image = UIImage(named: "vacancy")
-        //        }
-        jobImageView.image = UIImage(named: "vacancy")
+        let companyIcon = NSTextAttachment()
+        companyIcon.image = UIImage(systemName: "building.columns")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let companyIconString = NSAttributedString(attachment: companyIcon)
+        let companyText = NSMutableAttributedString(string: " \(job.company)")
+        companyText.insert(companyIconString, at: 0)
+        companyLabel.attributedText = companyText
+        
+        let typeIcon = NSTextAttachment()
+        typeIcon.image = UIImage(systemName: "briefcase")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let typeIconString = NSAttributedString(attachment: typeIcon)
+        let typeText = NSMutableAttributedString(string: " \(job.type)")
+        typeText.insert(typeIconString, at: 0)
+        typeLabel.attributedText = typeText
+        
+        
+        //        companyLabel.text = job.company
+        //        typeLabel.text = job.type
+        //        //        if job.category == "Development" {
+        //        //            jobImageView.image = UIImage(named: "vacancy")
+        //        //        }
+        
+        
+        jobImageView.image = viewModel.imageForCategory(job.category)
     }
     
     // MARK: - Private Methods

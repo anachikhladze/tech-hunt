@@ -20,7 +20,7 @@ final class JobListViewController: UIViewController {
     
     private let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: nil)
-        controller.searchBar.placeholder = "Enter job title (e.g. iOS Developer)"
+        controller.searchBar.placeholder = "Enter job title (e.g. Developer)"
         controller.hidesNavigationBarDuringPresentation = false
         controller.obscuresBackgroundDuringPresentation = false
         controller.searchBar.showsCancelButton = false
@@ -122,7 +122,7 @@ extension JobListViewController: UITableViewDataSource {
 extension JobListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = JobDetailsViewController()
-        vc.configure(with: jobs[indexPath.row]) // Set the job property
+        vc.configure(with: jobs[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -137,7 +137,6 @@ extension JobListViewController: JobListViewModelDelegate {
         }
     }
 }
-
 
 // MARK: - UISearchBarDelegate
 extension JobListViewController: UISearchBarDelegate {

@@ -104,4 +104,28 @@ final class JobListViewModel {
 //            }
 //        }
 //    }
+    
+    func imageForCategory(_ category: String) -> UIImage? {
+        switch category {
+          case "Security":
+            return UIImage(named: "Security")
+          case "Infrastructure":
+            return UIImage(named: "Infrastructure")
+          case "Architecture":
+            return UIImage(named: "Architecture")
+          case "Data Engineering":
+            return UIImage(named: "Engineering")
+          case "Design":
+            return UIImage(named: "Design")
+          case "Data Science":
+            return UIImage(named: "DataScience")
+          case "Development":
+            return UIImage(named: "Development")
+          case "Product Management":
+            return UIImage(named: "PM")
+          default:
+            print("Invalid department")
+            return nil
+        }
+    }
 }
