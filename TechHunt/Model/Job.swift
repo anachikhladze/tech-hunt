@@ -197,6 +197,3 @@ struct Job {
             category: "Development")
     ]
 }
-
-
-//#1381B3

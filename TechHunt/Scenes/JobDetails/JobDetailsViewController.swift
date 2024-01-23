@@ -9,7 +9,9 @@ import UIKit
 
 final class JobDetailsViewController: UIViewController {
     
-    var viewModel = JobListViewModel()
+    // MARK: - Properties
+    private let viewModel = JobListViewModel()
+    private var job: Job?
     
     // MARK: - UI Components
     private let mainStackView: UIStackView = {
@@ -50,13 +52,11 @@ final class JobDetailsViewController: UIViewController {
         button.setTitle("Send Resume", for: .normal)
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 18)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = UIColor.buttonBackground
         button.layer.cornerRadius = 10
         button.heightAnchor.constraint(equalToConstant: 36).isActive = true
         return button
     }()
-    
-    private var job: Job?
     
     // MARK: - ViewLifecycle
     override func viewDidLoad() {
@@ -68,10 +68,10 @@ final class JobDetailsViewController: UIViewController {
     private func setup() {
         view.backgroundColor = .white
         setupMainStackView()
-        setupMovieWithInformation()
+        setupJobWithInformation()
         setupDescriptionLabel()
         setupBottomSectionStackView()
-        setupSelectSessionButton()
+        setupSendButton()
     }
     
     private func setupMainStackView() {
@@ -100,7 +100,7 @@ final class JobDetailsViewController: UIViewController {
         stackView.spacing = 8
         stackView.alignment = .leading
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 2, left: 32, bottom: 12, right: 16)
+        stackView.layoutMargins = UIEdgeInsets(top: 2, left: 32, bottom: 0, right: 16)
         
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -112,7 +112,7 @@ final class JobDetailsViewController: UIViewController {
         detailLabel.text = detail
         detailLabel.textColor = .black
         detailLabel.numberOfLines = 0
-        detailLabel.font = UIFont(name: "Avenir Next", size: 15)
+        detailLabel.font = UIFont(name: "Avenir Next", size: 17)
         
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(detailLabel)
@@ -131,11 +131,11 @@ final class JobDetailsViewController: UIViewController {
         ])
     }
     
-    private func setupSelectSessionButton() {
+    private func setupSendButton() {
         bottomSectionStackView.addArrangedSubview(sendButton)
     }
     
-    private func setupMovieWithInformation() {
+    private func setupJobWithInformation() {
         guard let job else { return }
         navigationItem.title = job.title
         jobImageView.image = viewModel.imageForCategory(job.category)

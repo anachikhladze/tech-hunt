@@ -9,9 +9,10 @@ import UIKit
 
 final class JobListViewController: UIViewController {
     
-    var viewModel = JobListViewModel()
-    
     // MARK: - Properties
+    private let viewModel = JobListViewModel()
+    private var jobs: [Job] = []
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -28,8 +29,6 @@ final class JobListViewController: UIViewController {
         
         return controller
     }()
-    
-    private var jobs: [Job] = []
     
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
@@ -69,14 +68,9 @@ final class JobListViewController: UIViewController {
         navigationItem.titleView = searchController.searchBar
     }
     
-    @objc private func searchButtonPressed() {
-        dismissSearchBar()
-        guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines), !searchText.isEmpty else {
-            return
-        }
-        viewModel.fetchJob(withSearchText: searchText)
+    private func dismissSearchBar() {
+        searchController.searchBar.resignFirstResponder()
     }
-
     
     private func setupSubviews() {
         view.addSubview(tableView)
@@ -91,14 +85,18 @@ final class JobListViewController: UIViewController {
         ])
     }
     
-    private func dismissSearchBar() {
-        searchController.searchBar.resignFirstResponder()
-    }
-    
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(JobTableViewCell.self, forCellReuseIdentifier: "jobCell")
+    }
+    
+    @objc private func searchButtonPressed() {
+        dismissSearchBar()
+        guard let searchText = searchController.searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines), !searchText.isEmpty else {
+            return
+        }
+        viewModel.fetchJob(withSearchText: searchText)
     }
 }
 
@@ -140,11 +138,9 @@ extension JobListViewController: JobListViewModelDelegate {
 
 // MARK: - UISearchBarDelegate
 extension JobListViewController: UISearchBarDelegate {
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             viewModel.fetchJobs()
         }
     }
-
 }

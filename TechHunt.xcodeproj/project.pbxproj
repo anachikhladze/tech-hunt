@@ -63,7 +63,6 @@
 				A11CC0E82B5C2CF50079688D /* TableViewCell */,
 				A11CC0E92B5C2D230079688D /* JobListViewController.swift */,
 				A11CC1262B5C48B50079688D /* JobListViewModel.swift */,
-				A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */,
 			);
 			path = JobList;
 			sourceTree = "<group>";
@@ -74,6 +73,14 @@
 				A11CC0EB2B5C2DB00079688D /* JobTableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		A14DB82C2B60204700EF545D /* JobDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */,
+			);
+			path = JobDetails;
 			sourceTree = "<group>";
 		};
 		A181BBD72B59A6D800E68302 = {
@@ -123,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A11CC0E52B5C28C00079688D /* JobList */,
+				A14DB82C2B60204700EF545D /* JobDetails */,
 				A181BBFD2B59A7C100E68302 /* Authentification */,
 			);
 			path = Scenes;

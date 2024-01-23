@@ -9,7 +9,7 @@ import UIKit
 
 final class JobTableViewCell: UITableViewCell {
     
-    var viewModel = JobListViewModel()
+    let viewModel = JobListViewModel()
     
     // MARK: - Properties
     private let mainStackView: UIStackView = {
@@ -30,7 +30,6 @@ final class JobTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
     
     private let jobImageView: UIImageView = {
         let imageView = UIImageView()
@@ -84,7 +83,6 @@ final class JobTableViewCell: UITableViewCell {
     
     // MARK: - Configure
     func configure(with job: Job) {
-        // image, description...
         titleLabel.text = job.title
         let companyIcon = NSTextAttachment()
         companyIcon.image = UIImage(systemName: "building.columns")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
@@ -100,19 +98,10 @@ final class JobTableViewCell: UITableViewCell {
         typeText.insert(typeIconString, at: 0)
         typeLabel.attributedText = typeText
         
-        
-        //        companyLabel.text = job.company
-        //        typeLabel.text = job.type
-        //        //        if job.category == "Development" {
-        //        //            jobImageView.image = UIImage(named: "vacancy")
-        //        //        }
-        
-        
         jobImageView.image = viewModel.imageForCategory(job.category)
     }
     
     // MARK: - Private Methods
-    
     private func addSubviews() {
         addSubview(mainStackView)
         mainStackView.addArrangedSubview(jobImageView)
