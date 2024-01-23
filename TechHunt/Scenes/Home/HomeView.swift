@@ -14,8 +14,9 @@ struct HomeView: View {
             headerView
             discoverJobHStack
             howToUseHStack
-            VCard()
+            JobCardView()
             trendingHStack
+            JobCardView1()
             Spacer()
         }
     }
@@ -74,7 +75,7 @@ struct HomeView: View {
 }
 
 
-struct VCard: View {
+struct JobCardView: View {
     
     var body: some View {
         ZStack {
@@ -82,7 +83,7 @@ struct VCard: View {
                 .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.buttonBackground]), startPoint: .topTrailing, endPoint: .bottomTrailing))
                 .opacity(0.8)
             
-            VStack {
+            VStack(spacing: 0) {
                 Text("Welcome to TechHunt! Explore top tech jobs, keep up with trends, and craft your CV for free. Apply with a tap, let companies discover you, and refer friends for our New Year’s giveaway. Don’t forget to save your favorite jobs. Enjoy your job hunt!")
                     .font(.system(size: 18, weight: .light, design: .rounded))
                     .padding()
@@ -111,6 +112,50 @@ struct VCard: View {
                     }
                     
                 }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: 250)
+        .cornerRadius(26)
+        .padding(.horizontal)
+    }
+}
+
+
+struct JobCardView1: View {
+    
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.buttonBackground]), startPoint: .topTrailing, endPoint: .bottomTrailing))
+                .opacity(0.8)
+            
+            VStack {
+                HStack {
+                    Image("Design")
+                        .resizable()
+                        .frame(maxWidth: 200, maxHeight: 200)
+                        .scaledToFit()
+                    
+                    VStack {
+                        Text("iOS Developer")
+                        Text("Spotify")
+                        
+                        Button(action: {
+                            print("Button tapped!")
+                        }) {
+                            Text("Apply Now")
+                                .font(.system(size: 16, weight: .black, design: .rounded))
+                                .padding()
+                                .background(Color.buttonBackground)
+                                .foregroundColor(.white)
+                                .cornerRadius(8)
+                        }
+                        
+                    }
+                    .font(.system(size: 22, weight: .light, design: .rounded))
+                    .padding()
+                }
+                
             }
         }
         .frame(maxWidth: .infinity, maxHeight: 250)
