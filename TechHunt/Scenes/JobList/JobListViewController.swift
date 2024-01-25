@@ -44,6 +44,11 @@ final class JobListViewController: UIViewController {
         setupNavigationItems()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
+    }
+    
     // MARK: - Private Methods
     private func setupBackground() {
         view.backgroundColor = .white

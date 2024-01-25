@@ -20,12 +20,16 @@ final class JobListViewModel {
     var jobs: [Job] = []
     
     // MARK: - Initialization
-    init() {
+//    init() {
+//        fetchJobs()
+//    }
+    
+    func viewWillAppear() {
         fetchJobs()
     }
     
     // MARK: - JobListViewModel Methods
-    func fetchJobs() {
+   func fetchJobs() {
         jobs.removeAll()
         
         let db = Firestore.firestore()

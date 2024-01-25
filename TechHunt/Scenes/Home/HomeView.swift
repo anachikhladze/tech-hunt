@@ -11,7 +11,7 @@ struct HomeView: View {
     
     // MARK: - Body
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 12) {
             headerView
             discoverJobHStack
             howToUseHStack

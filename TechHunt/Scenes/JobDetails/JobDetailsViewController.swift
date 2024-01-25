@@ -126,7 +126,7 @@ final class JobDetailsViewController: UIViewController {
         NSLayoutConstraint.activate([
             bottomSectionStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomSectionStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bottomSectionStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            bottomSectionStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
             bottomSectionStackView.heightAnchor.constraint(equalToConstant: 114)
         ])
     }
