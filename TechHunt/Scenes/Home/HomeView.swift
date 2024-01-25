@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 16) {
             headerView
@@ -21,6 +22,7 @@ struct HomeView: View {
         }
     }
     
+    // MARK: - Properties
     private var headerView: some View {
         HStack {
             Text("Welcome, Anna Sumire!")
@@ -70,6 +72,7 @@ struct HomeView: View {
     }
 }
 
+// MARK: - Preview
 #Preview {
     HomeView()
 }
