@@ -34,6 +34,7 @@
 		A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */; };
 		A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */; };
 		A1F33CB42B6802CF003DBAEB /* FormButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */; };
+		A1F33CB62B680920003DBAEB /* FormTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB52B68091F003DBAEB /* FormTextCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Identifier.swift"; sourceTree = "<group>"; };
 		A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+CleanUp.swift"; sourceTree = "<group>"; };
 		A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		A1F33CB52B68091F003DBAEB /* FormTextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */,
+				A1F33CB52B68091F003DBAEB /* FormTextCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				A11CC1272B5C48B50079688D /* JobListViewModel.swift in Sources */,
 				A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */,
 				A181BBE62B59A6D800E68302 /* SceneDelegate.swift in Sources */,
+				A1F33CB62B680920003DBAEB /* FormTextCollectionViewCell.swift in Sources */,
 				A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
