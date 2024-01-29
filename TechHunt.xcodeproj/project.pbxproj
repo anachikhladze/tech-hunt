@@ -30,6 +30,8 @@
 		A1A12E912B62A342005DD9EC /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E902B62A342005DD9EC /* CustomButton.swift */; };
 		A1A12E942B62A79D005DD9EC /* TrendingJobCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E932B62A79D005DD9EC /* TrendingJobCardView.swift */; };
 		A1F33CAB2B67E6BD003DBAEB /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAA2B67E6BD003DBAEB /* FormModel.swift */; };
+		A1F33CAD2B67FF50003DBAEB /* FormContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */; };
+		A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		A1A12E902B62A342005DD9EC /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A1A12E932B62A79D005DD9EC /* TrendingJobCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingJobCardView.swift; sourceTree = "<group>"; };
 		A1F33CAA2B67E6BD003DBAEB /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
+		A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContentBuilder.swift; sourceTree = "<group>"; };
+		A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Identifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 		A181BBFB2B59A74D00E68302 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F33CAA2B67E6BD003DBAEB /* FormModel.swift */,
+				A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */,
 			);
 			path = "CV Form";
 			sourceTree = "<group>";
@@ -298,11 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */,
 				A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */,
 				A181BBE82B59A6D800E68302 /* ViewController.swift in Sources */,
 				A181BBFF2B59ABAF00E68302 /* NavigationManager.swift in Sources */,
 				A1F33CAB2B67E6BD003DBAEB /* FormModel.swift in Sources */,
 				A1A12E8F2B62A2DB005DD9EC /* JobCardView.swift in Sources */,
+				A1F33CAD2B67FF50003DBAEB /* FormContentBuilder.swift in Sources */,
 				A1A12E942B62A79D005DD9EC /* TrendingJobCardView.swift in Sources */,
 				A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */,
 				A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */,
