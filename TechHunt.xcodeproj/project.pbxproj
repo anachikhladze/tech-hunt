@@ -35,6 +35,7 @@
 		A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */; };
 		A1F33CB42B6802CF003DBAEB /* FormButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */; };
 		A1F33CB62B680920003DBAEB /* FormTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB52B68091F003DBAEB /* FormTextCollectionViewCell.swift */; };
+		A1F33CB82B680C56003DBAEB /* FormCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB72B680C56003DBAEB /* FormCompositionalLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+CleanUp.swift"; sourceTree = "<group>"; };
 		A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		A1F33CB52B68091F003DBAEB /* FormTextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextCollectionViewCell.swift; sourceTree = "<group>"; };
+		A1F33CB72B680C56003DBAEB /* FormCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCompositionalLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 			children = (
 				A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */,
 				A1F33CB52B68091F003DBAEB /* FormTextCollectionViewCell.swift */,
+				A1F33CB72B680C56003DBAEB /* FormCompositionalLayout.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				A191190A2B655168001E1D61 /* ProfileView.swift in Sources */,
 				A1A12E912B62A342005DD9EC /* CustomButton.swift in Sources */,
 				A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */,
+				A1F33CB82B680C56003DBAEB /* FormCompositionalLayout.swift in Sources */,
 				A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */,
 				A11CC1272B5C48B50079688D /* JobListViewModel.swift in Sources */,
 				A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */,
