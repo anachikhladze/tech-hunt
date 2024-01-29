@@ -16,7 +16,7 @@ final class FormContentBuilder {
                 TextFormComponent (placeholder: "First Name"),
                 TextFormComponent (placeholder: "Last Name"),
                 TextFormComponent (placeholder: "Email", keyboardType: .emailAddress),
-                ButtonComponent (title: "Confirm")
+                ButtonFormComponent (title: "Confirm")
             ])
         ]
     }

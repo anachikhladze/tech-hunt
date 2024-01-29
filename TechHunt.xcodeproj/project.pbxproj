@@ -33,6 +33,7 @@
 		A1F33CAD2B67FF50003DBAEB /* FormContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */; };
 		A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */; };
 		A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */; };
+		A1F33CB42B6802CF003DBAEB /* FormButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContentBuilder.swift; sourceTree = "<group>"; };
 		A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Identifier.swift"; sourceTree = "<group>"; };
 		A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+CleanUp.swift"; sourceTree = "<group>"; };
+		A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,10 +223,19 @@
 		A1F33CA92B67E613003DBAEB /* CV Form */ = {
 			isa = PBXGroup;
 			children = (
+				A1F33CB22B680297003DBAEB /* CollectionViewCells */,
 				A1F33CAA2B67E6BD003DBAEB /* FormModel.swift */,
 				A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */,
 			);
 			path = "CV Form";
+			sourceTree = "<group>";
+		};
+		A1F33CB22B680297003DBAEB /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +324,7 @@
 				A181BBFF2B59ABAF00E68302 /* NavigationManager.swift in Sources */,
 				A1F33CAB2B67E6BD003DBAEB /* FormModel.swift in Sources */,
 				A1A12E8F2B62A2DB005DD9EC /* JobCardView.swift in Sources */,
+				A1F33CB42B6802CF003DBAEB /* FormButtonCollectionViewCell.swift in Sources */,
 				A1F33CAD2B67FF50003DBAEB /* FormContentBuilder.swift in Sources */,
 				A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */,
 				A1A12E942B62A79D005DD9EC /* TrendingJobCardView.swift in Sources */,

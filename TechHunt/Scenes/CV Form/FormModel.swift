@@ -67,7 +67,7 @@ final class TextFormComponent: FormComponent {
 }
 
 // MARK: - Button Component
-final class ButtonComponent: FormComponent {
+final class ButtonFormComponent: FormComponent {
     
     let title: String
     
