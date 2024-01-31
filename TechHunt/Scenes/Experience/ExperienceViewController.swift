@@ -25,6 +25,17 @@ final class ExperienceViewController: UIViewController {
         return stackView
     }()
     
+    private let editButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Edit Info", for: .normal)
+        button.titleLabel?.textColor = .white
+        button.titleLabel?.font = UIFont(name: "Helvetica", size: 18)
+        button.backgroundColor = UIColor.buttonBackground
+        button.layer.cornerRadius = 10
+        button.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        return button
+    }()
+    
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +99,8 @@ final class ExperienceViewController: UIViewController {
             items: ["Georgian, English, Russian, French"], symbolName: "globe"
         )
         mainStackView.addArrangedSubview(languagesInfo)
+        
+        mainStackView.addArrangedSubview(editButton)
     }
     
     private func setupConstraints() {
@@ -114,5 +127,6 @@ final class ExperienceViewController: UIViewController {
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[0])
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[1])
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[2])
+        mainStackView.setCustomSpacing(16, after: mainStackView.subviews[3])
     }
 }
