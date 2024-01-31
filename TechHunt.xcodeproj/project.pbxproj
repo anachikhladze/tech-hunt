@@ -29,6 +29,7 @@
 		A1A12E8F2B62A2DB005DD9EC /* JobCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E8E2B62A2DB005DD9EC /* JobCardView.swift */; };
 		A1A12E912B62A342005DD9EC /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E902B62A342005DD9EC /* CustomButton.swift */; };
 		A1A12E942B62A79D005DD9EC /* TrendingJobCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E932B62A79D005DD9EC /* TrendingJobCardView.swift */; };
+		A1D709522B6AAB7A00DAC3D7 /* InfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D709512B6AAB7A00DAC3D7 /* InfoStackView.swift */; };
 		A1F33CAB2B67E6BD003DBAEB /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAA2B67E6BD003DBAEB /* FormModel.swift */; };
 		A1F33CAD2B67FF50003DBAEB /* FormContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */; };
 		A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */; };
@@ -60,6 +61,7 @@
 		A1A12E8E2B62A2DB005DD9EC /* JobCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCardView.swift; sourceTree = "<group>"; };
 		A1A12E902B62A342005DD9EC /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A1A12E932B62A79D005DD9EC /* TrendingJobCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingJobCardView.swift; sourceTree = "<group>"; };
+		A1D709512B6AAB7A00DAC3D7 /* InfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoStackView.swift; sourceTree = "<group>"; };
 		A1F33CAA2B67E6BD003DBAEB /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
 		A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContentBuilder.swift; sourceTree = "<group>"; };
 		A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Identifier.swift"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		A181BBF82B59A70B00E68302 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A1D709502B6AAB4400DAC3D7 /* Experience */,
 				A1F33CA92B67E613003DBAEB /* CV Form */,
 				A19119082B655155001E1D61 /* Profile */,
 				A14DB82D2B60313200EF545D /* Home */,
@@ -224,6 +227,14 @@
 				A19119092B655168001E1D61 /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		A1D709502B6AAB4400DAC3D7 /* Experience */ = {
+			isa = PBXGroup;
+			children = (
+				A1D709512B6AAB7A00DAC3D7 /* InfoStackView.swift */,
+			);
+			path = Experience;
 			sourceTree = "<group>";
 		};
 		A1F33CA92B67E613003DBAEB /* CV Form */ = {
@@ -327,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D709522B6AAB7A00DAC3D7 /* InfoStackView.swift in Sources */,
 				A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */,
 				A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */,
 				A181BBE82B59A6D800E68302 /* ViewController.swift in Sources */,
