@@ -13,6 +13,15 @@ class FormViewController: UIViewController {
     private lazy var FormCompLayout = FormCompositionalLayout()
     private lazy var dataSource = makeDataSource()
     
+    private lazy var titleLabel: UILabel = {
+            let label = UILabel()
+            label.text = "Create your CV"
+        label.font = UIFont(name: "Helvetica-Bold", size: 28)
+            label.textAlignment = .left
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+    
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: FormCompLayout.layout)
         collectionView.backgroundColor = .clear
@@ -42,20 +51,23 @@ class FormViewController: UIViewController {
 
 private extension FormViewController {
     
-    func setup() {
-        view.backgroundColor = .white
-        
-        collectionView.dataSource = dataSource
-        
-        view.addSubview(collectionView)
-        
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-    }
+    private func setup() {
+            view.backgroundColor = .systemBackground
+            
+            collectionView.dataSource = dataSource
+            
+            view.addSubview(collectionView)
+            view.addSubview(titleLabel)
+            
+            NSLayoutConstraint.activate([
+                titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
+                collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+        }
     
     func makeDataSource() -> UICollectionViewDiffableDataSource<FormSectionComponent, FormComponent> {
         return UICollectionViewDiffableDataSource(collectionView: collectionView) { collectionView, indexPath, item in

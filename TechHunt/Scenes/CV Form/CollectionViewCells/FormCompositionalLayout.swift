@@ -28,7 +28,7 @@ final class FormCompositionalLayout {
         
         // Section
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 150, leading: 0, bottom: 0, trailing: 0)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0)
         
         let compLayout = UICollectionViewCompositionalLayout(section: layoutSection)
         return compLayout

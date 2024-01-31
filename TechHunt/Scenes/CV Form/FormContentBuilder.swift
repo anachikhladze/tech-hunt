@@ -21,7 +21,7 @@ final class FormContentBuilder {
                 TextFormComponent (placeholder: "Test"),
                 TextFormComponent (placeholder: "Email", keyboardType: .emailAddress),
                 TextFormComponent (placeholder: "LinkedIn Profile"),
-                ButtonFormComponent (title: "Create CV")
+                ButtonFormComponent (title: "Save")
             ])
         ]
     }
