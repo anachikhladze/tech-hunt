@@ -9,21 +9,34 @@ import UIKit
 
 final class ExperienceInfoStackView: UIStackView {
     
+    private let gradientLayer = CAGradientLayer()
+    
     init(title: String, items: [String], symbolName: String) {
         super.init(frame: .zero)
         
         axis = .vertical
-        backgroundColor = .buttonBackground
         spacing = 8
         isLayoutMarginsRelativeArrangement = true
         layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         layer.cornerRadius = 8
+        
+        gradientLayer.colors = [UIColor.purple.cgColor, UIColor.buttonBackground.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 1, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        gradientLayer.opacity = 0.8
+        gradientLayer.cornerRadius = 14
+        layer.insertSublayer(gradientLayer, at: 0)
         
         setup(title: title, items: items, symbolName: symbolName)
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = bounds
     }
     
     private func setup(title: String, items: [String], symbolName: String) {

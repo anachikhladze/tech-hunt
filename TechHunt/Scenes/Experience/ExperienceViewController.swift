@@ -29,10 +29,10 @@ final class ExperienceViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Edit Info", for: .normal)
         button.titleLabel?.textColor = .white
-        button.titleLabel?.font = UIFont(name: "Helvetica", size: 18)
+        button.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
         button.backgroundColor = UIColor.buttonBackground
-        button.layer.cornerRadius = 10
-        button.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        button.layer.cornerRadius = 14
+        button.heightAnchor.constraint(equalToConstant: 46).isActive = true
         return button
     }()
     
