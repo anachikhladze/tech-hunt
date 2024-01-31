@@ -8,12 +8,33 @@
 import SwiftUI
 import UIKit
 
-final class FlowCoordinator: ObservableObject {
+@available(iOS 17.0, *)
+final class NavigationManager: ObservableObject {
     private let window: UIWindow
     
     init(window: UIWindow) {
         self.window = window
     }
     
+    func showRootView() {
+        let rootView = ProfileView(coordinator: self)
+        let rootViewHosting = UIHostingController(rootView: rootView)
+        window.rootViewController = UINavigationController(rootViewController: rootViewHosting)
+    }
+
+    
+    func showExperienceVC() {
+        let view = ExperienceViewController()
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(view, animated: true)
+        }
+    }
+    
+    
+    func goBack() {
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.popViewController(animated: true)
+        }
+    }
     
 }

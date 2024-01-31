@@ -13,7 +13,7 @@ final class ExperienceInfoStackView: UIStackView {
         super.init(frame: .zero)
         
         axis = .vertical
-        backgroundColor = .systemBlue
+        backgroundColor = .buttonBackground
         spacing = 8
         isLayoutMarginsRelativeArrangement = true
         layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
