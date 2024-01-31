@@ -13,10 +13,15 @@ final class FormContentBuilder {
         return [
             
             FormSectionComponent (items: [
-                TextFormComponent (placeholder: "First Name"),
-                TextFormComponent (placeholder: "Last Name"),
+                TextFormComponent (placeholder: "Full Name"),
+                TextFormComponent (placeholder: "Experience 1"),
+                TextFormComponent (placeholder: "Experience 2"),
+                TextFormComponent (placeholder: "Experience 3"),
+                TextFormComponent (placeholder: "Languages"),
+                TextFormComponent (placeholder: "Test"),
                 TextFormComponent (placeholder: "Email", keyboardType: .emailAddress),
-                ButtonFormComponent (title: "Confirm")
+                TextFormComponent (placeholder: "LinkedIn Profile"),
+                ButtonFormComponent (title: "Create CV")
             ])
         ]
     }

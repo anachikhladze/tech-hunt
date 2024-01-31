@@ -14,6 +14,7 @@ final class FormButtonCollectionViewCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .buttonBackground
+        button.layer.cornerRadius = 6
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         return button
     }()
