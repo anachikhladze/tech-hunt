@@ -24,9 +24,19 @@
 		A181BBED2B59A6DA00E68302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A181BBEC2B59A6DA00E68302 /* Assets.xcassets */; };
 		A181BBF02B59A6DA00E68302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A181BBEE2B59A6DA00E68302 /* LaunchScreen.storyboard */; };
 		A181BBFF2B59ABAF00E68302 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181BBFE2B59ABAF00E68302 /* NavigationManager.swift */; };
+		A191190A2B655168001E1D61 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19119092B655168001E1D61 /* ProfileView.swift */; };
+		A191190C2B65535A001E1D61 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A191190B2B65535A001E1D61 /* SettingsRowView.swift */; };
 		A1A12E8F2B62A2DB005DD9EC /* JobCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E8E2B62A2DB005DD9EC /* JobCardView.swift */; };
 		A1A12E912B62A342005DD9EC /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E902B62A342005DD9EC /* CustomButton.swift */; };
 		A1A12E942B62A79D005DD9EC /* TrendingJobCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E932B62A79D005DD9EC /* TrendingJobCardView.swift */; };
+		A1F33CAB2B67E6BD003DBAEB /* FormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAA2B67E6BD003DBAEB /* FormModel.swift */; };
+		A1F33CAD2B67FF50003DBAEB /* FormContentBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */; };
+		A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */; };
+		A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */; };
+		A1F33CB42B6802CF003DBAEB /* FormButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */; };
+		A1F33CB62B680920003DBAEB /* FormTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB52B68091F003DBAEB /* FormTextCollectionViewCell.swift */; };
+		A1F33CB82B680C56003DBAEB /* FormCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB72B680C56003DBAEB /* FormCompositionalLayout.swift */; };
+		A1F33CBA2B683577003DBAEB /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB92B683577003DBAEB /* FormViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +55,19 @@
 		A181BBEF2B59A6DA00E68302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A181BBF12B59A6DA00E68302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A181BBFE2B59ABAF00E68302 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		A19119092B655168001E1D61 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A191190B2B65535A001E1D61 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		A1A12E8E2B62A2DB005DD9EC /* JobCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCardView.swift; sourceTree = "<group>"; };
 		A1A12E902B62A342005DD9EC /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A1A12E932B62A79D005DD9EC /* TrendingJobCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingJobCardView.swift; sourceTree = "<group>"; };
+		A1F33CAA2B67E6BD003DBAEB /* FormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormModel.swift; sourceTree = "<group>"; };
+		A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormContentBuilder.swift; sourceTree = "<group>"; };
+		A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Identifier.swift"; sourceTree = "<group>"; };
+		A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+CleanUp.swift"; sourceTree = "<group>"; };
+		A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		A1F33CB52B68091F003DBAEB /* FormTextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextCollectionViewCell.swift; sourceTree = "<group>"; };
+		A1F33CB72B680C56003DBAEB /* FormCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCompositionalLayout.swift; sourceTree = "<group>"; };
+		A1F33CB92B683577003DBAEB /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +165,8 @@
 		A181BBF82B59A70B00E68302 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A1F33CA92B67E613003DBAEB /* CV Form */,
+				A19119082B655155001E1D61 /* Profile */,
 				A14DB82D2B60313200EF545D /* Home */,
 				A11CC0E52B5C28C00079688D /* JobList */,
 				A14DB82C2B60204700EF545D /* JobDetails */,
@@ -172,6 +194,8 @@
 		A181BBFB2B59A74D00E68302 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */,
+				A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -182,6 +206,7 @@
 				A1A12E8E2B62A2DB005DD9EC /* JobCardView.swift */,
 				A1A12E902B62A342005DD9EC /* CustomButton.swift */,
 				A1A12E932B62A79D005DD9EC /* TrendingJobCardView.swift */,
+				A191190B2B65535A001E1D61 /* SettingsRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -191,6 +216,35 @@
 			children = (
 			);
 			path = Authentification;
+			sourceTree = "<group>";
+		};
+		A19119082B655155001E1D61 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A19119092B655168001E1D61 /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A1F33CA92B67E613003DBAEB /* CV Form */ = {
+			isa = PBXGroup;
+			children = (
+				A1F33CB22B680297003DBAEB /* CollectionViewCells */,
+				A1F33CAA2B67E6BD003DBAEB /* FormModel.swift */,
+				A1F33CAC2B67FF50003DBAEB /* FormContentBuilder.swift */,
+				A1F33CB92B683577003DBAEB /* FormViewController.swift */,
+			);
+			path = "CV Form";
+			sourceTree = "<group>";
+		};
+		A1F33CB22B680297003DBAEB /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A1F33CB32B6802CF003DBAEB /* FormButtonCollectionViewCell.swift */,
+				A1F33CB52B68091F003DBAEB /* FormTextCollectionViewCell.swift */,
+				A1F33CB72B680C56003DBAEB /* FormCompositionalLayout.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,21 +327,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */,
 				A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */,
 				A181BBE82B59A6D800E68302 /* ViewController.swift in Sources */,
 				A181BBFF2B59ABAF00E68302 /* NavigationManager.swift in Sources */,
+				A1F33CAB2B67E6BD003DBAEB /* FormModel.swift in Sources */,
 				A1A12E8F2B62A2DB005DD9EC /* JobCardView.swift in Sources */,
+				A1F33CB42B6802CF003DBAEB /* FormButtonCollectionViewCell.swift in Sources */,
+				A1F33CAD2B67FF50003DBAEB /* FormContentBuilder.swift in Sources */,
+				A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */,
 				A1A12E942B62A79D005DD9EC /* TrendingJobCardView.swift in Sources */,
 				A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */,
 				A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */,
+				A1F33CBA2B683577003DBAEB /* FormViewController.swift in Sources */,
 				A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */,
+				A191190C2B65535A001E1D61 /* SettingsRowView.swift in Sources */,
 				A11CC1272B5C48B50079688D /* JobListViewModel.swift in Sources */,
+				A191190A2B655168001E1D61 /* ProfileView.swift in Sources */,
 				A1A12E912B62A342005DD9EC /* CustomButton.swift in Sources */,
 				A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */,
+				A1F33CB82B680C56003DBAEB /* FormCompositionalLayout.swift in Sources */,
 				A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */,
 				A11CC1272B5C48B50079688D /* JobListViewModel.swift in Sources */,
 				A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */,
 				A181BBE62B59A6D800E68302 /* SceneDelegate.swift in Sources */,
+				A1F33CB62B680920003DBAEB /* FormTextCollectionViewCell.swift in Sources */,
 				A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

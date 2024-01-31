@@ -66,6 +66,7 @@ struct HomeView: View {
             Text("Trending Job 🔥")
                 .font(.system(size: 20, weight: .black, design: .rounded))
                 .padding(.horizontal)
+                .padding(.top, 10)
             
             Spacer()
         }

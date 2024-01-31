@@ -18,7 +18,7 @@ struct JobCardView: View {
             VStack(spacing: 0) {
                 Text("Welcome to TechHunt! Explore top tech jobs, keep up with trends, and craft your CV for free. Apply with a tap, let companies discover you, and refer friends for our New Year’s giveaway. Don’t forget to save your favorite jobs. Enjoy your job hunt!")
                     .font(.system(size: 17, weight: .light, design: .rounded))
-                    .padding(.bottom, 6)
+                    .padding(.bottom, 14)
                     .padding(.horizontal)
                 
                 HStack {
@@ -27,7 +27,7 @@ struct JobCardView: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: 240)
+        .frame(maxWidth: .infinity, maxHeight: 220)
         .cornerRadius(26)
         .padding(.horizontal)
     }

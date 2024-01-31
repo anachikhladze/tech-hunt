@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 
+@available(iOS 17.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -32,7 +33,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let homeVC = homeViewHosting
         homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
         
-        return UINavigationController(rootViewController: homeVC)
+        let navController = UINavigationController(rootViewController: homeVC)
+        navController.navigationBar.isHidden = true
+        
+        return navController
     }
     
     func createJobsNavigationController() -> UINavigationController {
@@ -44,12 +48,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createProfileNavigationController() -> UINavigationController {
-        let profileVC = ViewController()
-        profileVC.title = "Profile"
+        let profileView = ProfileView()
+        let profileViewHosting = UIHostingController(rootView: profileView)
+        
+        let profileVC = profileViewHosting
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 2)
         
-        return UINavigationController(rootViewController: profileVC)
+        let navController = UINavigationController(rootViewController: profileVC)
+        navController.navigationBar.isHidden = true
+        
+        return navController
     }
+
     
     func createTabbar() -> UITabBarController {
         let tabbar = UITabBarController()
