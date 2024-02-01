@@ -221,6 +221,17 @@ final class ExperienceViewController: UIViewController {
     @objc private func editButtonTapped() {
         let cvFormViewController = CVFormViewController()
         cvFormViewController.delegate = self
+        
+        cvFormViewController.currentFullName = fullNameLabel.text
+        cvFormViewController.currentSchool = educationLabel.text
+        cvFormViewController.currentExperience1 = experience1Label.text
+        cvFormViewController.currentExperience2 = experience2Label.text
+        cvFormViewController.currentExperience3 = experience3Label.text
+        cvFormViewController.currentLanguages = languagesLabel.text
+        cvFormViewController.currentContactNumber = numberLabel.text
+        cvFormViewController.currentEmail = emailLabel.text
+        cvFormViewController.currentLinkedIn = linkedinLabel.text
+        
         let navigationController = UINavigationController(rootViewController: cvFormViewController)
         present(navigationController, animated: true, completion: nil)
     }

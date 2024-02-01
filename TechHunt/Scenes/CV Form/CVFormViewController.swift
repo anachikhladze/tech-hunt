@@ -38,6 +38,16 @@ final class CVFormViewController: UIViewController {
     var email: String { return emailField.text ?? "" }
     var linkedIn: String { return linkedInField.text ?? "" }
     
+    var currentFullName: String?
+    var currentSchool: String?
+    var currentExperience1: String?
+    var currentExperience2: String?
+    var currentExperience3: String?
+    var currentLanguages: String?
+    var currentContactNumber: String?
+    var currentEmail: String?
+    var currentLinkedIn: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +58,7 @@ final class CVFormViewController: UIViewController {
         setNavigationTitle()
         configureTextFields()
         configureSaveButton()
+        setLabelsWithCurrentInfo()
     }
     
     private func addSubviews() {
@@ -102,6 +113,18 @@ final class CVFormViewController: UIViewController {
         saveButton.heightAnchor.constraint(equalToConstant: 46).isActive = true
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         stackView.addArrangedSubview(saveButton)
+    }
+    
+    private func setLabelsWithCurrentInfo() {
+        fullNameField.text = currentFullName
+        schoolField.text = currentSchool
+        experienceField1.text = currentExperience1
+        experienceField2.text = currentExperience2
+        experienceField3.text = currentExperience3
+        languagesField.text = currentLanguages
+        contactNumberField.text = currentContactNumber
+        emailField.text = currentEmail
+        linkedInField.text = currentLinkedIn
     }
     
     @objc func saveButtonTapped() {
