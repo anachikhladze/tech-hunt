@@ -11,7 +11,7 @@ final class ExperienceInfoStackView: UIStackView {
     
     private let gradientLayer = CAGradientLayer()
     
-    init(title: String, items: [String], symbolName: String) {
+    init(title: String, items: [UILabel], symbolName: String) {
         super.init(frame: .zero)
         
         axis = .vertical
@@ -39,7 +39,7 @@ final class ExperienceInfoStackView: UIStackView {
         gradientLayer.frame = bounds
     }
     
-    private func setup(title: String, items: [String], symbolName: String) {
+    private func setup(title: String, items: [UILabel], symbolName: String) {
         let titleLabel = UILabel()
         let symbolConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
         let image = UIImage(systemName: symbolName, withConfiguration: symbolConfig)
@@ -54,29 +54,12 @@ final class ExperienceInfoStackView: UIStackView {
         addArrangedSubview(titleLabel)
         
         for item in items {
-            let itemLabel = UILabel()
-            itemLabel.text = item
+            var itemLabel = UILabel()
+            itemLabel = item
             itemLabel.numberOfLines = 0
             itemLabel.textColor = .black
             itemLabel.textAlignment = .left
             itemLabel.font = UIFont.customRoundedFont(size: 16, weight: .light)
-            addArrangedSubview(itemLabel)
-        }
-    }
-    
-    func updateItems(_ newItems: [String]) {
-        arrangedSubviews.forEach { view in
-            if view is UILabel && view != arrangedSubviews.first {
-                view.removeFromSuperview()
-            }
-        }
-        
-        for item in newItems {
-            let itemLabel = UILabel()
-            itemLabel.text = item
-            itemLabel.numberOfLines = 0
-            itemLabel.textColor = .black
-            itemLabel.textAlignment = .left
             addArrangedSubview(itemLabel)
         }
     }

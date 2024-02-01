@@ -8,7 +8,8 @@
 import UIKit
 
 protocol CVFormViewControllerDelegate: AnyObject {
-    func didSaveInfo(fullName: String, school: String, experience: String)
+    func didSaveInfo(fullName: String, school: String, experience1: String, experience2: String, experience3: String,
+                     language: String, number: String, email: String, linkedin: String)
 }
 
 class CVFormViewController: UIViewController {
@@ -74,6 +75,6 @@ class CVFormViewController: UIViewController {
     }
     
     @objc func saveButtonTapped() {
-        delegate?.didSaveInfo(fullName: fullName, school: school, experience: experience1)
+        delegate?.didSaveInfo(fullName: fullName, school: school, experience1: experience1, experience2: experience2, experience3: experience3, language: languages, number: contactNumber, email: email, linkedin: linkedIn)
     }
 }

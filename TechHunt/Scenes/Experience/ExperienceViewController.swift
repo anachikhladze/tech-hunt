@@ -9,10 +9,6 @@ import UIKit
 
 final class ExperienceViewController: UIViewController {
     
-    private var contactInfo: ExperienceInfoStackView!
-    private var educationInfo: ExperienceInfoStackView!
-    private var experienceInfo: ExperienceInfoStackView!
-    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +37,87 @@ final class ExperienceViewController: UIViewController {
         return button
     }()
     
+    private let fullNameLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.customRoundedFont(size: 16, weight: .light)
+        return label
+    }()
+    
+    private let emailLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.customRoundedFont(size: 16, weight: .light)
+        return label
+    }()
+    
+    private let numberLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.customRoundedFont(size: 16, weight: .light)
+        return label
+    }()
+    
+    private let linkedinLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.customRoundedFont(size: 16, weight: .light)
+        return label
+    }()
+    
+    private let educationLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.customRoundedFont(size: 16, weight: .light)
+        return label
+    }()
+    
+    private let experience1Label: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.customRoundedFont(size: 16, weight: .light)
+        return label
+    }()
+    
+    private let experience2Label: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.customRoundedFont(size: 16, weight: .light)
+        return label
+    }()
+    
+    private let experience3Label: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.customRoundedFont(size: 16, weight: .light)
+        return label
+    }()
+    
+    private let languagesLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = UIFont.customRoundedFont(size: 16, weight: .light)
+        return label
+    }()
+    
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +132,7 @@ final class ExperienceViewController: UIViewController {
         setupBackground()
         addSubviews()
         setupConstraints()
+        setDefaultValues()
     }
     
     private func setupBackground() {
@@ -72,41 +150,45 @@ final class ExperienceViewController: UIViewController {
     }
     
     private func setupInfoStackViews() {
-        contactInfo = ExperienceInfoStackView(
+        let contactInfo = ExperienceInfoStackView(
             title: "Contact Info",
-            items: [
-                "Full Name: Anna Sumire",
-                "Email Address: anachikhladze99@gmail.com",
-                "Contact Number: 557773047",
-                "LinkedIn Profile: https://www.linkedin.com"
-            ], symbolName: "person.crop.circle"
+            items: [fullNameLabel, emailLabel, numberLabel, linkedinLabel],
+            symbolName: "person.crop.circle"
         )
         mainStackView.addArrangedSubview(contactInfo)
-
-        educationInfo = ExperienceInfoStackView(
+        
+        let educationInfo = ExperienceInfoStackView(
             title: "Education",
-            items: ["School/University: Free University of Tbilisi"], symbolName: "book"
+            items: [educationLabel], symbolName: "book"
         )
         mainStackView.addArrangedSubview(educationInfo)
-
-        experienceInfo = ExperienceInfoStackView(
+        
+        let experienceInfo = ExperienceInfoStackView(
             title: "Experience",
-            items: [
-                "Software Engineer at Tech Innovators Inc. (2018-2020)",
-                "Front-end Developer at Web Solutions Co. (2019-2022)",
-                "Data Analyst at Data Insights Corp. (2020-2021)"
-            ], symbolName: "briefcase"
+            items: [experience1Label, experience2Label, experience3Label], symbolName: "briefcase"
         )
         mainStackView.addArrangedSubview(experienceInfo)
-
+        
         
         let languagesInfo = ExperienceInfoStackView(
             title: "Languages",
-            items: ["Georgian, English, Russian, French"], symbolName: "globe"
+            items: [languagesLabel], symbolName: "globe"
         )
         mainStackView.addArrangedSubview(languagesInfo)
         
         mainStackView.addArrangedSubview(editButton)
+    }
+    
+    private func setDefaultValues() {
+        fullNameLabel.text = "Anna Sumire"
+        emailLabel.text = "anachikhladze99@gmail.com"
+        numberLabel.text = "557773047"
+        linkedinLabel.text = "https://www.linkedin.com"
+        educationLabel.text = "Free University of Tbilisi"
+        experience1Label.text = "Software Engineer at Tech Innovators Inc. (2018-2020)"
+        experience2Label.text = "Front-end Developer at Web Solutions Co. (2019-2022)"
+        experience3Label.text = "Data Analyst at Data Insights Corp. (2020-2021)"
+        languagesLabel.text = "Georgian, English, Russian, French"
     }
     
     private func setupConstraints() {
@@ -135,6 +217,7 @@ final class ExperienceViewController: UIViewController {
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[2])
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[3])
     }
+    
     @objc private func editButtonTapped() {
         let formVC = CVFormViewController()
         formVC.delegate = self
@@ -142,12 +225,16 @@ final class ExperienceViewController: UIViewController {
     }
 }
 
-
 extension ExperienceViewController: CVFormViewControllerDelegate {
-    func didSaveInfo(fullName: String, school: String, experience: String) {
-        contactInfo.updateItems(["Full Name: \(fullName)"])
-        educationInfo.updateItems(["School/University: \(school)"])
-        experienceInfo.updateItems(["Experience: \(experience)"])
+    func didSaveInfo(fullName: String, school: String, experience1: String, experience2: String, experience3: String, language: String, number: String, email: String, linkedin: String) {
+        fullNameLabel.text = fullName
+        educationLabel.text = school
+        experience1Label.text = experience1
+        experience2Label.text = experience2
+        experience3Label.text = experience3
+        languagesLabel.text = language
+        numberLabel.text = number
+        emailLabel.text = email
+        linkedinLabel.text = linkedin
     }
-
 }
