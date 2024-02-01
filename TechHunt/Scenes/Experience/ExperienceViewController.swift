@@ -219,9 +219,10 @@ final class ExperienceViewController: UIViewController {
     }
     
     @objc private func editButtonTapped() {
-        let formVC = CVFormViewController()
-        formVC.delegate = self
-        present(formVC, animated: true)
+        let cvFormViewController = CVFormViewController()
+        cvFormViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: cvFormViewController)
+        present(navigationController, animated: true, completion: nil)
     }
 }
 
