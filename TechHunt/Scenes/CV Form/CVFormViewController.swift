@@ -106,5 +106,7 @@ final class CVFormViewController: UIViewController {
     
     @objc func saveButtonTapped() {
         delegate?.didSaveInfo(fullName: fullName, school: school, experience1: experience1, experience2: experience2, experience3: experience3, language: languages, number: contactNumber, email: email, linkedin: linkedIn)
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }
