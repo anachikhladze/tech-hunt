@@ -9,6 +9,10 @@ import UIKit
 
 final class ExperienceViewController: UIViewController {
     
+    private var contactInfo: ExperienceInfoStackView!
+    private var educationInfo: ExperienceInfoStackView!
+    private var experienceInfo: ExperienceInfoStackView!
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +37,7 @@ final class ExperienceViewController: UIViewController {
         button.backgroundColor = UIColor.buttonBackground
         button.layer.cornerRadius = 14
         button.heightAnchor.constraint(equalToConstant: 46).isActive = true
+        button.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -67,7 +72,7 @@ final class ExperienceViewController: UIViewController {
     }
     
     private func setupInfoStackViews() {
-        let contactInfo = ExperienceInfoStackView(
+        contactInfo = ExperienceInfoStackView(
             title: "Contact Info",
             items: [
                 "Full Name: Anna Sumire",
@@ -77,14 +82,14 @@ final class ExperienceViewController: UIViewController {
             ], symbolName: "person.crop.circle"
         )
         mainStackView.addArrangedSubview(contactInfo)
-        
-        let educationInfo = ExperienceInfoStackView(
+
+        educationInfo = ExperienceInfoStackView(
             title: "Education",
             items: ["School/University: Free University of Tbilisi"], symbolName: "book"
         )
         mainStackView.addArrangedSubview(educationInfo)
-        
-        let experienceInfo = ExperienceInfoStackView(
+
+        experienceInfo = ExperienceInfoStackView(
             title: "Experience",
             items: [
                 "Software Engineer at Tech Innovators Inc. (2018-2020)",
@@ -93,6 +98,7 @@ final class ExperienceViewController: UIViewController {
             ], symbolName: "briefcase"
         )
         mainStackView.addArrangedSubview(experienceInfo)
+
         
         let languagesInfo = ExperienceInfoStackView(
             title: "Languages",
@@ -129,4 +135,19 @@ final class ExperienceViewController: UIViewController {
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[2])
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[3])
     }
+    @objc private func editButtonTapped() {
+        let formVC = CVFormViewController()
+        formVC.delegate = self
+        present(formVC, animated: true)
+    }
+}
+
+
+extension ExperienceViewController: CVFormViewControllerDelegate {
+    func didSaveInfo(fullName: String, school: String, experience: String) {
+        contactInfo.updateItems(["Full Name: \(fullName)"])
+        educationInfo.updateItems(["School/University: \(school)"])
+        experienceInfo.updateItems(["Experience: \(experience)"])
+    }
+
 }

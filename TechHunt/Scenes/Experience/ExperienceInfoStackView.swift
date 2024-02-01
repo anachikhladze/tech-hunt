@@ -23,7 +23,7 @@ final class ExperienceInfoStackView: UIStackView {
         gradientLayer.colors = [UIColor.purple.cgColor, UIColor.buttonBackground.cgColor]
         gradientLayer.startPoint = CGPoint(x: 1, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.opacity = 0.8
+        gradientLayer.opacity = 0.7
         gradientLayer.cornerRadius = 14
         layer.insertSublayer(gradientLayer, at: 0)
         
@@ -49,7 +49,7 @@ final class ExperienceInfoStackView: UIStackView {
         attributedString.append(NSAttributedString(string: " \(title)"))
         titleLabel.attributedText = attributedString
         titleLabel.textColor = .black
-        titleLabel.font = UIFont(name: "Helvetica-Bold", size: 18)
+        titleLabel.font = UIFont.customRoundedFont(size: 18, weight: .medium)
         titleLabel.textAlignment = .left
         addArrangedSubview(titleLabel)
         
@@ -59,7 +59,24 @@ final class ExperienceInfoStackView: UIStackView {
             itemLabel.numberOfLines = 0
             itemLabel.textColor = .black
             itemLabel.textAlignment = .left
-            itemLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+            itemLabel.font = UIFont.customRoundedFont(size: 16, weight: .light)
+            addArrangedSubview(itemLabel)
+        }
+    }
+    
+    func updateItems(_ newItems: [String]) {
+        arrangedSubviews.forEach { view in
+            if view is UILabel && view != arrangedSubviews.first {
+                view.removeFromSuperview()
+            }
+        }
+        
+        for item in newItems {
+            let itemLabel = UILabel()
+            itemLabel.text = item
+            itemLabel.numberOfLines = 0
+            itemLabel.textColor = .black
+            itemLabel.textAlignment = .left
             addArrangedSubview(itemLabel)
         }
     }
