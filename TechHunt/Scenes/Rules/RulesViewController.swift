@@ -25,9 +25,9 @@ final class RulesViewController: UIViewController {
         return stackView
     }()
     
-    private let editButton: UIButton = {
+    private let dismissButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Edit Info", for: .normal)
+        button.setTitle("Dismiss", for: .normal)
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
         button.backgroundColor = UIColor.buttonBackground
@@ -103,7 +103,7 @@ final class RulesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        navigationItem.title = "App Rules"
+        navigationItem.title = "How to use TechHunt?"
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     
@@ -124,6 +124,7 @@ final class RulesViewController: UIViewController {
     private func addSubviews() {
         addMainSubview()
         setupInfoStackViews()
+        setupDismissButton()
     }
     
     private func addMainSubview() {
@@ -174,8 +175,6 @@ final class RulesViewController: UIViewController {
             items: [favoriteLabel], symbolName: "heart"
         )
         mainStackView.addArrangedSubview(favoriteInfo)
-        
-        mainStackView.addArrangedSubview(editButton)
     }
     
     private func setDefaultValues() {
@@ -215,5 +214,13 @@ final class RulesViewController: UIViewController {
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[3])
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[4])
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[5])
+    }
+    
+    private func setupDismissButton() {
+        mainStackView.addArrangedSubview(dismissButton)
+        
+        dismissButton.addAction(UIAction(handler: { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+        }), for: .touchUpInside)
     }
 }
