@@ -77,4 +77,15 @@ final class NavigationManager: ObservableObject {
             print("not found")
         }
     }
+    
+    func pushRulesVC() {
+        let rulesViewController = RulesViewController()
+        
+        if let tabBarController = window?.rootViewController as? UITabBarController,
+           let navigationController = tabBarController.selectedViewController as?  UINavigationController {
+            navigationController.pushViewController(rulesViewController, animated: true)
+        } else {
+            print("not found")
+        }
+    }
 }

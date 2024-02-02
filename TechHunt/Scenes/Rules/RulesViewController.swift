@@ -27,7 +27,7 @@ final class RulesViewController: UIViewController {
     
     private let dismissButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Dismiss", for: .normal)
+        button.setTitle("OK", for: .normal)
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
         button.backgroundColor = UIColor.buttonBackground
@@ -103,7 +103,8 @@ final class RulesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        navigationItem.title = "How to use TechHunt?"
+        
+        navigationItem.title = "How to use?"
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     
