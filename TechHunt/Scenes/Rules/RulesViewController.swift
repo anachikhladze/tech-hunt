@@ -135,43 +135,43 @@ final class RulesViewController: UIViewController {
         let discoverInfo = ExperienceInfoStackView(
             title: "Discover Jobs",
             items: [discoverLabel],
-            symbolName: "person.crop.circle"
+            symbolName: "magnifyingglass.circle"
         )
         mainStackView.addArrangedSubview(discoverInfo)
         
         let trendsInfo = ExperienceInfoStackView(
             title: "Stay on Top of Trends",
-            items: [trendsLabel], symbolName: "book"
+            items: [trendsLabel], symbolName: "waveform.path.ecg"
         )
         mainStackView.addArrangedSubview(trendsInfo)
         
         let createInfo = ExperienceInfoStackView(
             title: "Create Your CV for Free",
-            items: [createLabel], symbolName: "briefcase"
+            items: [createLabel], symbolName: "doc.text"
         )
         mainStackView.addArrangedSubview(createInfo)
         
         let applyInfo = ExperienceInfoStackView(
             title: "Apply Directly from the App",
-            items: [applyLabel], symbolName: "globe"
+            items: [applyLabel], symbolName: "paperplane"
         )
         mainStackView.addArrangedSubview(applyInfo)
         
         let findInfo = ExperienceInfoStackView(
             title: "Let Companies Find You",
-            items: [findLabel], symbolName: "globe"
+            items: [findLabel], symbolName: "person.crop.circle.badge.checkmark"
         )
         mainStackView.addArrangedSubview(findInfo)
         
         let referalInfo = ExperienceInfoStackView(
             title: "Refer a Friend",
-            items: [referalLabel], symbolName: "globe"
+            items: [referalLabel], symbolName: "person.2"
         )
         mainStackView.addArrangedSubview(referalInfo)
         
         let favoriteInfo = ExperienceInfoStackView(
             title: "Favorite the Jobs You Love",
-            items: [favoriteLabel], symbolName: "globe"
+            items: [favoriteLabel], symbolName: "heart"
         )
         mainStackView.addArrangedSubview(favoriteInfo)
         

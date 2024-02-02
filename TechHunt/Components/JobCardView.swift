@@ -24,7 +24,7 @@ struct JobCardView: View {
                 
                 HStack {
                     CustomButton(buttonText: "Read More") {
-                        print("Read More Pressed")
+                        NavigationManager.shared.navigateToRulesVC()
                     }
                     CustomButton(buttonText: "Create CV") {
                         NavigationManager.shared.navigateToCVFormVC()
