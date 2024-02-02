@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct JobCardView: View {
     
     var body: some View {
@@ -22,8 +23,12 @@ struct JobCardView: View {
                     .padding(.horizontal)
                 
                 HStack {
-                  CustomButton(buttonText: "Read More")
-                    CustomButton(buttonText: "Create CV")
+                    CustomButton(buttonText: "Read More") {
+                        print("Read More Pressed")
+                    }
+                    CustomButton(buttonText: "Create CV") {
+                        NavigationManager.shared.navigateToCVFormVC()
+                    }
                 }
             }
         }

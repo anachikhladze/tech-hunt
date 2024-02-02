@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct HomeView: View {
     
     // MARK: - Body
@@ -74,6 +75,6 @@ struct HomeView: View {
 }
 
 // MARK: - Preview
-#Preview {
-    HomeView()
-}
+//#Preview {
+//    HomeView()
+//}

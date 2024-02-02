@@ -65,7 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 2)
         
         let navController = UINavigationController(rootViewController: profileVC)
-        navController.navigationBar.isHidden = false
+        navController.navigationBar.isHidden = true
         
         return navController
     }

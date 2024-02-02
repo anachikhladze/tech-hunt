@@ -9,11 +9,11 @@ import SwiftUI
 
 struct CustomButton: View {
     var buttonText: String
-    var action: (() -> Void)?
+    var action: () -> Void
 
     var body: some View {
         Button(action: {
-            print("Button tapped!")
+            action()
         }) {
             Text(buttonText)
                 .font(.system(size: 16, weight: .black, design: .rounded))
@@ -26,6 +26,6 @@ struct CustomButton: View {
     }
 }
 
-#Preview {
-    CustomButton(buttonText: "Test")
-}
+//#Preview {
+//    CustomButton(buttonText: "Test")
+//}

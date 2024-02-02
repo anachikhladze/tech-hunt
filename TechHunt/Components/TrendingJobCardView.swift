@@ -26,7 +26,9 @@ struct TrendingJobCardView: View {
                         Text("iOS Developer")
                         Text("Spotify")
                         
-                      CustomButton(buttonText: "Apply Now")
+                        CustomButton(buttonText: "Apply Now") {
+                            
+                        }
                     }
                     .font(.system(size: 22, weight: .light, design: .rounded))
                     .padding()

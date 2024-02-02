@@ -133,6 +133,8 @@ final class ExperienceViewController: UIViewController {
         addSubviews()
         setupConstraints()
         setDefaultValues()
+        
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func setupBackground() {

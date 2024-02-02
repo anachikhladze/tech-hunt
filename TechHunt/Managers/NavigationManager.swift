@@ -51,4 +51,15 @@ final class NavigationManager: ObservableObject {
             print("not found")
         }
     }
+    
+    func navigateToCVFormVC() {
+        let CVFormViewController = CVFormViewController()
+        
+        if let tabBarController = window?.rootViewController as? UITabBarController,
+           let navigationController = tabBarController.selectedViewController as?  UINavigationController {
+            navigationController.present(CVFormViewController, animated: true)
+        } else {
+            print("not found")
+        }
+    }
 }
