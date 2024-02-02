@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct TrendingJobCardView: View {
+    
+    @StateObject var viewModel = JobListViewModel()
     
     var body: some View {
         ZStack {
@@ -23,14 +26,16 @@ struct TrendingJobCardView: View {
                         .scaledToFit()
                     
                     VStack {
-                        Text("iOS Developer")
-                        Text("Spotify")
+                        Text("\(viewModel.jobs.first?.title ?? "" )")
+                        Text("\(viewModel.jobs.first?.company ?? "" )")
                         
                         CustomButton(buttonText: "Apply Now") {
-                            
+                            if let firstJob = viewModel.jobs.first {
+                                NavigationManager.shared.navigateToJobDetailsVC(job: firstJob)
+                            }
                         }
                     }
-                    .font(.system(size: 22, weight: .light, design: .rounded))
+                    .font(.system(size: 16, weight: .light, design: .rounded))
                     .padding()
                 }
                 

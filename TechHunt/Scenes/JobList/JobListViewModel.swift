@@ -13,16 +13,16 @@ protocol JobListViewModelDelegate: AnyObject {
     func didFetchJobs()
 }
 
-final class JobListViewModel {
+final class JobListViewModel: ObservableObject {
     
     // MARK: - Properties
     weak var delegate: JobListViewModelDelegate?
-    var jobs: [Job] = []
+    @Published var jobs: [Job] = []
     
     // MARK: - Initialization
-//    init() {
-//        fetchJobs()
-//    }
+    init() {
+        fetchJobs()
+    }
     
     func viewWillAppear() {
         fetchJobs()

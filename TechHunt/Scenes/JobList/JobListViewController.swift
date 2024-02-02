@@ -124,7 +124,7 @@ extension JobListViewController: UITableViewDataSource {
 // MARK: - TableVIew Delegate
 extension JobListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = JobDetailsViewController()
+        let vc = JobDetailsViewController(job: jobs[indexPath.row])
         vc.configure(with: jobs[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }

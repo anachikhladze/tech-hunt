@@ -11,7 +11,16 @@ final class JobDetailsViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel = JobListViewModel()
-    private var job: Job?
+    private var job: Job
+    
+    init(job: Job) {
+        self.job = job
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - UI Components
     private let mainStackView: UIStackView = {
@@ -19,6 +28,8 @@ final class JobDetailsViewController: UIViewController {
         stackView.spacing = 8
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         return stackView
     }()
     
@@ -34,7 +45,7 @@ final class JobDetailsViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .black
-        label.font = UIFont(name: "Avenir Next", size: 16)
+        label.font = UIFont.customRoundedFont(size: 17, weight: .light)
         return label
     }()
     
@@ -51,10 +62,11 @@ final class JobDetailsViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Send Resume", for: .normal)
         button.titleLabel?.textColor = .white
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 18)
+        button.titleLabel?.font = UIFont.customRoundedFont(size: 17, weight: .black)
         button.backgroundColor = UIColor.buttonBackground
         button.layer.cornerRadius = 10
-        button.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 46).isActive = true
+        
         return button
     }()
     
@@ -70,7 +82,6 @@ final class JobDetailsViewController: UIViewController {
         setupMainStackView()
         setupJobWithInformation()
         setupDescriptionLabel()
-        setupBottomSectionStackView()
         setupSendButton()
     }
     
@@ -78,10 +89,15 @@ final class JobDetailsViewController: UIViewController {
         view.addSubview(mainStackView)
         mainStackView.addArrangedSubview(jobImageView)
         
+        let spacerView = UIView()
+        spacerView.setContentHuggingPriority(.defaultLow, for: .vertical)
+        mainStackView.addArrangedSubview(spacerView)
+        
         NSLayoutConstraint.activate([
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -90)
         ])
     }
     
@@ -100,7 +116,7 @@ final class JobDetailsViewController: UIViewController {
         stackView.spacing = 8
         stackView.alignment = .leading
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 2, left: 32, bottom: 0, right: 16)
+        stackView.layoutMargins = UIEdgeInsets(top: 2, left: 16, bottom: 0, right: 16)
         
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -112,7 +128,7 @@ final class JobDetailsViewController: UIViewController {
         detailLabel.text = detail
         detailLabel.textColor = .black
         detailLabel.numberOfLines = 0
-        detailLabel.font = UIFont(name: "Avenir Next", size: 17)
+        detailLabel.font = UIFont.customRoundedFont(size: 18, weight: .light)
         
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(detailLabel)
@@ -120,23 +136,11 @@ final class JobDetailsViewController: UIViewController {
         mainStackView.addArrangedSubview(stackView)
     }
     
-    private func setupBottomSectionStackView() {
-        view.addSubview(bottomSectionStackView)
-        
-        NSLayoutConstraint.activate([
-            bottomSectionStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomSectionStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bottomSectionStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
-            bottomSectionStackView.heightAnchor.constraint(equalToConstant: 114)
-        ])
-    }
-    
     private func setupSendButton() {
-        bottomSectionStackView.addArrangedSubview(sendButton)
+        mainStackView.addArrangedSubview(sendButton)
     }
     
     private func setupJobWithInformation() {
-        guard let job else { return }
         navigationItem.title = job.title
         jobImageView.image = viewModel.imageForCategory(job.category)
         descriptionLabel.text = job.description

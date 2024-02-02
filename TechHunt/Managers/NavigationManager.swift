@@ -34,13 +34,6 @@ final class NavigationManager: ObservableObject {
         }
     }
     
-    
-    func goBack() {
-        if let navigationController = window?.rootViewController as? UINavigationController {
-            navigationController.popViewController(animated: true)
-        }
-    }
-    
     func navigateToExperienceVC() {
         let experienceViewController = ExperienceViewController()
         
@@ -58,6 +51,17 @@ final class NavigationManager: ObservableObject {
         if let tabBarController = window?.rootViewController as? UITabBarController,
            let navigationController = tabBarController.selectedViewController as?  UINavigationController {
             navigationController.present(CVFormViewController, animated: true)
+        } else {
+            print("not found")
+        }
+    }
+    
+    func navigateToJobDetailsVC(job: Job) {
+        let jobDetailsViewController = JobDetailsViewController(job: job)
+        
+        if let tabBarController = window?.rootViewController as? UITabBarController,
+           let navigationController = tabBarController.selectedViewController as?  UINavigationController {
+            navigationController.present(jobDetailsViewController, animated: true)
         } else {
             print("not found")
         }

@@ -123,8 +123,7 @@ final class ExperienceViewController: UIViewController {
         super.viewDidLoad()
         setup()
         navigationItem.title = "Experience"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Private Methods
