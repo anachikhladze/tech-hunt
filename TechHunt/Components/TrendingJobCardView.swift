@@ -26,8 +26,8 @@ struct TrendingJobCardView: View {
                         .scaledToFit()
                     
                     VStack {
-                        Text("\(viewModel.jobs.first?.title ?? "" )")
-                        Text("\(viewModel.jobs.first?.company ?? "" )")
+                        Text("Senior Data Scientist")
+                        Text("Visionary Insights")
                         
                         CustomButton(buttonText: "Apply Now") {
                             if let firstJob = viewModel.jobs.first {
