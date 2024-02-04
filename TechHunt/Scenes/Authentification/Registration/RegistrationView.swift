@@ -51,7 +51,7 @@ struct RegistrationView: View {
     }
     
     private var signUpImage: some View {
-        Image("Engeneering")
+        Image("Engineering")
             .resizable()
             .scaledToFill()
             .frame(maxWidth: 80, maxHeight: 90)
@@ -103,7 +103,7 @@ struct RegistrationView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .imageScale(.large)
                         .fontWeight(.bold)
-                        .foregroundStyle(Color("ButtonColor"))
+                        .foregroundStyle(.buttonBackground)
                 } else {
                     Image(systemName: "xmark.circle.fill")
                         .imageScale(.large)
@@ -129,7 +129,7 @@ struct RegistrationView: View {
     }
     
     private var signUpButton: some View {
-        SignInCustomButton(label: "SIGN UP") {
+        CustomSignInButton(label: "SIGN UP") {
             try await viewModel.createUser(withEmail: email, password: password, fullname: fullname)
             showAlert = true
         }

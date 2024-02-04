@@ -17,7 +17,7 @@ struct PasswordConditionView: View {
     var body: some View {
         HStack {
             Image(systemName: condition ? "checkmark.circle.fill" : "x.circle")
-                .foregroundStyle(Color("ButtonColor"))
+                .foregroundStyle(.buttonBackground)
             Text(text)
         }
     }

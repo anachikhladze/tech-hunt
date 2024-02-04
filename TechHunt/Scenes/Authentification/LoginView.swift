@@ -16,7 +16,7 @@ struct LoginView: View {
     @State private var alertMessage = ""
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: LoginViewModel
-    @EnvironmentObject var flowCoordinator: FlowCoordinator
+//    @EnvironmentObject var flowCoordinator: FlowCoordinator
     
     // MARK: - Body
     var body: some View {
@@ -68,7 +68,7 @@ struct LoginView: View {
     }
     
     private var signInButton: some View {
-        SignInCustomButton(label: "SIGN IN") {
+        CustomSignInButton(label: "SIGN IN") {
             do {
                 try await viewModel.signIn(withEmail: email, password: password)
             } catch {
@@ -84,7 +84,7 @@ struct LoginView: View {
     
     private var registrationLink: some View {
         Button {
-            flowCoordinator.showRegistrationPage()
+//            flowCoordinator.showRegistrationPage()
         } label: {
             HStack(spacing: 2) {
                 Text("Don't have an account? ")
@@ -110,5 +110,3 @@ extension LoginView: AuthenticationFormProtocol {
 #Preview {
     LoginView()
 }
-
-

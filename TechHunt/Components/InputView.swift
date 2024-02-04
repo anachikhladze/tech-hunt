@@ -19,15 +19,17 @@ struct InputView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
-                .foregroundStyle(Color("inputTitleColor"))
+                .foregroundColor(.gray)
                 .fontWeight(.semibold)
                 .font(.footnote)
             
             if isSecureField {
-                SecureField("", text: $text, prompt: Text(placeholder).foregroundColor(Color("placeholderColor")))
+                SecureField("", text: $text, prompt: Text(placeholder)
+                    .foregroundColor(.gray))
                     .font(.system(size: 14))
             } else {
-                TextField("", text: $text, prompt: Text(placeholder).foregroundColor(Color("placeholderColor"))
+                TextField("", text: $text, prompt: Text(placeholder)
+                    .foregroundColor(.gray)
                 )
                     .font(.system(size: 14))
             }
@@ -40,3 +42,4 @@ struct InputView: View {
 #Preview {
     InputView(text: .constant(""), title: "Email Address", placeholder: "name@example.com")
 }
+
