@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */; };
+		A11217E32B6FD36100F5B3A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217E22B6FD36100F5B3A6 /* User.swift */; };
 		A11781AE2B6BDCDF00385CC8 /* CVFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */; };
 		A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E62B5C2CBE0079688D /* Job.swift */; };
 		A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E92B5C2D230079688D /* JobListViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
+		A11217E22B6FD36100F5B3A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVFormViewController.swift; sourceTree = "<group>"; };
 		A11CC0E62B5C2CBE0079688D /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A11CC0E92B5C2D230079688D /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				A11CC0E62B5C2CBE0079688D /* Job.swift */,
+				A11217E22B6FD36100F5B3A6 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11217E32B6FD36100F5B3A6 /* User.swift in Sources */,
 				A1D709542B6AABF800DAC3D7 /* ExperienceViewController.swift in Sources */,
 				A1D709522B6AAB7A00DAC3D7 /* ExperienceInfoStackView.swift in Sources */,
 				A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */,
