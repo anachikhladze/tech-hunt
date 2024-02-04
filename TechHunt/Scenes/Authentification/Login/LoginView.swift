@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct LoginView: View {
     
     // MARK: - Properties
@@ -16,7 +17,8 @@ struct LoginView: View {
     @State private var alertMessage = ""
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: LoginViewModel
-//    @EnvironmentObject var flowCoordinator: FlowCoordinator
+    @EnvironmentObject var flowCoordinator: FlowCoordinator
+//        @EnvironmentObject var navigationManager: NavigationManager
     
     // MARK: - Body
     var body: some View {
@@ -84,7 +86,7 @@ struct LoginView: View {
     
     private var registrationLink: some View {
         Button {
-//            flowCoordinator.showRegistrationPage()
+            flowCoordinator.showRegistrationPage()
         } label: {
             HStack(spacing: 2) {
                 Text("Don't have an account? ")
@@ -97,6 +99,7 @@ struct LoginView: View {
 }
 
 // MARK: - extension LoginView
+@available(iOS 17.0, *)
 extension LoginView: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return !email.isEmpty
@@ -107,6 +110,10 @@ extension LoginView: AuthenticationFormProtocol {
 }
 
 // MARK: - Preview
-#Preview {
-    LoginView()
-}
+//#Preview {
+//    if #available(iOS 17.0, *) {
+//        LoginView()
+//    } else {
+//        // Fallback on earlier versions
+//    }
+//}

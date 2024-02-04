@@ -15,6 +15,7 @@
 		A11217EC2B6FE12300F5B3A6 /* PasswordConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217EB2B6FE12300F5B3A6 /* PasswordConditionView.swift */; };
 		A11217EE2B6FE14E00F5B3A6 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217ED2B6FE14E00F5B3A6 /* InputView.swift */; };
 		A11217F02B6FE23A00F5B3A6 /* CustomSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */; };
+		A11217F42B6FE62000F5B3A6 /* LoginRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217F32B6FE62000F5B3A6 /* LoginRootView.swift */; };
 		A11781AE2B6BDCDF00385CC8 /* CVFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */; };
 		A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E62B5C2CBE0079688D /* Job.swift */; };
 		A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E92B5C2D230079688D /* JobListViewController.swift */; };
@@ -54,6 +55,7 @@
 		A11217EB2B6FE12300F5B3A6 /* PasswordConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConditionView.swift; sourceTree = "<group>"; };
 		A11217ED2B6FE14E00F5B3A6 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInButton.swift; sourceTree = "<group>"; };
+		A11217F32B6FE62000F5B3A6 /* LoginRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRootView.swift; sourceTree = "<group>"; };
 		A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVFormViewController.swift; sourceTree = "<group>"; };
 		A11CC0E62B5C2CBE0079688D /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A11CC0E92B5C2D230079688D /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,16 @@
 				A11217E92B6FE0F700F5B3A6 /* RegistrationView.swift */,
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		A11217F12B6FE54C00F5B3A6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A11217E42B6FE04B00F5B3A6 /* LoginView.swift */,
+				A11217E62B6FE07900F5B3A6 /* LoginViewModel.swift */,
+				A11217F32B6FE62000F5B3A6 /* LoginRootView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		A11CC0E52B5C28C00079688D /* JobList */ = {
@@ -249,9 +261,8 @@
 		A181BBFD2B59A7C100E68302 /* Authentification */ = {
 			isa = PBXGroup;
 			children = (
+				A11217F12B6FE54C00F5B3A6 /* Login */,
 				A11217E82B6FE0E500F5B3A6 /* Registration */,
-				A11217E42B6FE04B00F5B3A6 /* LoginView.swift */,
-				A11217E62B6FE07900F5B3A6 /* LoginViewModel.swift */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -364,6 +375,7 @@
 				A11217E32B6FD36100F5B3A6 /* User.swift in Sources */,
 				A11217EE2B6FE14E00F5B3A6 /* InputView.swift in Sources */,
 				A1D709542B6AABF800DAC3D7 /* ExperienceViewController.swift in Sources */,
+				A11217F42B6FE62000F5B3A6 /* LoginRootView.swift in Sources */,
 				A1D709522B6AAB7A00DAC3D7 /* ExperienceInfoStackView.swift in Sources */,
 				A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */,
 				A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */,
