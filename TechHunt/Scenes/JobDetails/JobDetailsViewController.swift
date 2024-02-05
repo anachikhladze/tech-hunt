@@ -11,6 +11,7 @@ final class JobDetailsViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel = JobListViewModel()
+    private let loginViewModel = LoginViewModel()
     private var job: Job
     
     init(job: Job) {
@@ -136,9 +137,9 @@ final class JobDetailsViewController: UIViewController {
         mainStackView.addArrangedSubview(stackView)
     }
     
-    private func setupSendButton() {
-        mainStackView.addArrangedSubview(sendButton)
-    }
+//    private func setupSendButton() {
+//
+//    }
     
     private func setupJobWithInformation() {
         navigationItem.title = job.title
@@ -153,5 +154,35 @@ final class JobDetailsViewController: UIViewController {
     // MARK: - Configure
     func configure(with job: Job) {
         self.job = job
+    }
+    
+//    private func setupSendButton() {
+//        mainStackView.addArrangedSubview(sendButton)
+//        
+//        sendButton.addAction(UIAction(handler: { [weak self] _ in
+//            guard let self = self else { return }
+//            Task {
+//                await self.loginViewModel.applyForJob(jobId: self.job.id)
+//                self.sendButton.setTitle("Applied", for: .normal)
+//            }
+//        }), for: .touchUpInside)
+//    }
+    
+    private func setupSendButton() {
+        mainStackView.addArrangedSubview(sendButton)
+        
+        Task {
+            let hasApplied = await loginViewModel.hasAppliedForJob(jobId: job.id)
+            let buttonTitle = hasApplied ? "Applied" : "Send Resume"
+            sendButton.setTitle(buttonTitle, for: .normal)
+        }
+        
+        sendButton.addAction(UIAction(handler: { [weak self] _ in
+            guard let self = self else { return }
+            Task {
+                await self.loginViewModel.applyForJob(jobId: self.job.id)
+                self.sendButton.setTitle("Applied", for: .normal)
+            }
+        }), for: .touchUpInside)
     }
 }

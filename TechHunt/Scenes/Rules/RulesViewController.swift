@@ -9,6 +9,8 @@ import UIKit
 
 final class RulesViewController: UIViewController {
     
+    var loginViewModel = LoginViewModel()
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -221,7 +223,13 @@ final class RulesViewController: UIViewController {
         mainStackView.addArrangedSubview(dismissButton)
         
         dismissButton.addAction(UIAction(handler: { [weak self] _ in
-            self?.dismiss(animated: true, completion: nil)
+            Task { [weak self] in
+                guard let self = self else { return }
+                let jobs = await self.loginViewModel.fetchAppliedJobs()
+                for job in jobs {
+                    print("Job ID: \(job.id), Title: \(job.title), Company: \(job.company), Description: \(job.description), Type: \(job.type), Category: \(job.category)")
+                }
+            }
         }), for: .touchUpInside)
     }
 }

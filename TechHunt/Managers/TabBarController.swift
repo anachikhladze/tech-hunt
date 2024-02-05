@@ -11,7 +11,7 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct TabBarController: UIViewControllerRepresentable {
     
-    @EnvironmentObject var flowCoordinator: NavigationManager
+    @EnvironmentObject var navigationManager: NavigationManager
     
     typealias UIViewControllerType = UITabBarController
 
@@ -25,7 +25,7 @@ struct TabBarController: UIViewControllerRepresentable {
 
     func createHomeNavigationController() -> UINavigationController {
         let homeView = HomeView()
-            .environmentObject(flowCoordinator)
+            .environmentObject(navigationManager)
         let homeViewHosting = UIHostingController(rootView: homeView)
 
         let homeVC = homeViewHosting

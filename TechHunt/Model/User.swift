@@ -23,6 +23,9 @@ struct User: Identifiable, Codable {
     let id: String
     let fullname: String
     let email: String
+    var appliedJobs: [String] = []
+    var favoriteJobs: [String] = []
+    var profilePicture: String = ""
 }
 
 extension User {
