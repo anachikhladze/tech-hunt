@@ -10,7 +10,7 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct HomeView: View {
     
-    @EnvironmentObject var flowCoordinator: FlowCoordinator
+    @EnvironmentObject var flowCoordinator: NavigationManager
     
     // MARK: - Body
     var body: some View {
@@ -19,11 +19,11 @@ struct HomeView: View {
             discoverJobHStack
             howToUseHStack
             JobCardView()
-                .environmentObject(flowCoordinator)
             trendingHStack
             TrendingJobCardView()
             Spacer()
         }
+        .environmentObject(flowCoordinator)
     }
     
     // MARK: - Properties

@@ -16,6 +16,7 @@
 		A11217EE2B6FE14E00F5B3A6 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217ED2B6FE14E00F5B3A6 /* InputView.swift */; };
 		A11217F02B6FE23A00F5B3A6 /* CustomSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */; };
 		A11217F42B6FE62000F5B3A6 /* LoginRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217F32B6FE62000F5B3A6 /* LoginRootView.swift */; };
+		A11217F62B71177900F5B3A6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217F52B71177900F5B3A6 /* TabBarController.swift */; };
 		A11781AE2B6BDCDF00385CC8 /* CVFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */; };
 		A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E62B5C2CBE0079688D /* Job.swift */; };
 		A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E92B5C2D230079688D /* JobListViewController.swift */; };
@@ -56,6 +57,7 @@
 		A11217ED2B6FE14E00F5B3A6 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInButton.swift; sourceTree = "<group>"; };
 		A11217F32B6FE62000F5B3A6 /* LoginRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRootView.swift; sourceTree = "<group>"; };
+		A11217F52B71177900F5B3A6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVFormViewController.swift; sourceTree = "<group>"; };
 		A11CC0E62B5C2CBE0079688D /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A11CC0E92B5C2D230079688D /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				A181BBFE2B59ABAF00E68302 /* NavigationManager.swift */,
+				A11217F52B71177900F5B3A6 /* TabBarController.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */,
 				A181BBE62B59A6D800E68302 /* SceneDelegate.swift in Sources */,
 				A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */,
+				A11217F62B71177900F5B3A6 /* TabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

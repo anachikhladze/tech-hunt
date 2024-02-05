@@ -10,6 +10,7 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct TrendingJobCardView: View {
     
+    @EnvironmentObject var navigationManager: NavigationManager
     @StateObject var viewModel = JobListViewModel()
     
     
@@ -32,7 +33,7 @@ struct TrendingJobCardView: View {
                         
                         CustomButton(buttonText: "Apply Now") {
                             if let firstJob = viewModel.jobs.first {
-                                NavigationManager.shared.navigateToJobDetailsVC(job: firstJob)
+                                navigationManager.navigateToJobDetailsVC(job: firstJob)
                             }
                         }
                     }
