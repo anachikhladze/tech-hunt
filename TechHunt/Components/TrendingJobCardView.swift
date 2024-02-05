@@ -12,6 +12,7 @@ struct TrendingJobCardView: View {
     
     @StateObject var viewModel = JobListViewModel()
     
+    
     var body: some View {
         ZStack {
             Rectangle()

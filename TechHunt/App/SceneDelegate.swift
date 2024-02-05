@@ -130,4 +130,15 @@ final class FlowCoordinator: ObservableObject {
         }
     }
     
+    func navigateToRulesVC() {
+        let rulesViewController = RulesViewController()
+        
+        if let tabBarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabBarController.selectedViewController as?  UINavigationController {
+            navigationController.present(rulesViewController, animated: true)
+        } else {
+            print("not found")
+        }
+    }
+    
 }

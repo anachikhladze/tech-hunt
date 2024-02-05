@@ -10,6 +10,8 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct HomeView: View {
     
+    @EnvironmentObject var flowCoordinator: FlowCoordinator
+    
     // MARK: - Body
     var body: some View {
         VStack(spacing: 12) {
@@ -17,6 +19,7 @@ struct HomeView: View {
             discoverJobHStack
             howToUseHStack
             JobCardView()
+                .environmentObject(flowCoordinator)
             trendingHStack
             TrendingJobCardView()
             Spacer()
