@@ -26,7 +26,7 @@ final class NavigationManager: ObservableObject {
         navigationController.navigationBar.isHidden = true
         window.rootViewController = navigationController
     }
-
+    
     func showRegistrationPage() {
         let registrationView = RegistrationView()
             .environmentObject(self)
@@ -37,7 +37,7 @@ final class NavigationManager: ObservableObject {
             navigationController.navigationBar.isHidden = true
         }
     }
-
+    
     func navigateToRulesVC() {
         let rulesViewController = RulesViewController()
         
@@ -57,7 +57,7 @@ final class NavigationManager: ObservableObject {
             print("Navigation controller not found")
         }
     }
-
+    
     func navigateToCVFormVC() {
         let CVFormViewController = CVFormViewController()
         
@@ -67,7 +67,7 @@ final class NavigationManager: ObservableObject {
             print("Navigation controller not found")
         }
     }
-
+    
     func navigateToJobDetailsVC(job: Job) {
         let jobDetailsViewController = JobDetailsViewController(job: job)
         
@@ -77,7 +77,7 @@ final class NavigationManager: ObservableObject {
             print("Navigation controller not found")
         }
     }
-
+    
     func pushRulesVC() {
         let rulesViewController = RulesViewController()
         
@@ -87,4 +87,15 @@ final class NavigationManager: ObservableObject {
             print("Navigation controller not found")
         }
     }
+    
+    //    func pushAppliedJobsVC() {
+    //        let appliedJobsVC = AppliedJobsViewController()
+    //
+    //        if let navigationController = window.rootViewController as? UINavigationController {
+    //            navigationController.pushViewController(appliedJobsVC, animated: true)
+    //        } else {
+    //            print("Navigation controller not found")
+    //        }
+    //    }
 }
+

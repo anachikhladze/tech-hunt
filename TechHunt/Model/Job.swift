@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Job: Decodable {
+struct Job: Codable, Identifiable {
     var id: String
     var title: String
     var company: String

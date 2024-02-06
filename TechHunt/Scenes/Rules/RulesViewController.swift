@@ -223,13 +223,7 @@ final class RulesViewController: UIViewController {
         mainStackView.addArrangedSubview(dismissButton)
         
         dismissButton.addAction(UIAction(handler: { [weak self] _ in
-            Task { [weak self] in
-                guard let self = self else { return }
-                let jobs = await self.loginViewModel.fetchAppliedJobs()
-                for job in jobs {
-                    print("Job ID: \(job.id), Title: \(job.title), Company: \(job.company), Description: \(job.description), Type: \(job.type), Category: \(job.category)")
-                }
-            }
+         
         }), for: .touchUpInside)
     }
 }
