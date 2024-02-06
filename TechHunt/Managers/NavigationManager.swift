@@ -107,5 +107,14 @@ final class NavigationManager: ObservableObject {
             print("Navigation controller not found")
         }
     }
+    
+    func navigateToReferralPage() {
+        let referalView = ReferralView()
+        let hostingView = UIHostingController(rootView: referalView)
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(hostingView, animated: true)
+        }
+    }
+
 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct ReferralView: View {
     
     var number = "123cygeuyvgeryj4"
-    
+
     // MARK: - Body
     var body: some View {
         referralImage
@@ -23,6 +23,8 @@ struct ReferralView: View {
         .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.buttonBackground]), startPoint: .topTrailing, endPoint: .bottomTrailing))
         .opacity(0.8)
         .clipShape(RoundedRectangle(cornerRadius: 16))
+        
+        Spacer()
     }
     
     // MARK: - Computed Properties
@@ -48,18 +50,20 @@ struct ReferralView: View {
     }
     
     private var actionButtons: some View {
-        HStack(spacing: 10) {
+        VStack(spacing: 10) {
             Text("Code: \(number)")
                 .font(.system(size: 20, weight: .light, design: .rounded))
                 .padding(.bottom, 10)
                 .foregroundStyle(.black)
                 .textSelection(.enabled)
             
-            roundedIconButton(icon: "doc.on.doc") {
-                UIPasteboard.general.string = number
-            }
-            ShareLink(item: number) {
-                roundedIcon(icon: "square.and.arrow.up")
+            HStack {
+                roundedIconButton(icon: "doc.on.doc") {
+                    UIPasteboard.general.string = number
+                }
+                ShareLink(item: number) {
+                    roundedIcon(icon: "square.and.arrow.up")
+                }
             }
         }
     }
