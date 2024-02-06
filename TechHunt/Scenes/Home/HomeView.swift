@@ -10,7 +10,8 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct HomeView: View {
     
-    @EnvironmentObject var flowCoordinator: NavigationManager
+    @EnvironmentObject var navigationManager: NavigationManager
+    @EnvironmentObject var viewModel: LoginViewModel
     
     // MARK: - Body
     var body: some View {
@@ -23,13 +24,13 @@ struct HomeView: View {
             TrendingJobCardView()
             Spacer()
         }
-        .environmentObject(flowCoordinator)
+        .environmentObject(navigationManager)
     }
     
     // MARK: - Properties
     private var headerView: some View {
         HStack {
-            Text("Welcome, Anna Sumire!")
+            Text("Hello \(viewModel.currentUser?.fullname ?? "")!")
                 .font(.headline)
             
             Spacer()

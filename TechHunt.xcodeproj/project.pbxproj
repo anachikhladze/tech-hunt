@@ -42,6 +42,8 @@
 		A1A12E912B62A342005DD9EC /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E902B62A342005DD9EC /* CustomButton.swift */; };
 		A1A12E942B62A79D005DD9EC /* TrendingJobCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A12E932B62A79D005DD9EC /* TrendingJobCardView.swift */; };
 		A1AAF8382B72749A00E1CEDD /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAF8372B72749A00E1CEDD /* SupportViewController.swift */; };
+		A1AAF83B2B72A77B00E1CEDD /* ReferralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAF83A2B72A77B00E1CEDD /* ReferralView.swift */; };
+		A1AAF83D2B72A7BF00E1CEDD /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AAF83C2B72A7BF00E1CEDD /* View.swift */; };
 		A1D709522B6AAB7A00DAC3D7 /* ExperienceInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D709512B6AAB7A00DAC3D7 /* ExperienceInfoStackView.swift */; };
 		A1D709542B6AABF800DAC3D7 /* ExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D709532B6AABF800DAC3D7 /* ExperienceViewController.swift */; };
 		A1D709582B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D709572B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift */; };
@@ -83,6 +85,8 @@
 		A1A12E902B62A342005DD9EC /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		A1A12E932B62A79D005DD9EC /* TrendingJobCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingJobCardView.swift; sourceTree = "<group>"; };
 		A1AAF8372B72749A00E1CEDD /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
+		A1AAF83A2B72A77B00E1CEDD /* ReferralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferralView.swift; sourceTree = "<group>"; };
+		A1AAF83C2B72A7BF00E1CEDD /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		A1D709512B6AAB7A00DAC3D7 /* ExperienceInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceInfoStackView.swift; sourceTree = "<group>"; };
 		A1D709532B6AABF800DAC3D7 /* ExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewController.swift; sourceTree = "<group>"; };
 		A1D709572B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomRoundedFont.swift"; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 		A181BBF82B59A70B00E68302 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A1AAF8392B72A76700E1CEDD /* Referal */,
 				A1AAF8362B72748200E1CEDD /* Support */,
 				A11217F72B714C9A00F5B3A6 /* Applied Jobs */,
 				A17C43572B6D62C900BB9600 /* Rules */,
@@ -257,6 +262,7 @@
 				A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */,
 				A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */,
 				A1D709572B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift */,
+				A1AAF83C2B72A7BF00E1CEDD /* View.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -298,6 +304,14 @@
 				A1AAF8372B72749A00E1CEDD /* SupportViewController.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		A1AAF8392B72A76700E1CEDD /* Referal */ = {
+			isa = PBXGroup;
+			children = (
+				A1AAF83A2B72A77B00E1CEDD /* ReferralView.swift */,
+			);
+			path = Referal;
 			sourceTree = "<group>";
 		};
 		A1D709502B6AAB4400DAC3D7 /* Experience */ = {
@@ -403,6 +417,7 @@
 				A11217F42B6FE62000F5B3A6 /* LoginRootView.swift in Sources */,
 				A1D709522B6AAB7A00DAC3D7 /* ExperienceInfoStackView.swift in Sources */,
 				A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */,
+				A1AAF83D2B72A7BF00E1CEDD /* View.swift in Sources */,
 				A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */,
 				A11217F92B714CAC00F5B3A6 /* AppliedJobsViewController.swift in Sources */,
 				A181BBE82B59A6D800E68302 /* ViewController.swift in Sources */,
@@ -418,6 +433,7 @@
 				A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */,
 				A11781AE2B6BDCDF00385CC8 /* CVFormViewController.swift in Sources */,
 				A191190C2B65535A001E1D61 /* SettingsRowView.swift in Sources */,
+				A1AAF83B2B72A77B00E1CEDD /* ReferralView.swift in Sources */,
 				A11217F02B6FE23A00F5B3A6 /* CustomSignInButton.swift in Sources */,
 				A11217EA2B6FE0F700F5B3A6 /* RegistrationView.swift in Sources */,
 				A11CC1272B5C48B50079688D /* JobListViewModel.swift in Sources */,

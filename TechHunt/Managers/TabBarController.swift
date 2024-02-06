@@ -26,6 +26,7 @@ struct TabBarController: UIViewControllerRepresentable {
     func createHomeNavigationController() -> UINavigationController {
         let homeView = HomeView()
             .environmentObject(navigationManager)
+            .environmentObject(LoginViewModel())
         let homeViewHosting = UIHostingController(rootView: homeView)
 
         let homeVC = homeViewHosting
