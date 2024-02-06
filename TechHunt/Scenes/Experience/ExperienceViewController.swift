@@ -123,7 +123,6 @@ final class ExperienceViewController: UIViewController {
         super.viewDidLoad()
         setup()
         navigationItem.title = "Experience"
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Private Methods

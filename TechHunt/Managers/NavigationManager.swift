@@ -97,5 +97,15 @@ final class NavigationManager: ObservableObject {
                 print("Navigation controller not found")
             }
         }
+    
+    func pushSupportVC() {
+        let supportViewController = SupportViewController()
+        
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(supportViewController, animated: true)
+        } else {
+            print("Navigation controller not found")
+        }
+    }
 }
 
