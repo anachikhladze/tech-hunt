@@ -99,7 +99,7 @@ final class NavigationManager: ObservableObject {
         }
     
     func pushSupportVC() {
-        let supportViewController = SupportViewController()
+        let supportViewController = SupportViewController(navigationManager: self)
         
         if let navigationController = window.rootViewController as? UINavigationController {
             navigationController.pushViewController(supportViewController, animated: true)
