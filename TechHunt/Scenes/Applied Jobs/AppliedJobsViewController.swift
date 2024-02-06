@@ -106,3 +106,41 @@
 //        }
 //    }
 //}
+
+import SwiftUI
+
+struct AppliedJobsListView: View {
+    @ObservedObject var viewModel = JobListViewModel()
+    @State private var appliedJobs: [Job] = []
+
+    var body: some View {
+        List(appliedJobs) { job in
+            JobRow(job: job)
+        }
+        .onAppear {
+            Task {
+                appliedJobs = await viewModel.fetchAppliedJobs()
+            }
+        }
+    }
+}
+
+struct JobRow: View {
+    let job: Job
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(job.title)
+                .font(.headline)
+            Text(job.company)
+                .font(.subheadline)
+            Text(job.description)
+                .font(.body)
+        }
+    }
+}
+
+
+#Preview {
+    AppliedJobsListView()
+}

@@ -97,5 +97,12 @@ final class NavigationManager: ObservableObject {
     //            print("Navigation controller not found")
     //        }
     //    }
+    
+    func showAppliedJobs() {
+        let rootView = AppliedJobsListView()
+        let rootViewHosting = UIHostingController(rootView: rootView)
+        let navigationController = UINavigationController(rootViewController: rootViewHosting)
+        window.rootViewController = navigationController
+    }
 }
 

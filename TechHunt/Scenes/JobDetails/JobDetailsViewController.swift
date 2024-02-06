@@ -11,7 +11,6 @@ final class JobDetailsViewController: UIViewController {
     
     // MARK: - Properties
     private let viewModel = JobListViewModel()
-    private let loginViewModel = LoginViewModel()
     private var job: Job
     
     init(job: Job) {
@@ -156,23 +155,11 @@ final class JobDetailsViewController: UIViewController {
         self.job = job
     }
     
-//    private func setupSendButton() {
-//        mainStackView.addArrangedSubview(sendButton)
-//        
-//        sendButton.addAction(UIAction(handler: { [weak self] _ in
-//            guard let self = self else { return }
-//            Task {
-//                await self.loginViewModel.applyForJob(jobId: self.job.id)
-//                self.sendButton.setTitle("Applied", for: .normal)
-//            }
-//        }), for: .touchUpInside)
-//    }
-    
     private func setupSendButton() {
         mainStackView.addArrangedSubview(sendButton)
         
         Task {
-            let hasApplied = await loginViewModel.hasAppliedForJob(jobId: job.id)
+            let hasApplied = await viewModel.hasAppliedForJob(jobId: job.id)
             let buttonTitle = hasApplied ? "Applied" : "Send Resume"
             sendButton.setTitle(buttonTitle, for: .normal)
         }
@@ -180,7 +167,7 @@ final class JobDetailsViewController: UIViewController {
         sendButton.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }
             Task {
-                await self.loginViewModel.applyForJob(jobId: self.job.id)
+                await self.viewModel.applyForJob(jobId: self.job.id)
                 self.sendButton.setTitle("Applied", for: .normal)
             }
         }), for: .touchUpInside)
