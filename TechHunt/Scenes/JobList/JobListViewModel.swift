@@ -123,7 +123,6 @@ final class JobListViewModel: ObservableObject {
     }
 
 
-    
     func imageForCategory(_ category: String) -> UIImage? {
         switch category {
         case "Security":

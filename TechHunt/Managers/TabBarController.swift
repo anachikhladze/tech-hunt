@@ -53,7 +53,7 @@ struct TabBarController: UIViewControllerRepresentable {
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 2)
 
         let navController = UINavigationController(rootViewController: profileVC)
-        navController.navigationBar.isHidden = true
+//        navController.navigationBar.isHidden = true
 
         return navController
     }

@@ -88,21 +88,14 @@ final class NavigationManager: ObservableObject {
         }
     }
     
-    //    func pushAppliedJobsVC() {
-    //        let appliedJobsVC = AppliedJobsViewController()
-    //
-    //        if let navigationController = window.rootViewController as? UINavigationController {
-    //            navigationController.pushViewController(appliedJobsVC, animated: true)
-    //        } else {
-    //            print("Navigation controller not found")
-    //        }
-    //    }
+        func pushAppliedJobsVC() {
+            let appliedJobsVC = AppliedJobsViewController()
     
-    func showAppliedJobs() {
-        let rootView = AppliedJobsListView()
-        let rootViewHosting = UIHostingController(rootView: rootView)
-        let navigationController = UINavigationController(rootViewController: rootViewHosting)
-        window.rootViewController = navigationController
-    }
+            if let navigationController = window.rootViewController as? UINavigationController {
+                navigationController.pushViewController(appliedJobsVC, animated: true)
+            } else {
+                print("Navigation controller not found")
+            }
+        }
 }
 
