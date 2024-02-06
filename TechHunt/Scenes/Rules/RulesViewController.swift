@@ -9,6 +9,8 @@ import UIKit
 
 final class RulesViewController: UIViewController {
     
+    var loginViewModel = LoginViewModel()
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -221,7 +223,7 @@ final class RulesViewController: UIViewController {
         mainStackView.addArrangedSubview(dismissButton)
         
         dismissButton.addAction(UIAction(handler: { [weak self] _ in
-            self?.dismiss(animated: true, completion: nil)
+         
         }), for: .touchUpInside)
     }
 }

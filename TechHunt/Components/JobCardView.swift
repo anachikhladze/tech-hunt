@@ -10,6 +10,8 @@ import SwiftUI
 @available(iOS 17.0, *)
 struct JobCardView: View {
     
+    @EnvironmentObject var navigationManager: NavigationManager
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -24,10 +26,10 @@ struct JobCardView: View {
                 
                 HStack {
                     CustomButton(buttonText: "Read More") {
-                        NavigationManager.shared.navigateToRulesVC()
+                        navigationManager.navigateToRulesVC()
                     }
                     CustomButton(buttonText: "Create CV") {
-                        NavigationManager.shared.navigateToCVFormVC()
+                        navigationManager.navigateToCVFormVC()
                     }
                 }
             }

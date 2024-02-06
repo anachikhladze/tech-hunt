@@ -10,82 +10,92 @@ import UIKit
 
 @available(iOS 17.0, *)
 final class NavigationManager: ObservableObject {
-    private var window: UIWindow?
+    private let window: UIWindow
+    var viewModel = LoginViewModel()
     
-    static let shared = NavigationManager()
-    
-    private init() {}
-    
-    func setWindow(_ window: UIWindow) {
+    init(window: UIWindow) {
         self.window = window
     }
     
     func showRootView() {
-        let rootView = ProfileView()
+        let rootView = LoginRootView()
+            .environmentObject(self)
+            .environmentObject(viewModel)
         let rootViewHosting = UIHostingController(rootView: rootView)
-        window?.rootViewController = UINavigationController(rootViewController: rootViewHosting)
+        let navigationController = UINavigationController(rootViewController: rootViewHosting)
+        navigationController.navigationBar.isHidden = true
+        window.rootViewController = navigationController
     }
     
-    
-    func showExperienceVC() {
-        let view = ExperienceViewController()
-        if let navigationController = window?.rootViewController as? UINavigationController {
-            navigationController.pushViewController(view, animated: true)
-        }
-    }
-    
-    func navigateToExperienceVC() {
-        let experienceViewController = ExperienceViewController()
-        
-        if let tabBarController = window?.rootViewController as? UITabBarController,
-           let navigationController = tabBarController.selectedViewController as?  UINavigationController {
-            navigationController.pushViewController(experienceViewController, animated: true)
-        } else {
-            print("not found")
-        }
-    }
-    
-    func navigateToCVFormVC() {
-        let CVFormViewController = CVFormViewController()
-        
-        if let tabBarController = window?.rootViewController as? UITabBarController,
-           let navigationController = tabBarController.selectedViewController as?  UINavigationController {
-            navigationController.present(CVFormViewController, animated: true)
-        } else {
-            print("not found")
-        }
-    }
-    
-    func navigateToJobDetailsVC(job: Job) {
-        let jobDetailsViewController = JobDetailsViewController(job: job)
-        
-        if let tabBarController = window?.rootViewController as? UITabBarController,
-           let navigationController = tabBarController.selectedViewController as?  UINavigationController {
-            navigationController.present(jobDetailsViewController, animated: true)
-        } else {
-            print("not found")
+    func showRegistrationPage() {
+        let registrationView = RegistrationView()
+            .environmentObject(self)
+            .environmentObject(viewModel)
+        let hostingView = UIHostingController(rootView: registrationView)
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(hostingView, animated: true)
+            navigationController.navigationBar.isHidden = true
         }
     }
     
     func navigateToRulesVC() {
         let rulesViewController = RulesViewController()
         
-        if let tabBarController = window?.rootViewController as? UITabBarController,
-           let navigationController = tabBarController.selectedViewController as?  UINavigationController {
+        if let navigationController = window.rootViewController as? UINavigationController {
             navigationController.present(rulesViewController, animated: true)
         } else {
-            print("not found")
+            print("Navigation controller not found")
+        }
+    }
+    
+    func navigateToExperienceVC() {
+        let experienceViewController = ExperienceViewController()
+        
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(experienceViewController, animated: true)
+        } else {
+            print("Navigation controller not found")
+        }
+    }
+    
+    func navigateToCVFormVC() {
+        let CVFormViewController = CVFormViewController()
+        
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.present(CVFormViewController, animated: true)
+        } else {
+            print("Navigation controller not found")
+        }
+    }
+    
+    func navigateToJobDetailsVC(job: Job) {
+        let jobDetailsViewController = JobDetailsViewController(job: job)
+        
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.present(jobDetailsViewController, animated: true)
+        } else {
+            print("Navigation controller not found")
         }
     }
     
     func pushRulesVC() {
         let rulesViewController = RulesViewController()
         
-        if let tabBarController = window?.rootViewController as? UITabBarController,
-           let navigationController = tabBarController.selectedViewController as?  UINavigationController {
+        if let navigationController = window.rootViewController as? UINavigationController {
             navigationController.pushViewController(rulesViewController, animated: true)
         } else {
-            print("not found")
+            print("Navigation controller not found")
         }
     }
+    
+    //    func pushAppliedJobsVC() {
+    //        let appliedJobsVC = AppliedJobsViewController()
+    //
+    //        if let navigationController = window.rootViewController as? UINavigationController {
+    //            navigationController.pushViewController(appliedJobsVC, animated: true)
+    //        } else {
+    //            print("Navigation controller not found")
+    //        }
+    //    }
 }
+
