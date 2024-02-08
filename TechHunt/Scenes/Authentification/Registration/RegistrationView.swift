@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 17.0, *)
 struct RegistrationView: View {
     
     // MARK: - Properties
@@ -153,6 +154,7 @@ struct RegistrationView: View {
 
 
 // MARK: - extension RegistrationView
+@available(iOS 17.0, *)
 extension RegistrationView: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return !email.isEmpty
@@ -178,6 +180,6 @@ extension RegistrationView: AuthenticationFormProtocol {
 }
 
 // MARK: - Preview
-#Preview {
-    RegistrationView()
-}
+//#Preview {
+//    RegistrationView()
+//}

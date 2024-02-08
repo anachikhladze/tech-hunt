@@ -99,11 +99,11 @@ final class SupportViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(mainStackView)
         
-        //        let spacerView = UIView()
-        //        spacerView.translatesAutoresizingMaskIntoConstraints = false
-        //        mainStackView.addArrangedSubview(spacerView)
-        //        spacerView.heightAnchor.constraint(equalTo: mainStackView.heightAnchor, multiplier: 0.1).isActive = true
-        //
+                let spacerView = UIView()
+                spacerView.translatesAutoresizingMaskIntoConstraints = false
+                mainStackView.addArrangedSubview(spacerView)
+                spacerView.heightAnchor.constraint(equalTo: mainStackView.heightAnchor, multiplier: 0.1).isActive = true
+        
         mainStackView.addArrangedSubview(supportImageView)
     }
     

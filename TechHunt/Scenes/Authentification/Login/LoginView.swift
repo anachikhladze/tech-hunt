@@ -18,7 +18,6 @@ struct LoginView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: LoginViewModel
     @EnvironmentObject var flowCoordinator: NavigationManager
-//        @EnvironmentObject var navigationManager: NavigationManager
     
     // MARK: - Body
     var body: some View {
@@ -72,7 +71,13 @@ struct LoginView: View {
     private var signInButton: some View {
         CustomSignInButton(label: "SIGN IN") {
             do {
-                try await viewModel.signIn(withEmail: email, password: password)
+                try await viewModel.signIn(withEmail: email, password: password) { success in
+                    if success {
+                        flowCoordinator.navigateToMainViewScreen()
+                    } else {
+                        showingAlert = true
+                    }
+                }
             } catch {
                 showingAlert = true
             }

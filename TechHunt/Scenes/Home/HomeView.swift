@@ -30,7 +30,7 @@ struct HomeView: View {
     // MARK: - Properties
     private var headerView: some View {
         HStack {
-            Text("Hello \(viewModel.currentUser?.fullname ?? "")!")
+            Text("Welcome \(viewModel.currentUser?.fullname ?? "")!")
                 .font(.headline)
             
             Spacer()

@@ -11,14 +11,30 @@ import UIKit
 @available(iOS 17.0, *)
 final class NavigationManager: ObservableObject {
     private let window: UIWindow
-    var viewModel = LoginViewModel()
+    private let viewModel = LoginViewModel()
     
     init(window: UIWindow) {
         self.window = window
     }
     
+    func navigateToInitialScreen() {
+        if viewModel.userSession != nil {
+            navigateToMainViewScreen()
+        } else {
+            showRootView()
+        }
+    }
+    
+    func navigateToMainViewScreen() {
+        DispatchQueue.main.async {
+            let mainScreenViewController = self.createTabbar()
+            self.window.rootViewController = mainScreenViewController
+            self.window.makeKeyAndVisible()
+        }
+    }
+    
     func showRootView() {
-        let rootView = LoginRootView()
+        let rootView = LoginView()
             .environmentObject(self)
             .environmentObject(viewModel)
         let rootViewHosting = UIHostingController(rootView: rootView)
@@ -41,7 +57,8 @@ final class NavigationManager: ObservableObject {
     func navigateToRulesVC() {
         let rulesViewController = RulesViewController()
         
-        if let navigationController = window.rootViewController as? UINavigationController {
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
             navigationController.present(rulesViewController, animated: true)
         } else {
             print("Navigation controller not found")
@@ -51,7 +68,8 @@ final class NavigationManager: ObservableObject {
     func navigateToExperienceVC() {
         let experienceViewController = ExperienceViewController()
         
-        if let navigationController = window.rootViewController as? UINavigationController {
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
             navigationController.pushViewController(experienceViewController, animated: true)
         } else {
             print("Navigation controller not found")
@@ -71,7 +89,8 @@ final class NavigationManager: ObservableObject {
     func navigateToJobDetailsVC(job: Job) {
         let jobDetailsViewController = JobDetailsViewController(job: job)
         
-        if let navigationController = window.rootViewController as? UINavigationController {
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
             navigationController.present(jobDetailsViewController, animated: true)
         } else {
             print("Navigation controller not found")
@@ -81,27 +100,30 @@ final class NavigationManager: ObservableObject {
     func pushRulesVC() {
         let rulesViewController = RulesViewController()
         
-        if let navigationController = window.rootViewController as? UINavigationController {
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
             navigationController.pushViewController(rulesViewController, animated: true)
         } else {
             print("Navigation controller not found")
         }
     }
     
-        func pushAppliedJobsVC() {
-            let appliedJobsVC = AppliedJobsViewController()
-    
-            if let navigationController = window.rootViewController as? UINavigationController {
-                navigationController.pushViewController(appliedJobsVC, animated: true)
-            } else {
-                print("Navigation controller not found")
-            }
+    func pushAppliedJobsVC() {
+        let appliedJobsVC = AppliedJobsViewController()
+        
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
+            navigationController.pushViewController(appliedJobsVC, animated: true)
+        } else {
+            print("Navigation controller not found")
         }
+    }
     
     func pushSupportVC() {
         let supportViewController = SupportViewController(navigationManager: self)
         
-        if let navigationController = window.rootViewController as? UINavigationController {
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
             navigationController.pushViewController(supportViewController, animated: true)
         } else {
             print("Navigation controller not found")
@@ -110,11 +132,64 @@ final class NavigationManager: ObservableObject {
     
     func navigateToReferralPage() {
         let referalView = ReferralView()
+        
         let hostingView = UIHostingController(rootView: referalView)
-        if let navigationController = window.rootViewController as? UINavigationController {
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
             navigationController.pushViewController(hostingView, animated: true)
+            navigationController.navigationBar.isHidden = false
+        } else {
+            print("Navigation controller not found")
         }
     }
-
+    
+    func createHomeNavigationController() -> UINavigationController {
+        let homeView = HomeView()
+            .environmentObject(self)
+            .environmentObject(LoginViewModel())
+        let homeViewHosting = UIHostingController(rootView: homeView)
+        
+        let homeVC = homeViewHosting
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
+        
+        let navController = UINavigationController(rootViewController: homeVC)
+        navController.navigationBar.isHidden = true
+        navController.hidesBarsOnSwipe = true
+        navController.isNavigationBarHidden = true
+        
+        return navController
+    }
+    
+    func createJobsNavigationController() -> UINavigationController {
+        let jobsVC = JobListViewController()
+        jobsVC.title = "Jobs"
+        jobsVC.tabBarItem = UITabBarItem(title: "Jobs", image: UIImage(systemName: "list.bullet.circle.fill"), tag: 1)
+        
+        return UINavigationController(rootViewController: jobsVC)
+    }
+    
+    func createProfileNavigationController() -> UINavigationController {
+        let profileView = ProfileView()
+            .environmentObject(self)
+            .environmentObject(viewModel)
+        let profileViewHosting = UIHostingController(rootView: profileView)
+        
+        let profileVC = profileViewHosting
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.fill"), tag: 2)
+        
+        let navController = UINavigationController(rootViewController: profileVC)
+        navController.navigationBar.isHidden = true
+        
+        return navController
+    }
+    
+    func createTabbar() -> UITabBarController {
+        let tabbar = UITabBarController()
+        
+        UITabBar.appearance().tintColor = .systemTeal
+        UITabBar.appearance().unselectedItemTintColor = .black
+        tabbar.viewControllers = [createHomeNavigationController(), createJobsNavigationController(), createProfileNavigationController()]
+        
+        return tabbar
+    }
 }
-

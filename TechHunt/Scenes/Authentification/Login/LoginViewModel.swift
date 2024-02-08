@@ -15,6 +15,7 @@ protocol AuthenticationFormProtocol {
 }
 
 // MARK: - LoginViewModel
+@available(iOS 17.0, *)
 final class LoginViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
@@ -30,18 +31,21 @@ final class LoginViewModel: ObservableObject {
     }
     
     // MARK: - Methods
-    func signIn(withEmail email: String, password: String) async throws {
+    func signIn(withEmail email: String, password: String, completion: @escaping (Bool) -> Void) async throws {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             await MainActor.run {
                 self.userSession = result.user
             }
             await fetchUser()
+            completion(true)
         } catch {
             print("DEBUG: Failed to log in with error: \(error.localizedDescription)")
+            completion(false)
             throw error
         }
     }
+
     
     func createUser(withEmail email: String, password: String, fullname: String) async throws {
         do {
@@ -55,16 +59,18 @@ final class LoginViewModel: ObservableObject {
         }
     }
     
-    func signOut() {
+    func signOut(completion: @escaping (Bool) -> Void) {
         do {
             try Auth.auth().signOut()
             self.userSession  = nil
             self.currentUser = nil
+            completion(true)
         } catch {
             print ("DEBUG: Failed to sign out with error \(error.localizedDescription)")
+            completion(false)
         }
     }
-    
+
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }

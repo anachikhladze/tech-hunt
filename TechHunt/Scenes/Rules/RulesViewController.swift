@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 17.0, *)
 final class RulesViewController: UIViewController {
     
     var loginViewModel = LoginViewModel()
@@ -223,7 +224,7 @@ final class RulesViewController: UIViewController {
         mainStackView.addArrangedSubview(dismissButton)
         
         dismissButton.addAction(UIAction(handler: { [weak self] _ in
-         
+            self?.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
     }
 }

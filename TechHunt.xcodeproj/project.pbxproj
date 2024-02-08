@@ -15,8 +15,6 @@
 		A11217EC2B6FE12300F5B3A6 /* PasswordConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217EB2B6FE12300F5B3A6 /* PasswordConditionView.swift */; };
 		A11217EE2B6FE14E00F5B3A6 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217ED2B6FE14E00F5B3A6 /* InputView.swift */; };
 		A11217F02B6FE23A00F5B3A6 /* CustomSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */; };
-		A11217F42B6FE62000F5B3A6 /* LoginRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217F32B6FE62000F5B3A6 /* LoginRootView.swift */; };
-		A11217F62B71177900F5B3A6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217F52B71177900F5B3A6 /* TabBarController.swift */; };
 		A11217F92B714CAC00F5B3A6 /* AppliedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217F82B714CAC00F5B3A6 /* AppliedJobsViewController.swift */; };
 		A11781AE2B6BDCDF00385CC8 /* CVFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */; };
 		A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E62B5C2CBE0079688D /* Job.swift */; };
@@ -32,7 +30,6 @@
 		A17C43592B6D62EE00BB9600 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C43582B6D62EE00BB9600 /* RulesViewController.swift */; };
 		A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181BBE32B59A6D800E68302 /* AppDelegate.swift */; };
 		A181BBE62B59A6D800E68302 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181BBE52B59A6D800E68302 /* SceneDelegate.swift */; };
-		A181BBE82B59A6D800E68302 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181BBE72B59A6D800E68302 /* ViewController.swift */; };
 		A181BBED2B59A6DA00E68302 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A181BBEC2B59A6DA00E68302 /* Assets.xcassets */; };
 		A181BBF02B59A6DA00E68302 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A181BBEE2B59A6DA00E68302 /* LaunchScreen.storyboard */; };
 		A181BBFF2B59ABAF00E68302 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181BBFE2B59ABAF00E68302 /* NavigationManager.swift */; };
@@ -60,8 +57,6 @@
 		A11217EB2B6FE12300F5B3A6 /* PasswordConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConditionView.swift; sourceTree = "<group>"; };
 		A11217ED2B6FE14E00F5B3A6 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInButton.swift; sourceTree = "<group>"; };
-		A11217F32B6FE62000F5B3A6 /* LoginRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRootView.swift; sourceTree = "<group>"; };
-		A11217F52B71177900F5B3A6 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A11217F82B714CAC00F5B3A6 /* AppliedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedJobsViewController.swift; sourceTree = "<group>"; };
 		A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVFormViewController.swift; sourceTree = "<group>"; };
 		A11CC0E62B5C2CBE0079688D /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
@@ -74,7 +69,6 @@
 		A181BBE02B59A6D800E68302 /* TechHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A181BBE32B59A6D800E68302 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A181BBE52B59A6D800E68302 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A181BBE72B59A6D800E68302 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A181BBEC2B59A6DA00E68302 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A181BBEF2B59A6DA00E68302 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A181BBF12B59A6DA00E68302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,7 +116,6 @@
 			children = (
 				A11217E42B6FE04B00F5B3A6 /* LoginView.swift */,
 				A11217E62B6FE07900F5B3A6 /* LoginViewModel.swift */,
-				A11217F32B6FE62000F5B3A6 /* LoginRootView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -199,7 +192,6 @@
 				A181BBF72B59A6F000E68302 /* App */,
 				A181BBF92B59A72B00E68302 /* Model */,
 				A181BBF82B59A70B00E68302 /* Scenes */,
-				A181BBE72B59A6D800E68302 /* ViewController.swift */,
 				A181BBFC2B59A79E00E68302 /* Components */,
 				A181BBFA2B59A74500E68302 /* Managers */,
 				A181BBFB2B59A74D00E68302 /* Helpers */,
@@ -251,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				A181BBFE2B59ABAF00E68302 /* NavigationManager.swift */,
-				A11217F52B71177900F5B3A6 /* TabBarController.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -414,13 +405,11 @@
 				A11217E32B6FD36100F5B3A6 /* User.swift in Sources */,
 				A11217EE2B6FE14E00F5B3A6 /* InputView.swift in Sources */,
 				A1D709542B6AABF800DAC3D7 /* ExperienceViewController.swift in Sources */,
-				A11217F42B6FE62000F5B3A6 /* LoginRootView.swift in Sources */,
 				A1D709522B6AAB7A00DAC3D7 /* ExperienceInfoStackView.swift in Sources */,
 				A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */,
 				A1AAF83D2B72A7BF00E1CEDD /* View.swift in Sources */,
 				A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */,
 				A11217F92B714CAC00F5B3A6 /* AppliedJobsViewController.swift in Sources */,
-				A181BBE82B59A6D800E68302 /* ViewController.swift in Sources */,
 				A181BBFF2B59ABAF00E68302 /* NavigationManager.swift in Sources */,
 				A1A12E8F2B62A2DB005DD9EC /* JobCardView.swift in Sources */,
 				A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */,
@@ -448,7 +437,6 @@
 				A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */,
 				A181BBE62B59A6D800E68302 /* SceneDelegate.swift in Sources */,
 				A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */,
-				A11217F62B71177900F5B3A6 /* TabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

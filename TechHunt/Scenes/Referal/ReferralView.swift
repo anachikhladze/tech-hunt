@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReferralView: View {
     
-    var number = "123cygeuyvgeryj4"
+    private let code = "123cygeuyvgeryj4"
 
     // MARK: - Body
     var body: some View {
@@ -51,7 +51,7 @@ struct ReferralView: View {
     
     private var actionButtons: some View {
         VStack(spacing: 10) {
-            Text("Code: \(number)")
+            Text("Code: \(code)")
                 .font(.system(size: 20, weight: .light, design: .rounded))
                 .padding(.bottom, 10)
                 .foregroundStyle(.black)
@@ -59,9 +59,9 @@ struct ReferralView: View {
             
             HStack {
                 roundedIconButton(icon: "doc.on.doc") {
-                    UIPasteboard.general.string = number
+                    UIPasteboard.general.string = code
                 }
-                ShareLink(item: number) {
+                ShareLink(item: code) {
                     roundedIcon(icon: "square.and.arrow.up")
                 }
             }

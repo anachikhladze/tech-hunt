@@ -7,10 +7,11 @@
 
 
 import UIKit
+import SwiftUI
 
 @available(iOS 17.0, *)
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
     private lazy var navigationManager = NavigationManager(window: window!)
     
@@ -18,7 +19,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
-        navigationManager.showRootView()
+        navigationManager.navigateToInitialScreen()
         window?.makeKeyAndVisible()
     }
 }
+
