@@ -143,6 +143,19 @@ final class NavigationManager: ObservableObject {
         }
     }
     
+    func presentReferralPage() {
+        let referalView = ReferralView()
+        
+        let hostingView = UIHostingController(rootView: referalView)
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
+            navigationController.present(hostingView, animated: true)
+            navigationController.navigationBar.isHidden = false
+        } else {
+            print("Navigation controller not found")
+        }
+    }
+    
     func createHomeNavigationController() -> UINavigationController {
         let homeView = HomeView()
             .environmentObject(self)
@@ -186,8 +199,8 @@ final class NavigationManager: ObservableObject {
     func createTabbar() -> UITabBarController {
         let tabbar = UITabBarController()
         
-        UITabBar.appearance().tintColor = .systemTeal
-        UITabBar.appearance().unselectedItemTintColor = .black
+        UITabBar.appearance().tintColor = UIColor.buttonBackground
+        UITabBar.appearance().unselectedItemTintColor = .darkGray
         tabbar.viewControllers = [createHomeNavigationController(), createJobsNavigationController(), createProfileNavigationController()]
         
         return tabbar

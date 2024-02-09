@@ -25,11 +25,11 @@ struct JobCardView: View {
                     .padding(.horizontal)
                 
                 HStack {
-                    CustomButton(buttonText: "Read More") {
+                    CustomButton(buttonText: "Read More...") {
                         navigationManager.navigateToRulesVC()
                     }
-                    CustomButton(buttonText: "Create CV") {
-                        navigationManager.navigateToCVFormVC()
+                    CustomButton(buttonText: "Referral Info") {
+                        navigationManager.presentReferralPage()
                     }
                 }
             }

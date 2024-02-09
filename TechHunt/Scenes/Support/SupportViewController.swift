@@ -38,10 +38,18 @@ final class SupportViewController: UIViewController {
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 16
+        stackView.spacing = 32
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        return stackView
+    }()
+    
+    private let infoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -99,12 +107,8 @@ final class SupportViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(mainStackView)
         
-                let spacerView = UIView()
-                spacerView.translatesAutoresizingMaskIntoConstraints = false
-                mainStackView.addArrangedSubview(spacerView)
-                spacerView.heightAnchor.constraint(equalTo: mainStackView.heightAnchor, multiplier: 0.1).isActive = true
-        
         mainStackView.addArrangedSubview(supportImageView)
+        mainStackView.addArrangedSubview(infoStackView)
     }
     
     private func setupInfoStackViews() {
@@ -113,7 +117,7 @@ final class SupportViewController: UIViewController {
             items: [needHelpLabel],
             symbolName: "questionmark.app"
         )
-        mainStackView.addArrangedSubview(supportInfo)
+        infoStackView.addArrangedSubview(supportInfo)
         
     }
     
@@ -126,7 +130,7 @@ final class SupportViewController: UIViewController {
         attributedText.append(boldPart)
         needHelpLabel.attributedText = attributedText
     }
-        
+    
     private func setupConstraints() {
         setupMainViewConstraints()
         customizeStackViewSpacing()
@@ -150,12 +154,12 @@ final class SupportViewController: UIViewController {
     }
     
     private func customizeStackViewSpacing() {
-        mainStackView.setCustomSpacing(16, after: mainStackView.subviews[0])
-        mainStackView.setCustomSpacing(16, after: mainStackView.subviews[1])
+        mainStackView.setCustomSpacing(32, after: mainStackView.subviews[0])
+        mainStackView.setCustomSpacing(32, after: mainStackView.subviews[1])
     }
     
     private func setupDismissButton() {
-        mainStackView.addArrangedSubview(dismissButton)
+        infoStackView.addArrangedSubview(dismissButton)
         
         dismissButton.addAction(UIAction(handler: { [weak self] _ in
             self?.navigationManager.pushRulesVC()

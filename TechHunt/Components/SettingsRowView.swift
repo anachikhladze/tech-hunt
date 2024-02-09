@@ -20,6 +20,7 @@ struct SettingsRowView: View {
             Image(systemName: imageName)
                 .imageScale(.small)
                 .font(.title)
+                .frame(width: 25, alignment: .leading)
                 .foregroundStyle(tintColor)
             
             Text(title)
@@ -30,6 +31,9 @@ struct SettingsRowView: View {
 }
 
 // MARK: - Preview
-#Preview {
-    SettingsRowView(imageName: "gear", title: "Version", tintColor: Color(.systemGray))
+struct SettingsRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsRowView(imageName: "gear", title: "Version", tintColor: Color(.systemGray))
+    }
 }
+
