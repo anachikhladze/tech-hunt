@@ -10,17 +10,8 @@ import UIKit
 @available(iOS 17.0, *)
 final class SupportViewController: UIViewController {
     
-    private let loginViewModel = AuthViewModel()
+    // MARK: - Properties
     private let navigationManager: NavigationManager
-    
-    init(navigationManager: NavigationManager) {
-        self.navigationManager = navigationManager
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -28,7 +19,7 @@ final class SupportViewController: UIViewController {
         return scrollView
     }()
     
-    let supportImageView: UIImageView = {
+    private let supportImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "customer-service")
@@ -73,28 +64,39 @@ final class SupportViewController: UIViewController {
         return label
     }()
     
+    // MARK: - Init
+    init(navigationManager: NavigationManager) {
+        self.navigationManager = navigationManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
-        navigationItem.title = "Support"
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Private Methods
     private func setup() {
         setupBackground()
+        setupNavigationBar()
         addSubviews()
         setupConstraints()
         setDefaultValues()
-        
-        navigationController?.navigationBar.isHidden = false
     }
     
     private func setupBackground() {
         view.backgroundColor = .systemBackground
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.title = "Support"
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     private func addSubviews() {
@@ -115,7 +117,7 @@ final class SupportViewController: UIViewController {
         let supportInfo = InfoStackViewComponent(
             title: "Need Some Help?",
             items: [needHelpLabel],
-            symbolName: "questionmark.app"
+            symbolName: "questionmark.circle"
         )
         infoStackView.addArrangedSubview(supportInfo)
         
