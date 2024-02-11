@@ -15,7 +15,3 @@ struct User: Identifiable, Codable {
     var favoriteJobs: [String] = []
     var profilePicture: String = ""
 }
-
-extension User {
-    static let MOCK_USER = User(id: NSUUID().uuidString, fullname: "Test Test", email: "test@gmail.com")
-}

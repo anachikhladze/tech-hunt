@@ -219,17 +219,17 @@
 		A181BBF82B59A70B00E68302 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A1AAF8392B72A76700E1CEDD /* Referal */,
-				A1AAF8362B72748200E1CEDD /* Support */,
-				A11217F72B714C9A00F5B3A6 /* Applied Jobs */,
-				A17C43572B6D62C900BB9600 /* Rules */,
-				A1D709502B6AAB4400DAC3D7 /* Experience */,
-				A1F33CA92B67E613003DBAEB /* CV Form */,
-				A19119082B655155001E1D61 /* Profile */,
+				A181BBFD2B59A7C100E68302 /* Authentification */,
 				A14DB82D2B60313200EF545D /* Home */,
 				A11CC0E52B5C28C00079688D /* JobList */,
 				A14DB82C2B60204700EF545D /* JobDetails */,
-				A181BBFD2B59A7C100E68302 /* Authentification */,
+				A19119082B655155001E1D61 /* Profile */,
+				A1D709502B6AAB4400DAC3D7 /* Experience */,
+				A1F33CA92B67E613003DBAEB /* CV Form */,
+				A11217F72B714C9A00F5B3A6 /* Applied Jobs */,
+				A1AAF8362B72748200E1CEDD /* Support */,
+				A17C43572B6D62C900BB9600 /* Rules */,
+				A1AAF8392B72A76700E1CEDD /* Referral */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -300,12 +300,12 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		A1AAF8392B72A76700E1CEDD /* Referal */ = {
+		A1AAF8392B72A76700E1CEDD /* Referral */ = {
 			isa = PBXGroup;
 			children = (
 				A1AAF83A2B72A77B00E1CEDD /* ReferralView.swift */,
 			);
-			path = Referal;
+			path = Referral;
 			sourceTree = "<group>";
 		};
 		A1D709502B6AAB4400DAC3D7 /* Experience */ = {
