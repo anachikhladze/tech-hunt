@@ -10,8 +10,7 @@ import UIKit
 @available(iOS 17.0, *)
 final class RulesViewController: UIViewController {
     
-    var loginViewModel = AuthViewModel()
-    
+    // MARK: - Properties
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -106,23 +105,25 @@ final class RulesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
-        navigationItem.title = "How to use?"
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Private Methods
     private func setup() {
         setupBackground()
+        setupNavigationBar()
         addSubviews()
         setupConstraints()
         setDefaultValues()
-        
-        navigationController?.navigationBar.isHidden = false
     }
     
     private func setupBackground() {
         view.backgroundColor = .systemBackground
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.title = "How to use?"
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     private func addSubviews() {
