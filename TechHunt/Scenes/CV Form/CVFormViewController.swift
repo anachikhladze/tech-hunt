@@ -14,6 +14,7 @@ protocol CVFormViewControllerDelegate: AnyObject {
 
 final class CVFormViewController: UIViewController {
     
+    // MARK: - Properties
     weak var delegate: CVFormViewControllerDelegate?
     
     let fullNameField = UITextField()
@@ -48,6 +49,7 @@ final class CVFormViewController: UIViewController {
     var currentEmail: String?
     var currentLinkedIn: String?
     
+    // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +63,7 @@ final class CVFormViewController: UIViewController {
         setLabelsWithCurrentInfo()
     }
     
+    // MARK: - Private Methods
     private func addSubviews() {
         view.addSubview(stackView)
     }

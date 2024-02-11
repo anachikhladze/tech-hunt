@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExperienceInfoStackView: UIStackView {
+final class InfoStackViewComponent: UIStackView {
     
     private let gradientLayer = CAGradientLayer()
     

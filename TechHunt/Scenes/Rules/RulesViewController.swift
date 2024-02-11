@@ -137,44 +137,44 @@ final class RulesViewController: UIViewController {
     }
     
     private func setupInfoStackViews() {
-        let discoverInfo = ExperienceInfoStackView(
+        let discoverInfo = InfoStackViewComponent(
             title: "Discover Jobs",
             items: [discoverLabel],
             symbolName: "magnifyingglass.circle"
         )
         mainStackView.addArrangedSubview(discoverInfo)
         
-        let trendsInfo = ExperienceInfoStackView(
+        let trendsInfo = InfoStackViewComponent(
             title: "Stay on Top of Trends",
             items: [trendsLabel], symbolName: "waveform.path.ecg"
         )
         mainStackView.addArrangedSubview(trendsInfo)
         
-        let createInfo = ExperienceInfoStackView(
+        let createInfo = InfoStackViewComponent(
             title: "Create Your CV for Free",
             items: [createLabel], symbolName: "doc.text"
         )
         mainStackView.addArrangedSubview(createInfo)
         
-        let applyInfo = ExperienceInfoStackView(
+        let applyInfo = InfoStackViewComponent(
             title: "Apply Directly from the App",
             items: [applyLabel], symbolName: "paperplane"
         )
         mainStackView.addArrangedSubview(applyInfo)
         
-        let findInfo = ExperienceInfoStackView(
+        let findInfo = InfoStackViewComponent(
             title: "Let Companies Find You",
             items: [findLabel], symbolName: "person.crop.circle.badge.checkmark"
         )
         mainStackView.addArrangedSubview(findInfo)
         
-        let referalInfo = ExperienceInfoStackView(
+        let referalInfo = InfoStackViewComponent(
             title: "Refer a Friend",
             items: [referalLabel], symbolName: "person.2"
         )
         mainStackView.addArrangedSubview(referalInfo)
         
-        let favoriteInfo = ExperienceInfoStackView(
+        let favoriteInfo = InfoStackViewComponent(
             title: "Favorite the Jobs You Love",
             items: [favoriteLabel], symbolName: "heart"
         )

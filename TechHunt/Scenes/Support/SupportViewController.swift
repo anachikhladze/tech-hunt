@@ -112,7 +112,7 @@ final class SupportViewController: UIViewController {
     }
     
     private func setupInfoStackViews() {
-        let supportInfo = ExperienceInfoStackView(
+        let supportInfo = InfoStackViewComponent(
             title: "Need Some Help?",
             items: [needHelpLabel],
             symbolName: "questionmark.app"
