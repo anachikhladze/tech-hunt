@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ExperienceInfoStackView: UIStackView {
+final class InfoStackViewComponent: UIStackView {
     
     private let gradientLayer = CAGradientLayer()
     
@@ -20,7 +20,7 @@ final class ExperienceInfoStackView: UIStackView {
         layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         layer.cornerRadius = 8
         
-        gradientLayer.colors = [UIColor.purple.cgColor, UIColor.buttonBackground.cgColor]
+        gradientLayer.colors = [UIColor.purple.cgColor, UIColor.accent.cgColor]
         gradientLayer.startPoint = CGPoint(x: 1, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         gradientLayer.opacity = 0.7

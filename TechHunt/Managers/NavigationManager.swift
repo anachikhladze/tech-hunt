@@ -11,7 +11,7 @@ import UIKit
 @available(iOS 17.0, *)
 final class NavigationManager: ObservableObject {
     private let window: UIWindow
-    private let viewModel = LoginViewModel()
+    private let viewModel = AuthViewModel()
     
     init(window: UIWindow) {
         self.window = window
@@ -159,7 +159,7 @@ final class NavigationManager: ObservableObject {
     func createHomeNavigationController() -> UINavigationController {
         let homeView = HomeView()
             .environmentObject(self)
-            .environmentObject(LoginViewModel())
+            .environmentObject(AuthViewModel())
         let homeViewHosting = UIHostingController(rootView: homeView)
         
         let homeVC = homeViewHosting
@@ -199,7 +199,7 @@ final class NavigationManager: ObservableObject {
     func createTabbar() -> UITabBarController {
         let tabbar = UITabBarController()
         
-        UITabBar.appearance().tintColor = UIColor.buttonBackground
+        UITabBar.appearance().tintColor = UIColor.accent
         UITabBar.appearance().unselectedItemTintColor = .darkGray
         tabbar.viewControllers = [createHomeNavigationController(), createJobsNavigationController(), createProfileNavigationController()]
         

@@ -42,4 +42,3 @@ struct InputView: View {
 #Preview {
     InputView(text: .constant(""), title: "Email Address", placeholder: "name@example.com")
 }
-

@@ -10,8 +10,7 @@ import UIKit
 @available(iOS 17.0, *)
 final class RulesViewController: UIViewController {
     
-    var loginViewModel = LoginViewModel()
-    
+    // MARK: - Properties
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +32,7 @@ final class RulesViewController: UIViewController {
         button.setTitle("OK", for: .normal)
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
-        button.backgroundColor = UIColor.buttonBackground
+        button.backgroundColor = UIColor.accent
         button.layer.cornerRadius = 14
         button.heightAnchor.constraint(equalToConstant: 46).isActive = true
         return button
@@ -106,23 +105,25 @@ final class RulesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
-        navigationItem.title = "How to use?"
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Private Methods
     private func setup() {
         setupBackground()
+        setupNavigationBar()
         addSubviews()
         setupConstraints()
         setDefaultValues()
-        
-        navigationController?.navigationBar.isHidden = false
     }
     
     private func setupBackground() {
         view.backgroundColor = .systemBackground
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.title = "How to use?"
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     private func addSubviews() {
@@ -137,44 +138,44 @@ final class RulesViewController: UIViewController {
     }
     
     private func setupInfoStackViews() {
-        let discoverInfo = ExperienceInfoStackView(
+        let discoverInfo = InfoStackViewComponent(
             title: "Discover Jobs",
             items: [discoverLabel],
             symbolName: "magnifyingglass.circle"
         )
         mainStackView.addArrangedSubview(discoverInfo)
         
-        let trendsInfo = ExperienceInfoStackView(
+        let trendsInfo = InfoStackViewComponent(
             title: "Stay on Top of Trends",
             items: [trendsLabel], symbolName: "waveform.path.ecg"
         )
         mainStackView.addArrangedSubview(trendsInfo)
         
-        let createInfo = ExperienceInfoStackView(
+        let createInfo = InfoStackViewComponent(
             title: "Create Your CV for Free",
             items: [createLabel], symbolName: "doc.text"
         )
         mainStackView.addArrangedSubview(createInfo)
         
-        let applyInfo = ExperienceInfoStackView(
+        let applyInfo = InfoStackViewComponent(
             title: "Apply Directly from the App",
             items: [applyLabel], symbolName: "paperplane"
         )
         mainStackView.addArrangedSubview(applyInfo)
         
-        let findInfo = ExperienceInfoStackView(
+        let findInfo = InfoStackViewComponent(
             title: "Let Companies Find You",
             items: [findLabel], symbolName: "person.crop.circle.badge.checkmark"
         )
         mainStackView.addArrangedSubview(findInfo)
         
-        let referalInfo = ExperienceInfoStackView(
+        let referalInfo = InfoStackViewComponent(
             title: "Refer a Friend",
             items: [referalLabel], symbolName: "person.2"
         )
         mainStackView.addArrangedSubview(referalInfo)
         
-        let favoriteInfo = ExperienceInfoStackView(
+        let favoriteInfo = InfoStackViewComponent(
             title: "Favorite the Jobs You Love",
             items: [favoriteLabel], symbolName: "heart"
         )

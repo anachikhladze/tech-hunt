@@ -10,7 +10,7 @@ import UIKit
 final class JobDetailsViewController: UIViewController {
     
     // MARK: - Properties
-    private let viewModel = JobListViewModel()
+    private let viewModel = JobDetailsViewModel()
     private var job: Job
     
     init(job: Job) {
@@ -44,7 +44,7 @@ final class JobDetailsViewController: UIViewController {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
+        label.textColor = UIColor.jobsFont
         label.font = UIFont.customRoundedFont(size: 17, weight: .light)
         return label
     }()
@@ -63,7 +63,7 @@ final class JobDetailsViewController: UIViewController {
         button.setTitle("Send Resume", for: .normal)
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.customRoundedFont(size: 17, weight: .black)
-        button.backgroundColor = UIColor.buttonBackground
+        button.backgroundColor = UIColor.accent
         button.layer.cornerRadius = 10
         button.heightAnchor.constraint(equalToConstant: 46).isActive = true
         
@@ -78,7 +78,7 @@ final class JobDetailsViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setup() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         setupMainStackView()
         setupJobWithInformation()
         setupDescriptionLabel()
@@ -110,7 +110,6 @@ final class JobDetailsViewController: UIViewController {
         mainStackView.addArrangedSubview(stackView)
     }
     
-    
     private func createInfoStackView(_ imageName: String, detail: String) {
         let stackView = UIStackView()
         stackView.spacing = 8
@@ -126,7 +125,7 @@ final class JobDetailsViewController: UIViewController {
         
         let detailLabel = UILabel()
         detailLabel.text = detail
-        detailLabel.textColor = .black
+        detailLabel.textColor = UIColor.jobsFont
         detailLabel.numberOfLines = 0
         detailLabel.font = UIFont.customRoundedFont(size: 18, weight: .light)
         
@@ -135,10 +134,6 @@ final class JobDetailsViewController: UIViewController {
         
         mainStackView.addArrangedSubview(stackView)
     }
-    
-//    private func setupSendButton() {
-//
-//    }
     
     private func setupJobWithInformation() {
         navigationItem.title = job.title

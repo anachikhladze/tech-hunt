@@ -36,4 +36,3 @@ struct SettingsRowView_Previews: PreviewProvider {
         SettingsRowView(imageName: "gear", title: "Version", tintColor: Color(.systemGray))
     }
 }
-

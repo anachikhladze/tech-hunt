@@ -14,6 +14,7 @@ protocol CVFormViewControllerDelegate: AnyObject {
 
 final class CVFormViewController: UIViewController {
     
+    // MARK: - Properties
     weak var delegate: CVFormViewControllerDelegate?
     
     let fullNameField = UITextField()
@@ -48,6 +49,7 @@ final class CVFormViewController: UIViewController {
     var currentEmail: String?
     var currentLinkedIn: String?
     
+    // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +63,7 @@ final class CVFormViewController: UIViewController {
         setLabelsWithCurrentInfo()
     }
     
+    // MARK: - Private Methods
     private func addSubviews() {
         view.addSubview(stackView)
     }
@@ -108,7 +111,7 @@ final class CVFormViewController: UIViewController {
         saveButton.setTitle("Save Info", for: .normal)
         saveButton.setTitleColor(.white, for: .normal)
         saveButton.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
-        saveButton.backgroundColor = UIColor.buttonBackground
+        saveButton.backgroundColor = UIColor.accent
         saveButton.layer.cornerRadius = 14
         saveButton.heightAnchor.constraint(equalToConstant: 46).isActive = true
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)

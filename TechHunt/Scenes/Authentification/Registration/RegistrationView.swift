@@ -24,7 +24,7 @@ struct RegistrationView: View {
     @State private var isValidEmail = false
     
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel: LoginViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
     
     // MARK: - Body
     var body: some View {
@@ -104,7 +104,7 @@ struct RegistrationView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .imageScale(.large)
                         .fontWeight(.bold)
-                        .foregroundStyle(.buttonBackground)
+                        .foregroundStyle(.accent)
                 } else {
                     Image(systemName: "xmark.circle.fill")
                         .imageScale(.large)
@@ -178,8 +178,3 @@ extension RegistrationView: AuthenticationFormProtocol {
         isValidEmail = email.contains("@")
     }
 }
-
-// MARK: - Preview
-//#Preview {
-//    RegistrationView()
-//}

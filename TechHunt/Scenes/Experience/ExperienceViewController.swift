@@ -9,6 +9,9 @@ import UIKit
 
 final class ExperienceViewController: UIViewController {
     
+    // MARK: - Properties
+    private let viewModel = ExperienceViewModel()
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -30,10 +33,9 @@ final class ExperienceViewController: UIViewController {
         button.setTitle("Edit Info", for: .normal)
         button.titleLabel?.textColor = .white
         button.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
-        button.backgroundColor = UIColor.buttonBackground
+        button.backgroundColor = UIColor.accent
         button.layer.cornerRadius = 14
         button.heightAnchor.constraint(equalToConstant: 46).isActive = true
-        button.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -128,15 +130,19 @@ final class ExperienceViewController: UIViewController {
     // MARK: - Private Methods
     private func setup() {
         setupBackground()
+        setupNavigationBar()
         addSubviews()
         setupConstraints()
         setDefaultValues()
-        
-        navigationController?.navigationBar.isHidden = false
+        setupEditButton()
     }
     
     private func setupBackground() {
         view.backgroundColor = .systemBackground
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func addSubviews() {
@@ -150,27 +156,27 @@ final class ExperienceViewController: UIViewController {
     }
     
     private func setupInfoStackViews() {
-        let contactInfo = ExperienceInfoStackView(
+        let contactInfo = InfoStackViewComponent(
             title: "Contact Info",
             items: [fullNameLabel, emailLabel, numberLabel, linkedinLabel],
             symbolName: "person.crop.circle"
         )
         mainStackView.addArrangedSubview(contactInfo)
         
-        let educationInfo = ExperienceInfoStackView(
+        let educationInfo = InfoStackViewComponent(
             title: "Education",
             items: [educationLabel], symbolName: "book"
         )
         mainStackView.addArrangedSubview(educationInfo)
         
-        let experienceInfo = ExperienceInfoStackView(
+        let experienceInfo = InfoStackViewComponent(
             title: "Experience",
             items: [experience1Label, experience2Label, experience3Label], symbolName: "briefcase"
         )
         mainStackView.addArrangedSubview(experienceInfo)
         
         
-        let languagesInfo = ExperienceInfoStackView(
+        let languagesInfo = InfoStackViewComponent(
             title: "Languages",
             items: [languagesLabel], symbolName: "globe"
         )
@@ -218,27 +224,33 @@ final class ExperienceViewController: UIViewController {
         mainStackView.setCustomSpacing(16, after: mainStackView.subviews[3])
     }
     
-    @objc private func editButtonTapped() {
-        let cvFormViewController = CVFormViewController()
-        cvFormViewController.delegate = self
-        
-        cvFormViewController.currentFullName = fullNameLabel.text
-        cvFormViewController.currentSchool = educationLabel.text
-        cvFormViewController.currentExperience1 = experience1Label.text
-        cvFormViewController.currentExperience2 = experience2Label.text
-        cvFormViewController.currentExperience3 = experience3Label.text
-        cvFormViewController.currentLanguages = languagesLabel.text
-        cvFormViewController.currentContactNumber = numberLabel.text
-        cvFormViewController.currentEmail = emailLabel.text
-        cvFormViewController.currentLinkedIn = linkedinLabel.text
-        
-        let navigationController = UINavigationController(rootViewController: cvFormViewController)
-        present(navigationController, animated: true, completion: nil)
+    private func setupEditButton() {
+        editButton.addAction(UIAction(handler: { [weak self] _ in
+            let cvFormViewController = CVFormViewController()
+            cvFormViewController.delegate = self
+            
+            cvFormViewController.currentFullName = self?.viewModel.fullName
+            cvFormViewController.currentSchool = self?.viewModel.education
+            cvFormViewController.currentExperience1 = self?.viewModel.experience1
+            cvFormViewController.currentExperience2 = self?.viewModel.experience2
+            cvFormViewController.currentExperience3 = self?.viewModel.experience3
+            cvFormViewController.currentLanguages = self?.viewModel.languages
+            cvFormViewController.currentContactNumber = self?.viewModel.number
+            cvFormViewController.currentEmail = self?.viewModel.email
+            cvFormViewController.currentLinkedIn = self?.viewModel.linkedin
+            
+            let navigationController = UINavigationController(rootViewController: cvFormViewController)
+            self?.present(navigationController, animated: true, completion: nil)
+        }), for: .touchUpInside)
     }
 }
 
+
 extension ExperienceViewController: CVFormViewControllerDelegate {
     func didSaveInfo(fullName: String, school: String, experience1: String, experience2: String, experience3: String, language: String, number: String, email: String, linkedin: String) {
+        
+        viewModel.updateInfo(fullName: fullName, email: email, number: number, linkedin: linkedin, education: school, experience1: experience1, experience2: experience2, experience3: experience3, languages: language)
+        
         fullNameLabel.text = fullName
         educationLabel.text = school
         experience1Label.text = experience1
