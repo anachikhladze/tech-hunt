@@ -82,10 +82,10 @@ struct HomeView: View {
     
     private var jobCardButtons: some View {
         HStack {
-            CustomButton(buttonText: "Read More") {
+            CustomButton(buttonText: "  Read More  ") {
                 navigationManager.navigateToRulesVC()
             }
-            CustomButton(buttonText: "Create CV") {
+            CustomButton(buttonText: "Referral Info") {
                 navigationManager.presentReferralPage()
             }
         }

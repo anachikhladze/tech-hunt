@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReferralView: View {
     
-    private let code = "6589646"
+    private let promoCode = "6589646"
     
     // MARK: - Body
     var body: some View {
@@ -38,82 +38,67 @@ struct ReferralView: View {
     private var detailsVStack: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text("Refer a Friend and Win!")
-                .font(.system(size: 28, weight: .black, design: .rounded))
+                .customTitleFont()
             
             Text("Love using TechHunt? Spread the word and earn rewards through our referral program! Invite your friends to join the TechHunt community, and you both could win big.")
-                .font(.system(size: 17, weight: .light, design: .rounded))
+                .customLightFont()
             
             Text("How it Works:")
-                .font(.system(size: 17, weight: .black, design: .rounded))
+                .customBlackFont()
             
             Text("1. Share Your Referral Code.\n2. Friends Sign Up.\n3. Earn Rewards.")
-                .font(.system(size: 17, weight: .light, design: .rounded))
+                .customLightFont()
             
             Text("How to Share Your Referral Code:")
-                .font(.system(size: 17, weight: .black, design: .rounded))
+                .customBlackFont()
             
             Text("1. Copy Your Code.\n2. Share Anywhere.")
-                .font(.system(size: 17, weight: .light, design: .rounded))
+                .customLightFont()
         }
-        .frame(maxWidth: 400)
-        .padding()
-        .fixedSize(horizontal: false, vertical: true)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.buttonBackground]), startPoint: .topTrailing, endPoint: .bottomTrailing))
-        .opacity(0.8)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-
+        .referralStyle()
+        
     }
     
     private var conditionsVStack: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text("Terms and Conditions:")
-                .font(.system(size: 17, weight: .black, design: .rounded))
+                .customBlackFont()
             
             Text("- Each successful referral earns you one ticket in our giveaway.\n- Winners randomly selected.\n- Prizes announced periodically.\n- TechHunt reserves the right to modify or terminate the referral program at any time.")
-                .font(.system(size: 17, weight: .light, design: .rounded))
+                .customLightFont()
             
             Text("Start Referring Now:")
-                .font(.system(size: 17, weight: .black, design: .rounded))
+                .customBlackFont()
             
             Text("Spread the word and let's grow the TechHunt community together!")
-                .font(.system(size: 17, weight: .light, design: .rounded))
+                .customLightFont()
         }
-        .padding()
-        .fixedSize(horizontal: false, vertical: true)
-        .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.buttonBackground]), startPoint: .topTrailing, endPoint: .bottomTrailing))
-        .opacity(0.8)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .frame(maxWidth: 400)
+        .referralStyle()
         
     }
     
-    
     private var actionButtons: some View {
         HStack(spacing: 0) {
-            Text("Referral code: \(code)")
+            Text("Referral code: \(promoCode)")
                 .padding()
-                .font(.system(size: 17, weight: .black, design: .rounded))
                 .textSelection(.enabled)
                 .foregroundStyle(.white)
+                .customBlackFont()
             
             HStack {
                 roundedIconButton(icon: "doc.on.doc") {
-                    UIPasteboard.general.string = code
+                    UIPasteboard.general.string = promoCode
                 }
-                ShareLink(item: code) {
+                ShareLink(item: promoCode) {
                     roundedIcon(icon: "square.and.arrow.up")
                 }
             }
         }
-        .frame(maxWidth: 400)
-        .padding(.horizontal)
-        .opacity(0.8)
-        .background(Color.buttonBackground)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .actionButtonStyle()
     }
-    
 }
 
+// MARK: - #Preview
 #Preview {
     ReferralView()
 }
