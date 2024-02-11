@@ -10,9 +10,8 @@ import UIKit
 final class AppliedJobsViewController: UIViewController {
     
     // MARK: - Properties
-    //    private let viewModel = JobListViewModel()
     private var jobs: [Job] = []
-    private let viewModel = JobListViewModel()
+    private let viewModel = FirebaseDataViewModel()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -25,25 +24,21 @@ final class AppliedJobsViewController: UIViewController {
         super.viewDidLoad()
         
         setupBackground()
+        setupNavigationBar()
         setupSubviews()
         setupConstraints()
         setupTableView()
-        
         fetchAppliedJobs()
-        
-        navigationController?.navigationBar.isHidden = false
-        }
-    
+    }
     
     // MARK: - Private Methods
     private func setupBackground() {
         view.backgroundColor = .white
     }
     
-    //    private func setDelegates() {
-    //        viewModel.delegate = self
-    //    }
-
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.isHidden = false
+    }
     
     private func setupSubviews() {
         view.addSubview(tableView)
@@ -65,13 +60,13 @@ final class AppliedJobsViewController: UIViewController {
     }
     
     private func fetchAppliedJobs() {
-            Task {
-                self.jobs = await viewModel.fetchAppliedJobs()
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+        Task {
+            self.jobs = await viewModel.fetchAppliedJobs()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
+    }
 }
 
 // MARK: - TableVIew DataSource
@@ -98,14 +93,3 @@ extension AppliedJobsViewController: UITableViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-
-// // MARK: - JobListViewModelDelegate
-//extension AppliedJobsViewController: JobListViewModelDelegate {
-//    func didFetchJobs() {
-//        DispatchQueue.main.async {
-//            self.jobs = self.viewModel.jobs
-//            self.tableView.reloadData()
-//        }
-//    }
-//}

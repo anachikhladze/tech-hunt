@@ -9,7 +9,7 @@ import UIKit
 
 final class JobTableViewCell: UITableViewCell {
     
-    private let viewModel = JobListViewModel()
+    private let viewModel = FirebaseDataViewModel()
     
     // MARK: - Properties
     private let mainStackView: UIStackView = {

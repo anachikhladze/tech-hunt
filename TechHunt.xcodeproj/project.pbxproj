@@ -25,7 +25,7 @@
 		A11CC1092B5C3EDB0079688D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A11CC1082B5C3EDB0079688D /* FirebaseFirestore */; };
 		A11CC10D2B5C3EDB0079688D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A11CC10C2B5C3EDB0079688D /* FirebaseFirestoreSwift */; };
 		A11CC1232B5C3EDB0079688D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A11CC1222B5C3EDB0079688D /* FirebaseStorage */; };
-		A11CC1272B5C48B50079688D /* JobListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC1262B5C48B50079688D /* JobListViewModel.swift */; };
+		A11CC1272B5C48B50079688D /* FirebaseDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */; };
 		A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14DB82E2B60316C00EF545D /* HomeView.swift */; };
 		A17C43592B6D62EE00BB9600 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C43582B6D62EE00BB9600 /* RulesViewController.swift */; };
 		A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181BBE32B59A6D800E68302 /* AppDelegate.swift */; };
@@ -64,7 +64,7 @@
 		A11CC0E92B5C2D230079688D /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
 		A11CC0EB2B5C2DB00079688D /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		A11CC0ED2B5C3CDA0079688D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A11CC1262B5C48B50079688D /* JobListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewModel.swift; sourceTree = "<group>"; };
+		A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataViewModel.swift; sourceTree = "<group>"; };
 		A14DB82E2B60316C00EF545D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A17C43582B6D62EE00BB9600 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		A181BBE02B59A6D800E68302 /* TechHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +135,7 @@
 			children = (
 				A11CC0E82B5C2CF50079688D /* TableViewCell */,
 				A11CC0E92B5C2D230079688D /* JobListViewController.swift */,
-				A11CC1262B5C48B50079688D /* JobListViewModel.swift */,
+				A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */,
 			);
 			path = JobList;
 			sourceTree = "<group>";
@@ -428,7 +428,7 @@
 				A1AAF83B2B72A77B00E1CEDD /* ReferralView.swift in Sources */,
 				A11217F02B6FE23A00F5B3A6 /* CustomSignInButton.swift in Sources */,
 				A11217EA2B6FE0F700F5B3A6 /* RegistrationView.swift in Sources */,
-				A11CC1272B5C48B50079688D /* JobListViewModel.swift in Sources */,
+				A11CC1272B5C48B50079688D /* FirebaseDataViewModel.swift in Sources */,
 				A1F905292B7906DC00EB348C /* HomeViewModel.swift in Sources */,
 				A191190A2B655168001E1D61 /* ProfileView.swift in Sources */,
 				A1A12E912B62A342005DD9EC /* CustomButton.swift in Sources */,
@@ -437,7 +437,7 @@
 				A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */,
 				A11217E52B6FE04B00F5B3A6 /* LoginView.swift in Sources */,
 				A17C43592B6D62EE00BB9600 /* RulesViewController.swift in Sources */,
-				A11CC1272B5C48B50079688D /* JobListViewModel.swift in Sources */,
+				A11CC1272B5C48B50079688D /* FirebaseDataViewModel.swift in Sources */,
 				A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */,
 				A181BBE62B59A6D800E68302 /* SceneDelegate.swift in Sources */,
 				A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */,

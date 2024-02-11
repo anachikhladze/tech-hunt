@@ -13,7 +13,7 @@ protocol JobListViewModelDelegate: AnyObject {
     func didFetchJobs()
 }
 
-final class JobListViewModel: ObservableObject {
+final class FirebaseDataViewModel: ObservableObject {
     
     // MARK: - Properties
     weak var delegate: JobListViewModelDelegate?

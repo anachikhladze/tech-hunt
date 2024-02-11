@@ -10,7 +10,7 @@ import UIKit
 final class JobListViewController: UIViewController {
     
     // MARK: - Properties
-    private let viewModel = JobListViewModel()
+    private let viewModel = FirebaseDataViewModel()
     private var jobs: [Job] = []
     
     private let tableView: UITableView = {
