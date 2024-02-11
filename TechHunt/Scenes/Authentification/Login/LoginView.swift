@@ -16,7 +16,7 @@ struct LoginView: View {
     @State private var showingAlert = false
     @State private var alertMessage = ""
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var viewModel: LoginViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
     @EnvironmentObject var flowCoordinator: NavigationManager
     
     // MARK: - Body

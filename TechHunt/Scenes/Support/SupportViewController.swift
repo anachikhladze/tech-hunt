@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 17.0, *)
 final class SupportViewController: UIViewController {
     
-    var loginViewModel = LoginViewModel()
+    var loginViewModel = AuthViewModel()
     var navigationManager: NavigationManager
     
     init(navigationManager: NavigationManager) {

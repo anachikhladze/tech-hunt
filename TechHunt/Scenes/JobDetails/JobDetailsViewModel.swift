@@ -8,7 +8,6 @@
 import Foundation
 import Firebase
 
-
 final class JobDetailsViewModel {
     
     func applyForJob(jobId: String) async {

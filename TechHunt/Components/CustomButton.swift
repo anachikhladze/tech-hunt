@@ -25,7 +25,3 @@ struct CustomButton: View {
         }
     }
 }
-
-//#Preview {
-//    CustomButton(buttonText: "Test")
-//}

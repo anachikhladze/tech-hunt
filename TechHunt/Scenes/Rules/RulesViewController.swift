@@ -10,7 +10,7 @@ import UIKit
 @available(iOS 17.0, *)
 final class RulesViewController: UIViewController {
     
-    var loginViewModel = LoginViewModel()
+    var loginViewModel = AuthViewModel()
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()

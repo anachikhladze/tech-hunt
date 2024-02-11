@@ -24,7 +24,7 @@ struct RegistrationView: View {
     @State private var isValidEmail = false
     
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel: LoginViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
     
     // MARK: - Body
     var body: some View {
