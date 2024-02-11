@@ -29,7 +29,7 @@ struct LoginView: View {
     }
     
     private var bankImageView: some View {
-        Image(colorScheme == .light ? "Design" : "bankDark")
+        Image(colorScheme == .light ? "Design" : "Design")
             .resizable()
             .scaledToFill()
             .frame(maxWidth: 110, maxHeight: 120)
@@ -113,12 +113,3 @@ extension LoginView: AuthenticationFormProtocol {
         && password.count > 7
     }
 }
-
-// MARK: - Preview
-//#Preview {
-//    if #available(iOS 17.0, *) {
-//        LoginView()
-//    } else {
-//        // Fallback on earlier versions
-//    }
-//}

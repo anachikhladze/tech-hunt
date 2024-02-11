@@ -45,7 +45,7 @@ final class LoginViewModel: ObservableObject {
             throw error
         }
     }
-
+    
     
     func createUser(withEmail email: String, password: String, fullname: String) async throws {
         do {
@@ -70,7 +70,7 @@ final class LoginViewModel: ObservableObject {
             completion(false)
         }
     }
-
+    
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return }

@@ -46,6 +46,7 @@
 		A1D709582B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D709572B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift */; };
 		A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */; };
 		A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */; };
+		A1F905252B78FF5A00EB348C /* JobDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F905242B78FF5A00EB348C /* JobDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		A1D709572B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomRoundedFont.swift"; sourceTree = "<group>"; };
 		A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Identifier.swift"; sourceTree = "<group>"; };
 		A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+CleanUp.swift"; sourceTree = "<group>"; };
+		A1F905242B78FF5A00EB348C /* JobDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */,
+				A1F905242B78FF5A00EB348C /* JobDetailsViewModel.swift */,
 			);
 			path = JobDetails;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				A1D709542B6AABF800DAC3D7 /* ExperienceViewController.swift in Sources */,
 				A1D709522B6AAB7A00DAC3D7 /* ExperienceInfoStackView.swift in Sources */,
 				A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */,
+				A1F905252B78FF5A00EB348C /* JobDetailsViewModel.swift in Sources */,
 				A1AAF83D2B72A7BF00E1CEDD /* View.swift in Sources */,
 				A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */,
 				A11217F92B714CAC00F5B3A6 /* AppliedJobsViewController.swift in Sources */,

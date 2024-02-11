@@ -10,7 +10,7 @@ import UIKit
 final class JobDetailsViewController: UIViewController {
     
     // MARK: - Properties
-    private let viewModel = JobListViewModel()
+    private let viewModel = JobDetailsViewModel()
     private var job: Job
     
     init(job: Job) {
@@ -110,7 +110,6 @@ final class JobDetailsViewController: UIViewController {
         mainStackView.addArrangedSubview(stackView)
     }
     
-    
     private func createInfoStackView(_ imageName: String, detail: String) {
         let stackView = UIStackView()
         stackView.spacing = 8
@@ -135,10 +134,6 @@ final class JobDetailsViewController: UIViewController {
         
         mainStackView.addArrangedSubview(stackView)
     }
-    
-//    private func setupSendButton() {
-//
-//    }
     
     private func setupJobWithInformation() {
         navigationItem.title = job.title

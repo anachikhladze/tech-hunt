@@ -9,7 +9,7 @@ import UIKit
 
 final class JobTableViewCell: UITableViewCell {
     
-    let viewModel = JobListViewModel()
+    private let viewModel = JobListViewModel()
     
     // MARK: - Properties
     private let mainStackView: UIStackView = {

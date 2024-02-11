@@ -178,8 +178,3 @@ extension RegistrationView: AuthenticationFormProtocol {
         isValidEmail = email.contains("@")
     }
 }
-
-// MARK: - Preview
-//#Preview {
-//    RegistrationView()
-//}
