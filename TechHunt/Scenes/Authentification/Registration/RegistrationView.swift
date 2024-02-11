@@ -104,7 +104,7 @@ struct RegistrationView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .imageScale(.large)
                         .fontWeight(.bold)
-                        .foregroundStyle(.buttonBackground)
+                        .foregroundStyle(.accent)
                 } else {
                     Image(systemName: "xmark.circle.fill")
                         .imageScale(.large)

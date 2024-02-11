@@ -40,7 +40,7 @@ final class JobTableViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Helvetica-bold", size: 16)
-        label.textColor = .black
+        label.textColor = UIColor.jobsFont
         return label
     }()
     

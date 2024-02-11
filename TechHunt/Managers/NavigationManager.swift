@@ -199,7 +199,7 @@ final class NavigationManager: ObservableObject {
     func createTabbar() -> UITabBarController {
         let tabbar = UITabBarController()
         
-        UITabBar.appearance().tintColor = UIColor.buttonBackground
+        UITabBar.appearance().tintColor = UIColor.accent
         UITabBar.appearance().unselectedItemTintColor = .darkGray
         tabbar.viewControllers = [createHomeNavigationController(), createJobsNavigationController(), createProfileNavigationController()]
         

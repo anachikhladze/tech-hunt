@@ -19,7 +19,7 @@ struct CustomButton: View {
                 .font(.system(size: 16, weight: .black, design: .rounded))
                 .padding()
                 .frame(maxHeight: 48)
-                .background(Color.buttonBackground)
+                .background(Color.accent)
                 .foregroundColor(.white)
                 .cornerRadius(8)
         }

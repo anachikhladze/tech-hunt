@@ -69,7 +69,7 @@ struct HomeView: View {
     
     private var jobCardBackground: some View {
         Rectangle()
-            .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.buttonBackground]), startPoint: .topTrailing, endPoint: .bottomTrailing))
+            .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.accent]), startPoint: .topTrailing, endPoint: .bottomTrailing))
             .opacity(0.8)
     }
     
@@ -106,7 +106,7 @@ struct HomeView: View {
     
     private var trendingJobCardBackground: some View {
         Rectangle()
-            .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.buttonBackground]), startPoint: .topTrailing, endPoint: .bottomTrailing))
+            .fill(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.accent]), startPoint: .topTrailing, endPoint: .bottomTrailing))
             .opacity(0.8)
     }
     

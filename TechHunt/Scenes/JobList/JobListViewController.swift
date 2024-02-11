@@ -51,7 +51,7 @@ final class JobListViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setupBackground() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
     }
     
     private func setDelegates() {

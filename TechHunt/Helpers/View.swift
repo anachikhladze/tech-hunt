@@ -41,7 +41,7 @@ extension View {
         self
             .padding()
             .fixedSize(horizontal: false, vertical: true)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.buttonBackground]), startPoint: .topTrailing, endPoint: .bottomTrailing))
+            .background(LinearGradient(gradient: Gradient(colors: [Color.purple, Color.accent]), startPoint: .topTrailing, endPoint: .bottomTrailing))
             .opacity(0.8)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
@@ -51,7 +51,7 @@ extension View {
             .frame(maxWidth: 400)
             .padding(.horizontal)
             .opacity(0.8)
-            .background(Color.buttonBackground)
+            .background(Color.accent)
             .clipShape(RoundedRectangle(cornerRadius: 16))
     }
     
