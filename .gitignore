@@ -28,6 +28,5 @@ DerivedData/
 *~.nib
 *.swp
 *.lock
-profile
 .deviceinfo/
 
