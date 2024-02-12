@@ -78,11 +78,15 @@ final class JobDetailsViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setup() {
-        view.backgroundColor = .systemBackground
+        setupBackground()
         setupMainStackView()
         setupJobWithInformation()
         setupDescriptionLabel()
         setupSendButton()
+    }
+    
+    private func setupBackground() {
+        view.backgroundColor = .systemBackground
     }
     
     private func setupMainStackView() {
@@ -155,7 +159,7 @@ final class JobDetailsViewController: UIViewController {
         
         Task {
             let hasApplied = await viewModel.hasAppliedForJob(jobId: job.id)
-            let buttonTitle = hasApplied ? "Applied" : "Send Resume"
+            let buttonTitle = hasApplied ? "Applied" : "Apply Now"
             sendButton.setTitle(buttonTitle, for: .normal)
         }
         
