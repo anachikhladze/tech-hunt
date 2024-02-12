@@ -41,14 +41,15 @@ final class InfoStackViewComponent: UIStackView {
     
     private func setup(title: String, items: [UILabel], symbolName: String) {
         let titleLabel = UILabel()
-        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)
+        let config = UIImage.SymbolConfiguration(paletteColors: [UIColor.jobsFont])
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .medium).applying(config)
         let image = UIImage(systemName: symbolName, withConfiguration: symbolConfig)
         let attachment = NSTextAttachment()
         attachment.image = image
         let attributedString = NSMutableAttributedString(attachment: attachment)
         attributedString.append(NSAttributedString(string: " \(title)"))
         titleLabel.attributedText = attributedString
-        titleLabel.textColor = .black
+        titleLabel.textColor = UIColor.jobsFont
         titleLabel.font = UIFont.customRoundedFont(size: 18, weight: .medium)
         titleLabel.textAlignment = .left
         addArrangedSubview(titleLabel)
@@ -57,7 +58,7 @@ final class InfoStackViewComponent: UIStackView {
             var itemLabel = UILabel()
             itemLabel = item
             itemLabel.numberOfLines = 0
-            itemLabel.textColor = .black
+            itemLabel.textColor = UIColor.jobsFont
             itemLabel.textAlignment = .left
             itemLabel.font = UIFont.customRoundedFont(size: 16, weight: .light)
             addArrangedSubview(itemLabel)
