@@ -51,6 +51,7 @@ struct RegistrationView: View {
         }
     }
     
+    // MARK: - View Components
     private var signUpImage: some View {
         Image("Engineering")
             .resizable()

@@ -28,6 +28,7 @@ struct LoginView: View {
         registrationLink
     }
     
+    // MARK: - View Components
     private var bankImageView: some View {
         Image(colorScheme == .light ? "Design" : "Design")
             .resizable()

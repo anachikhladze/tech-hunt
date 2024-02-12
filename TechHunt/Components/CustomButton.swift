@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct CustomButton: View {
+    
+    // MARK: - Properties
     var buttonText: String
     var action: () -> Void
 
+    // MARK: - Body
     var body: some View {
         Button(action: {
             action()

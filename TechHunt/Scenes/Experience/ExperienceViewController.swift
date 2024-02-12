@@ -124,7 +124,6 @@ final class ExperienceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        navigationItem.title = "Experience"
     }
     
     // MARK: - Private Methods
@@ -143,6 +142,7 @@ final class ExperienceViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = false
+        navigationItem.title = "Experience"
     }
     
     private func addSubviews() {

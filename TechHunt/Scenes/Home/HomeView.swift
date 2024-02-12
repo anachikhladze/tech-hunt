@@ -28,7 +28,7 @@ struct HomeView: View {
         .environmentObject(navigationManager)
     }
     
-    // MARK: - Properties
+    // MARK: - View Components
     private var headerView: some View {
         HStack {
             Text("Welcome \(authViewModel.currentUser?.fullname ?? "")!")
