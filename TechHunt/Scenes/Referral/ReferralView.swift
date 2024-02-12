@@ -27,7 +27,7 @@ struct ReferralView: View {
         }
     }
     
-    // MARK: - Computed Properties
+    // MARK: - View Components
     private var referralImage: some View {
         Image("refer")
             .resizable()

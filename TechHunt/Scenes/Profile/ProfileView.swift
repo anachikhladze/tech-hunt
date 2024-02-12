@@ -28,7 +28,7 @@ struct ProfileView: View {
         .navigationTitle("Profile")
     }
     
-    // MARK: - Computed Properties
+    // MARK: - View Components
     private var userInfoSection: some View {
         Section() {
             HStack {
