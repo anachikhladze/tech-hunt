@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */; };
+		A10D26842B7A3235002BBA13 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A10D26832B7A3235002BBA13 /* README.md */; };
 		A11217E32B6FD36100F5B3A6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217E22B6FD36100F5B3A6 /* User.swift */; };
 		A11217E52B6FE04B00F5B3A6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217E42B6FE04B00F5B3A6 /* LoginView.swift */; };
 		A11217E72B6FE07900F5B3A6 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217E62B6FE07900F5B3A6 /* AuthViewModel.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		A10B865C2B5D4DFE00422E06 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
+		A10D26832B7A3235002BBA13 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A11217E22B6FD36100F5B3A6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A11217E42B6FE04B00F5B3A6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A11217E62B6FE07900F5B3A6 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		A181BBD72B59A6D800E68302 = {
 			isa = PBXGroup;
 			children = (
+				A10D26832B7A3235002BBA13 /* README.md */,
 				A181BBE22B59A6D800E68302 /* TechHunt */,
 				A181BBE12B59A6D800E68302 /* Products */,
 			);
@@ -394,6 +397,7 @@
 			files = (
 				A181BBF02B59A6DA00E68302 /* LaunchScreen.storyboard in Resources */,
 				A181BBED2B59A6DA00E68302 /* Assets.xcassets in Resources */,
+				A10D26842B7A3235002BBA13 /* README.md in Resources */,
 				A11CC0EE2B5C3CDA0079688D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
