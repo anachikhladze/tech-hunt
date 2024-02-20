@@ -102,6 +102,14 @@ struct ProfileView: View {
             }
             
             Button {
+                navigationManager.pushFavoriteJobsVC()
+            } label: {
+                SettingsRowView(imageName: "heart",
+                                title: "Favorite Jobs",
+                                tintColor: Color.sectionAccent)
+            }
+            
+            Button {
                 navigationManager.navigateToReferralPage()
             } label: {
                 SettingsRowView(imageName: "person.badge.plus",

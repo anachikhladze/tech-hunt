@@ -33,6 +33,34 @@ final class JobDetailsViewModel {
         return user.appliedJobs.contains(jobId)
     }
     
+    func toggleFavoriteJob(jobId: String) async {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let userRef = Firestore.firestore().collection("users").document(uid)
+        
+        guard let snapshot = try? await userRef.getDocument() else { return }
+        var user = try? snapshot.data(as: User.self)
+        
+        if let index = user?.favoriteJobs.firstIndex(of: jobId) {
+            user?.favoriteJobs.remove(at: index)
+        } else {
+            user?.favoriteJobs.append(jobId)
+        }
+        
+        if let user = user,
+           let encodedUser = try? Firestore.Encoder().encode(user) {
+            try? await userRef.setData(encodedUser)
+        }
+    }
+    
+    func isJobFavorite(jobId: String) async -> Bool {
+        guard let uid = Auth.auth().currentUser?.uid else { return false }
+        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return false }
+        guard let user = try? snapshot.data(as: User.self) else { return false }
+        
+        return user.favoriteJobs.contains(jobId)
+    }
+    
+    
     func imageForCategory(_ category: String) -> UIImage? {
         switch category {
         case "Security":

@@ -1,13 +1,13 @@
 //
-//  AppliedJobsViewController.swift
+//  FavoriteJobsViewController.swift
 //  TechHunt
 //
-//  Created by Anna Sumire on 05.02.24.
+//  Created by Anna Sumire on 20.02.24.
 //
 
 import UIKit
 
-final class AppliedJobsViewController: UIViewController {
+final class FavoriteJobsViewController: UIViewController {
     
     // MARK: - Properties
     private var jobs: [Job] = []
@@ -17,6 +17,14 @@ final class AppliedJobsViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
+    }()
+    
+    private let emptyStateView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "emptyState-2"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.isHidden = true
+        return imageView
     }()
     
     // MARK: - ViewLifeCycle
@@ -38,11 +46,12 @@ final class AppliedJobsViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = false
-        title = "Applied Jobs"
+        title = "Saved Jobs"
     }
     
     private func setupSubviews() {
         view.addSubview(tableView)
+        view.addSubview(emptyStateView)
     }
     
     private func setupConstraints() {
@@ -51,6 +60,11 @@ final class AppliedJobsViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            
+            emptyStateView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyStateView.widthAnchor.constraint(equalToConstant: 300),
+            emptyStateView.heightAnchor.constraint(equalToConstant: 300)
         ])
     }
     
@@ -62,8 +76,10 @@ final class AppliedJobsViewController: UIViewController {
     
     private func fetchAppliedJobs() {
         Task {
-            self.jobs = await viewModel.fetchAppliedJobs()
+            self.jobs = await viewModel.fetchFavoriteJobs()
             DispatchQueue.main.async {
+                let isEmpty = self.jobs.isEmpty
+                self.emptyStateView.isHidden = !isEmpty
                 self.tableView.reloadData()
             }
         }
@@ -71,7 +87,7 @@ final class AppliedJobsViewController: UIViewController {
 }
 
 // MARK: - TableVIew DataSource
-extension AppliedJobsViewController: UITableViewDataSource {
+extension FavoriteJobsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         jobs.count
     }
@@ -87,7 +103,7 @@ extension AppliedJobsViewController: UITableViewDataSource {
 }
 
 // MARK: - TableVIew Delegate
-extension AppliedJobsViewController: UITableViewDelegate {
+extension FavoriteJobsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = JobDetailsViewController(job: jobs[indexPath.row])
         vc.configure(with: jobs[indexPath.row])

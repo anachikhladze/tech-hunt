@@ -37,6 +37,7 @@ final class JobDetailsViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
         imageView.heightAnchor.constraint(equalToConstant: 210).isActive = true
         return imageView
     }()
@@ -70,6 +71,14 @@ final class JobDetailsViewController: UIViewController {
         return button
     }()
     
+    private let heartButton: UIButton = {
+        let heartButton = UIButton(type: .system)
+        heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        heartButton.tintColor = UIColor.accent
+        heartButton.translatesAutoresizingMaskIntoConstraints = false
+        return heartButton
+    }()
+    
     // MARK: - ViewLifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +92,8 @@ final class JobDetailsViewController: UIViewController {
         setupJobWithInformation()
         setupDescriptionLabel()
         setupSendButton()
+        setupHeartButtonConstraints()
+        setupHeartButton()
     }
     
     private func setupBackground() {
@@ -149,6 +160,15 @@ final class JobDetailsViewController: UIViewController {
         createInfoStackView("person.badge.clock", detail: job.type)
     }
     
+    private func setupHeartButtonConstraints() {
+        jobImageView.addSubview(heartButton)
+        
+        NSLayoutConstraint.activate([
+            heartButton.topAnchor.constraint(equalTo: jobImageView.topAnchor, constant: 8),
+            heartButton.trailingAnchor.constraint(equalTo: jobImageView.trailingAnchor, constant: -8),
+        ])
+    }
+    
     // MARK: - Configure
     func configure(with job: Job) {
         self.job = job
@@ -168,6 +188,26 @@ final class JobDetailsViewController: UIViewController {
             Task {
                 await self.viewModel.applyForJob(jobId: self.job.id)
                 self.sendButton.setTitle("Applied", for: .normal)
+            }
+        }), for: .touchUpInside)
+    }
+    
+    private func setupHeartButton() {
+        Task {
+            let isFavorite = await viewModel.isJobFavorite(jobId: job.id)
+            DispatchQueue.main.async {
+                self.heartButton.setImage(UIImage(systemName: isFavorite ? "heart.fill" : "heart"), for: .normal)
+            }
+        }
+        
+        heartButton.addAction(UIAction(handler: { [weak self] _ in
+            guard let self = self else { return }
+            Task {
+                await self.viewModel.toggleFavoriteJob(jobId: self.job.id)
+                let isFavorite = await self.viewModel.isJobFavorite(jobId: self.job.id)
+                DispatchQueue.main.async {
+                    self.heartButton.setImage(UIImage(systemName: isFavorite ? "heart.fill" : "heart"), for: .normal)
+                }
             }
         }), for: .touchUpInside)
     }

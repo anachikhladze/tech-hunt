@@ -119,6 +119,17 @@ final class NavigationManager: ObservableObject {
         }
     }
     
+    func pushFavoriteJobsVC() {
+        let favoritesVC = FavoriteJobsViewController()
+        
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
+            navigationController.pushViewController(favoritesVC, animated: true)
+        } else {
+            print("Navigation controller not found")
+        }
+    }
+    
     func pushSupportVC() {
         let supportViewController = SupportViewController(navigationManager: self)
         
