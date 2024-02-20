@@ -8,7 +8,6 @@
 import SwiftUI
 import PhotosUI
 
-@available(iOS 17.0, *)
 struct ProfileView: View {
     
     // MARK: - Properties

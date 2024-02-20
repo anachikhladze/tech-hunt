@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 17.0, *)
 struct LoginView: View {
     
     // MARK: - Properties
@@ -105,7 +104,6 @@ struct LoginView: View {
 }
 
 // MARK: - extension LoginView
-@available(iOS 17.0, *)
 extension LoginView: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return !email.isEmpty

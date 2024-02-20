@@ -15,7 +15,6 @@ protocol AuthenticationFormProtocol {
 }
 
 // MARK: - LoginViewModel
-@available(iOS 17.0, *)
 final class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?

@@ -8,7 +8,6 @@
 import SwiftUI
 import UIKit
 
-@available(iOS 17.0, *)
 final class NavigationManager: ObservableObject {
     
     private let window: UIWindow
