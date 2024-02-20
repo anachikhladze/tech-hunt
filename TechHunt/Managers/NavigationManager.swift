@@ -8,7 +8,6 @@
 import SwiftUI
 import UIKit
 
-@available(iOS 17.0, *)
 final class NavigationManager: ObservableObject {
     
     private let window: UIWindow
@@ -115,6 +114,17 @@ final class NavigationManager: ObservableObject {
         if let tabbarController = window.rootViewController as? UITabBarController,
            let navigationController = tabbarController.selectedViewController as? UINavigationController {
             navigationController.pushViewController(appliedJobsVC, animated: true)
+        } else {
+            print("Navigation controller not found")
+        }
+    }
+    
+    func pushFavoriteJobsVC() {
+        let favoritesVC = FavoriteJobsViewController()
+        
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
+            navigationController.pushViewController(favoritesVC, animated: true)
         } else {
             print("Navigation controller not found")
         }

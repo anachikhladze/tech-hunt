@@ -7,7 +7,6 @@
 
 import UIKit
 
-@available(iOS 17.0, *)
 final class RulesViewController: UIViewController {
     
     // MARK: - Properties

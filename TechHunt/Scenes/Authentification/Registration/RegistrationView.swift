@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 17.0, *)
 struct RegistrationView: View {
-    
     // MARK: - Properties
     @State private var email = ""
     @State private var fullname = ""
@@ -155,7 +153,6 @@ struct RegistrationView: View {
 
 
 // MARK: - extension RegistrationView
-@available(iOS 17.0, *)
 extension RegistrationView: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return !email.isEmpty

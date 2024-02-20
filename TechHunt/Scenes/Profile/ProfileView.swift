@@ -8,7 +8,6 @@
 import SwiftUI
 import PhotosUI
 
-@available(iOS 17.0, *)
 struct ProfileView: View {
     
     // MARK: - Properties
@@ -69,18 +68,16 @@ struct ProfileView: View {
                 Image(systemName: "gear")
                     .imageScale(.small)
                     .font(.title)
-                    .foregroundStyle(Color.sectionAccent)
                 
                 Text("Version")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
                 
                 Spacer()
                 Text("1.1")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
                 
             }
+            .foregroundStyle(Color.sectionAccent)
         }
     }
     
@@ -91,6 +88,14 @@ struct ProfileView: View {
             } label : {
                 SettingsRowView(imageName: "person",
                                 title: "My Experience",
+                                tintColor: Color.sectionAccent)
+            }
+            
+            Button {
+                navigationManager.pushFavoriteJobsVC()
+            } label: {
+                SettingsRowView(imageName: "heart",
+                                title: "Favorite Jobs",
                                 tintColor: Color.sectionAccent)
             }
             

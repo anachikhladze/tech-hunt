@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@available(iOS 17.0, *)
 struct LoginView: View {
     
     // MARK: - Properties
@@ -17,7 +16,7 @@ struct LoginView: View {
     @State private var alertMessage = ""
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var viewModel: AuthViewModel
-    @EnvironmentObject var flowCoordinator: NavigationManager
+    @EnvironmentObject var navigationManager: NavigationManager
     
     // MARK: - Body
     var body: some View {
@@ -74,7 +73,7 @@ struct LoginView: View {
             do {
                 try await viewModel.signIn(withEmail: email, password: password) { success in
                     if success {
-                        flowCoordinator.navigateToMainViewScreen()
+                        navigationManager.navigateToMainViewScreen()
                     } else {
                         showingAlert = true
                     }
@@ -92,7 +91,7 @@ struct LoginView: View {
     
     private var registrationLink: some View {
         Button {
-            flowCoordinator.showRegistrationPage()
+            navigationManager.showRegistrationPage()
         } label: {
             HStack(spacing: 2) {
                 Text("Don't have an account? ")
@@ -105,7 +104,6 @@ struct LoginView: View {
 }
 
 // MARK: - extension LoginView
-@available(iOS 17.0, *)
 extension LoginView: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return !email.isEmpty
