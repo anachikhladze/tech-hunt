@@ -84,6 +84,14 @@ struct ProfileView: View {
     private var accountSection: some View {
         Section("Categories") {
             Button {
+                navigationManager.pushRulesVC()
+            } label: {
+                SettingsRowView(imageName: "doc.text",
+                                title: "How to use?",
+                                tintColor: Color.sectionAccent)
+            }
+            
+            Button {
                 navigationManager.navigateToExperienceVC()
             } label : {
                 SettingsRowView(imageName: "person",
@@ -92,18 +100,18 @@ struct ProfileView: View {
             }
             
             Button {
-                navigationManager.pushFavoriteJobsVC()
-            } label: {
-                SettingsRowView(imageName: "heart",
-                                title: "Favorite Jobs",
-                                tintColor: Color.sectionAccent)
-            }
-            
-            Button {
                 navigationManager.pushAppliedJobsVC()
             } label: {
                 SettingsRowView(imageName: "arrow.up.doc",
                                 title: "Applied Jobs",
+                                tintColor: Color.sectionAccent)
+            }
+            
+            Button {
+                navigationManager.pushFavoriteJobsVC()
+            } label: {
+                SettingsRowView(imageName: "heart",
+                                title: "Favorite Jobs",
                                 tintColor: Color.sectionAccent)
             }
             
@@ -120,14 +128,6 @@ struct ProfileView: View {
             } label: {
                 SettingsRowView(imageName: "questionmark.circle",
                                 title: "Support",
-                                tintColor: Color.sectionAccent)
-            }
-            
-            Button {
-                navigationManager.pushRulesVC()
-            } label: {
-                SettingsRowView(imageName: "doc.text",
-                                title: "How to use?",
                                 tintColor: Color.sectionAccent)
             }
             
