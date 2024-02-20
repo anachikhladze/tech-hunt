@@ -68,18 +68,16 @@ struct ProfileView: View {
                 Image(systemName: "gear")
                     .imageScale(.small)
                     .font(.title)
-                    .foregroundStyle(Color.sectionAccent)
                 
                 Text("Version")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
                 
                 Spacer()
                 Text("1.1")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
                 
             }
+            .foregroundStyle(Color.sectionAccent)
         }
     }
     
@@ -94,18 +92,18 @@ struct ProfileView: View {
             }
             
             Button {
-                navigationManager.pushAppliedJobsVC()
-            } label: {
-                SettingsRowView(imageName: "arrow.up.doc",
-                                title: "Applied Jobs",
-                                tintColor: Color.sectionAccent)
-            }
-            
-            Button {
                 navigationManager.pushFavoriteJobsVC()
             } label: {
                 SettingsRowView(imageName: "heart",
                                 title: "Favorite Jobs",
+                                tintColor: Color.sectionAccent)
+            }
+            
+            Button {
+                navigationManager.pushAppliedJobsVC()
+            } label: {
+                SettingsRowView(imageName: "arrow.up.doc",
+                                title: "Applied Jobs",
                                 tintColor: Color.sectionAccent)
             }
             

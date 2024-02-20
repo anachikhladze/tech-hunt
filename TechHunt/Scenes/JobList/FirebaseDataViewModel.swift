@@ -29,7 +29,7 @@ final class FirebaseDataViewModel: ObservableObject {
         fetchJobs()
     }
     
-    // MARK: - JobListViewModel Methods
+    // MARK: - FirebaseDataViewModel Methods
     func fetchJobs() {
         jobs.removeAll()
         

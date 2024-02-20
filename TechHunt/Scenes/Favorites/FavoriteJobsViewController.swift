@@ -36,6 +36,10 @@ final class FavoriteJobsViewController: UIViewController {
         setupSubviews()
         setupConstraints()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchAppliedJobs()
     }
     
@@ -46,7 +50,7 @@ final class FavoriteJobsViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = false
-        title = "Saved Jobs"
+        navigationItem.title = "Favorites"
     }
     
     private func setupSubviews() {

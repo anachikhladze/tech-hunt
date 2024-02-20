@@ -38,7 +38,7 @@ final class AppliedJobsViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = false
-        title = "Applied Jobs"
+        navigationItem.title = "Applied Jobs"
     }
     
     private func setupSubviews() {

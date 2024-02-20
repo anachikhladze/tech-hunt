@@ -174,6 +174,7 @@ final class JobDetailsViewController: UIViewController {
         self.job = job
     }
     
+    // MARK: - Setup Buttons
     private func setupSendButton() {
         mainStackView.addArrangedSubview(sendButton)
         
