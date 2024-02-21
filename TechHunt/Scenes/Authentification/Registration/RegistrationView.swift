@@ -69,7 +69,7 @@ struct RegistrationView: View {
                       title: "Email Address",
                       placeholder: "name@gmail.com")
             .textInputAutocapitalization(.never)
-            .onChange(of: email) { newValue in
+            .onChange(of: email) { _, _ in
                 validateEmail()
             }
             
@@ -81,7 +81,7 @@ struct RegistrationView: View {
                       title: "Password",
                       placeholder: "Enter your password",
                       isSecureField: true)
-            .onChange(of: password) { newValue in
+            .onChange(of: password) { _, _ in
                 validatePassword()
             }
             
