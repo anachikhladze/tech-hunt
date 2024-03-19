@@ -54,6 +54,18 @@ final class NavigationManager: ObservableObject {
         }
     }
     
+    func navigateToLoginPage() {
+        let loginView = LoginView()
+        
+        let hostingView = UIHostingController(rootView: loginView)
+        if let navigationController = window.rootViewController as? UINavigationController {
+            navigationController.pushViewController(hostingView, animated: true)
+            navigationController.navigationBar.isHidden = true
+        } else {
+            print("Navigation controller not found")
+        }
+    }
+    
     func navigateToRulesVC() {
         let rulesViewController = RulesViewController()
         
