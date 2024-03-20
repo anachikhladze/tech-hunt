@@ -14,8 +14,8 @@ final class JobListViewController: UIViewController {
     private var jobs: [Job] = []
     
     private let categories = [
-        "Development", "Architecture", "Data Science", "Design",
-        "Engeneering", "Infrastructure", "Product Management",
+        "All Jobs", "Development", "Architecture", "Data Science", "Design",
+        "Data Engineering", "Infrastructure", "Product Management",
     ]
     
     private let tableView: UITableView = {
@@ -113,15 +113,15 @@ final class JobListViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 80), // adjust this as needed
-
+            collectionView.heightAnchor.constraint(equalToConstant: 80),
+            
             tableView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
     }
-
+    
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -164,9 +164,16 @@ extension JobListViewController: UITableViewDelegate {
 
 // MARK: - JobListViewModelDelegate
 extension JobListViewController: JobListViewModelDelegate {
-    func didFetchJobs() {
+    func didUpdateJobs() {
         DispatchQueue.main.async {
             self.jobs = self.viewModel.jobs
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didFetchJobs() {
+        DispatchQueue.main.async {
+            self.jobs = self.viewModel.allJobs
             self.tableView.reloadData()
         }
     }
@@ -191,6 +198,11 @@ extension JobListViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
         cell.configure(with: categories[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCategory = categories[indexPath.row]
+        viewModel.filterJobByCategory(selectedCategory)
     }
 }
 
