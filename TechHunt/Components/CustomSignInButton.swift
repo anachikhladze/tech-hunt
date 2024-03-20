@@ -29,7 +29,8 @@ struct CustomSignInButton: View {
             .frame(width: UIScreen.main.bounds.width - 32, height: 48)
         }
         .background(Color.accent)
-        .cornerRadius(10)
+        .cornerRadius(24)
+        .clipped()
         .padding(.top, 24)
     }
 }

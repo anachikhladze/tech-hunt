@@ -27,6 +27,9 @@
 		A11CC10D2B5C3EDB0079688D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A11CC10C2B5C3EDB0079688D /* FirebaseFirestoreSwift */; };
 		A11CC1232B5C3EDB0079688D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A11CC1222B5C3EDB0079688D /* FirebaseStorage */; };
 		A11CC1272B5C48B50079688D /* FirebaseDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */; };
+		A128A6822BAA1371008F6D1E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */; };
+		A128A6842BAA28F2008F6D1E /* UIColor+Ext..swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */; };
+		A128A6862BAA334F008F6D1E /* MainButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */; };
 		A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14DB82E2B60316C00EF545D /* HomeView.swift */; };
 		A17C43592B6D62EE00BB9600 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C43582B6D62EE00BB9600 /* RulesViewController.swift */; };
 		A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181BBE32B59A6D800E68302 /* AppDelegate.swift */; };
@@ -68,6 +71,9 @@
 		A11CC0EB2B5C2DB00079688D /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		A11CC0ED2B5C3CDA0079688D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataViewModel.swift; sourceTree = "<group>"; };
+		A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext..swift"; sourceTree = "<group>"; };
+		A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonComponent.swift; sourceTree = "<group>"; };
 		A14DB82E2B60316C00EF545D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A17C43582B6D62EE00BB9600 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		A181BBE02B59A6D800E68302 /* TechHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +158,14 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		A128A6802BAA1268008F6D1E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		A14DB82C2B60204700EF545D /* JobDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +238,7 @@
 		A181BBF82B59A70B00E68302 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A128A6802BAA1268008F6D1E /* Onboarding */,
 				A181BBFD2B59A7C100E68302 /* Authentification */,
 				A14DB82D2B60313200EF545D /* Home */,
 				A11CC0E52B5C28C00079688D /* JobList */,
@@ -263,6 +278,7 @@
 				A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */,
 				A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */,
 				A1D709572B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift */,
+				A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */,
 				A1AAF83C2B72A7BF00E1CEDD /* View.swift */,
 			);
 			path = Helpers;
@@ -277,6 +293,7 @@
 				A11217ED2B6FE14E00F5B3A6 /* InputView.swift */,
 				A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */,
 				A1D709512B6AAB7A00DAC3D7 /* InfoStackViewComponent.swift */,
+				A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -420,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A128A6842BAA28F2008F6D1E /* UIColor+Ext..swift in Sources */,
 				A11217E32B6FD36100F5B3A6 /* User.swift in Sources */,
 				A11217EE2B6FE14E00F5B3A6 /* InputView.swift in Sources */,
 				A1D709542B6AABF800DAC3D7 /* ExperienceViewController.swift in Sources */,
@@ -435,6 +453,7 @@
 				A1F9052D2B790BD700EB348C /* ExperienceViewModel.swift in Sources */,
 				A1AAF8382B72749A00E1CEDD /* SupportViewController.swift in Sources */,
 				A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */,
+				A128A6862BAA334F008F6D1E /* MainButtonComponent.swift in Sources */,
 				A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */,
 				A1D709582B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift in Sources */,
 				A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */,
@@ -443,6 +462,7 @@
 				A1AAF83B2B72A77B00E1CEDD /* ReferralView.swift in Sources */,
 				A11217F02B6FE23A00F5B3A6 /* CustomSignInButton.swift in Sources */,
 				A11217EA2B6FE0F700F5B3A6 /* RegistrationView.swift in Sources */,
+				A128A6822BAA1371008F6D1E /* OnboardingViewController.swift in Sources */,
 				A11CC1272B5C48B50079688D /* FirebaseDataViewModel.swift in Sources */,
 				A1F905292B7906DC00EB348C /* HomeViewModel.swift in Sources */,
 				A191190A2B655168001E1D61 /* ProfileView.swift in Sources */,
