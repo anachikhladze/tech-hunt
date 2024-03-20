@@ -5,33 +5,23 @@
 //  Created by Anna Sumire on 19.03.24.
 //
 
-
 import UIKit
 
 final class OnboardingViewController: UIViewController {
     
+    // MARK: - Properties
     let navigationManager: NavigationManager
     
-    init(navigationManager: NavigationManager) {
-        self.navigationManager = navigationManager
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Properties
-    private let onboardingBackgroundImageView: UIImageView = {
+    private let onBoardingImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "rocket")
+        imageView.image = UIImage(named: "working-lady")
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private lazy var mainStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [welcomeTextStackView, tryItButton])
+        let stackView = UIStackView(arrangedSubviews: [welcomeTextStackView, getStartedButton])
         stackView.axis = .vertical
         stackView.spacing = 32
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +39,7 @@ final class OnboardingViewController: UIViewController {
         let label = UILabel()
         label.text = "Welcome to TechHunt"
         label.font = .customRoundedFont(size: 32, weight: .black)
+        label.adjustsFontSizeToFitWidth = true
         label.textColor = .jobsFont
         return label
     }()
@@ -62,11 +53,21 @@ final class OnboardingViewController: UIViewController {
         return label
     }()
     
-    private lazy var tryItButton: MainButtonComponent = {
+    private lazy var getStartedButton: MainButtonComponent = {
         let button = MainButtonComponent (text: "GET STARTED")
-        button.addTarget(self, action: #selector(tryButtonDidTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(getStartedButtonDidTap), for: .touchUpInside)
         return button
     }()
+    
+    // MARK: - Init
+    init(navigationManager: NavigationManager) {
+        self.navigationManager = navigationManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
@@ -86,16 +87,15 @@ final class OnboardingViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        view.addSubview(onboardingBackgroundImageView)
+        view.addSubview(onBoardingImageView)
         view.addSubview(mainStackView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            onboardingBackgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            onboardingBackgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            onboardingBackgroundImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            onboardingBackgroundImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            onBoardingImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            onBoardingImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            onBoardingImageView.bottomAnchor.constraint(equalTo: mainStackView.topAnchor, constant: -60),
             
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -103,22 +103,7 @@ final class OnboardingViewController: UIViewController {
         ])
     }
     
-    //    private func animateImageScroll() {
-    //        UIView.animate(withDuration: 1.5, delay: 0.0,
-    //                       options: [.beginFromCurrentState],
-    //                       animations: {
-    //            self.onboardingBackgroundImageView.transform = CGAffineTransform(
-    //                translationX: 0,
-    //                y: -self.view.frame.height / 4.0)
-    //        }, completion: nil)
-    //    }
-    
-    @objc func tryButtonDidTap() {
-        //        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseOut], animations: {
-        //            // Change the center of the imageView to the top leading corner
-        //            self.onboardingBackgroundImageView.center = CGPoint(x: 0, y: 0)
-        //        }) { _ in
-        self.navigationManager.showRootView()
-//    }
+    @objc func getStartedButtonDidTap() {
+        navigationManager.showRootView()
     }
 }
