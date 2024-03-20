@@ -149,3 +149,4 @@ extension JobListViewController: UISearchBarDelegate {
         }
     }
 }
+
