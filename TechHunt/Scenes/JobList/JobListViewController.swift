@@ -56,6 +56,7 @@ final class JobListViewController: UIViewController {
         setupTableView()
         
         setDelegates()
+        selectDefaultItem()
         setupSearchController()
         setupNavigationItems()
     }
@@ -83,6 +84,10 @@ final class JobListViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    
+    private func selectDefaultItem() {
+        collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .left)
     }
     
     private func setupSearchController() {

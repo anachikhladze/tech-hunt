@@ -8,6 +8,7 @@
 import UIKit
 
 final class CategoryCollectionViewCell: UICollectionViewCell {
+    
     static let identifier = "categoryCell"
 
     private let titleLabel: UILabel = {
@@ -17,11 +18,17 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
         label.font = .customRoundedFont(size: 16, weight: .medium)
         return label
     }()
+    
+    override var isSelected: Bool {
+        didSet {
+            contentView.backgroundColor = isSelected ? .accent : .systemGray5
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(titleLabel)
-        contentView.backgroundColor = .accent
+        contentView.backgroundColor = .systemGray5
         contentView.layer.cornerRadius = 26
         contentView.clipsToBounds = true
     }
