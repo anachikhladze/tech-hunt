@@ -13,18 +13,23 @@ protocol JobListViewModelDelegate: AnyObject {
     func didFetchJobs()
 }
 
-final class JobListViewModel {
+final class FirebaseDataViewModel: ObservableObject {
     
     // MARK: - Properties
     weak var delegate: JobListViewModelDelegate?
-    var jobs: [Job] = []
+    @Published var jobs: [Job] = []
+    @Published var appliedJobs: [Job] = []
     
     // MARK: - Initialization
     init() {
         fetchJobs()
     }
     
-    // MARK: - JobListViewModel Methods
+    func viewWillAppear() {
+        fetchJobs()
+    }
+    
+    // MARK: - FirebaseDataViewModel Methods
     func fetchJobs() {
         jobs.removeAll()
         
@@ -85,6 +90,23 @@ final class JobListViewModel {
             }
         }
     }
+    
+    func fetchAppliedJobs() async -> [Job] {
+        guard let uid = Auth.auth().currentUser?.uid else { return [] }
+        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return [] }
+        guard let user = try? snapshot.data(as: User.self) else { return [] }
+        
+        return jobs.filter { user.appliedJobs.contains($0.id) }
+    }
+    
+    func fetchFavoriteJobs() async -> [Job] {
+        guard let uid = Auth.auth().currentUser?.uid else { return [] }
+        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return [] }
+        guard let user = try? snapshot.data(as: User.self) else { return [] }
+        
+        return jobs.filter { user.favoriteJobs.contains($0.id) }
+    }
+    
     
     func imageForCategory(_ category: String) -> UIImage? {
         switch category {
