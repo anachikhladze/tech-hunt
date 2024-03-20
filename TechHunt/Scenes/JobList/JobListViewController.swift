@@ -13,10 +13,26 @@ final class JobListViewController: UIViewController {
     private let viewModel = FirebaseDataViewModel()
     private var jobs: [Job] = []
     
+    private let categories = [
+        "Development", "Architecture", "Data Science", "Design",
+        "Engeneering", "Infrastructure", "Product Management",
+    ]
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
+    }()
+    
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "categoryCell")
+        collectionView.backgroundColor = .systemBackground
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
     }()
     
     private let searchController: UISearchController = {
@@ -49,6 +65,13 @@ final class JobListViewController: UIViewController {
         viewModel.viewWillAppear()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = CGRect(x: 6, y: 80,
+                                      width: view.frame.size.width,
+                                      height: 80)
+    }
+    
     // MARK: - Private Methods
     private func setupBackground() {
         view.backgroundColor = .systemBackground
@@ -57,6 +80,9 @@ final class JobListViewController: UIViewController {
     private func setDelegates() {
         viewModel.delegate = self
         searchController.searchBar.delegate = self
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     private func setupSearchController() {
@@ -78,18 +104,24 @@ final class JobListViewController: UIViewController {
     }
     
     private func setupSubviews() {
+        view.addSubview(collectionView)
         view.addSubview(tableView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: 80), // adjust this as needed
+
+            tableView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
         ])
     }
-    
+
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -130,7 +162,6 @@ extension JobListViewController: UITableViewDelegate {
     }
 }
 
-
 // MARK: - JobListViewModelDelegate
 extension JobListViewController: JobListViewModelDelegate {
     func didFetchJobs() {
@@ -150,3 +181,25 @@ extension JobListViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: - UICollectionViewDataSource
+extension JobListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+        cell.configure(with: categories[indexPath.row])
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension JobListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let label = UILabel()
+        label.text = categories[indexPath.row]
+        label.sizeToFit()
+        return CGSize(width: label.frame.width + 40, height: 50)
+    }
+}

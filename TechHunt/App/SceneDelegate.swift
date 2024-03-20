@@ -12,17 +12,17 @@ import SwiftUI
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-//    private lazy var navigationManager = NavigationManager(window: window!)
+    private lazy var navigationManager = NavigationManager(window: window!)
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
         window = UIWindow(windowScene: windowScene)
-//        navigationManager.navigateToInitialScreen()
+        navigationManager.navigateToInitialScreen()
         
 //        window?.rootViewController = UINavigationController(rootViewController: OnboardingViewController(navigationManager: NavigationManager(window: window!)) )
         
-        window?.rootViewController = UINavigationController(rootViewController: CategoriesViewController())
+        
         window?.makeKeyAndVisible()
     }
 }
