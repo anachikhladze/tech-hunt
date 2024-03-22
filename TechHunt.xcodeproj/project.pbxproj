@@ -30,6 +30,7 @@
 		A128A6822BAA1371008F6D1E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */; };
 		A128A6842BAA28F2008F6D1E /* UIColor+Ext..swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */; };
 		A128A6862BAA334F008F6D1E /* MainButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */; };
+		A14D1D772BAB48AA00F93993 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D1D762BAB48AA00F93993 /* CategoryCollectionViewCell.swift */; };
 		A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14DB82E2B60316C00EF545D /* HomeView.swift */; };
 		A17C43592B6D62EE00BB9600 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C43582B6D62EE00BB9600 /* RulesViewController.swift */; };
 		A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A181BBE32B59A6D800E68302 /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 		A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext..swift"; sourceTree = "<group>"; };
 		A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonComponent.swift; sourceTree = "<group>"; };
+		A14D1D762BAB48AA00F93993 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		A14DB82E2B60316C00EF545D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A17C43582B6D62EE00BB9600 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		A181BBE02B59A6D800E68302 /* TechHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 		A11CC0E52B5C28C00079688D /* JobList */ = {
 			isa = PBXGroup;
 			children = (
+				A14D1D752BAB488F00F93993 /* CollectionViewCell */,
 				A11CC0E82B5C2CF50079688D /* TableViewCell */,
 				A11CC0E92B5C2D230079688D /* JobListViewController.swift */,
 				A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */,
@@ -164,6 +167,14 @@
 				A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A14D1D752BAB488F00F93993 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A14D1D762BAB48AA00F93993 /* CategoryCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		A14DB82C2B60204700EF545D /* JobDetails */ = {
@@ -477,6 +488,7 @@
 				A181BBE42B59A6D800E68302 /* AppDelegate.swift in Sources */,
 				A181BBE62B59A6D800E68302 /* SceneDelegate.swift in Sources */,
 				A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */,
+				A14D1D772BAB48AA00F93993 /* CategoryCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

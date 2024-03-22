@@ -11,12 +11,13 @@ import Firebase
 // MARK: - JobListViewModelDelegate
 protocol JobListViewModelDelegate: AnyObject {
     func didFetchJobs()
+    func didUpdateJobs()
 }
-
 final class FirebaseDataViewModel: ObservableObject {
     
     // MARK: - Properties
     weak var delegate: JobListViewModelDelegate?
+    @Published var allJobs: [Job] = []
     @Published var jobs: [Job] = []
     @Published var appliedJobs: [Job] = []
     
@@ -31,7 +32,7 @@ final class FirebaseDataViewModel: ObservableObject {
     
     // MARK: - FirebaseDataViewModel Methods
     func fetchJobs() {
-        jobs.removeAll()
+        allJobs.removeAll()
         
         let db = Firestore.firestore()
         let ref = db.collection("Jobs")
@@ -53,7 +54,7 @@ final class FirebaseDataViewModel: ObservableObject {
                     let category = data["category"] as? String ?? ""
                     
                     let job = Job(id: id, title: title, company: company, description: description, type: type, category: category)
-                    self.jobs.append(job)
+                    self.allJobs.append(job)
                 }
                 self.delegate?.didFetchJobs()
             }
@@ -70,7 +71,7 @@ final class FirebaseDataViewModel: ObservableObject {
             }
             
             if let snapshot = snapshot {
-                self.jobs.removeAll()
+                self.allJobs.removeAll()
                 for document in snapshot.documents {
                     let data = document.data()
                     
@@ -83,7 +84,7 @@ final class FirebaseDataViewModel: ObservableObject {
                     
                     if title.lowercased().contains(withSearchText.lowercased()) {
                         let job = Job(id: id, title: title, company: company, description: description, type: type, category: category)
-                        self.jobs.append(job)
+                        self.allJobs.append(job)
                     }
                 }
                 self.delegate?.didFetchJobs()
@@ -96,7 +97,7 @@ final class FirebaseDataViewModel: ObservableObject {
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return [] }
         guard let user = try? snapshot.data(as: User.self) else { return [] }
         
-        return jobs.filter { user.appliedJobs.contains($0.id) }
+        return allJobs.filter { user.appliedJobs.contains($0.id) }
     }
     
     func fetchFavoriteJobs() async -> [Job] {
@@ -104,10 +105,9 @@ final class FirebaseDataViewModel: ObservableObject {
         guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else { return [] }
         guard let user = try? snapshot.data(as: User.self) else { return [] }
         
-        return jobs.filter { user.favoriteJobs.contains($0.id) }
+        return allJobs.filter { user.favoriteJobs.contains($0.id) }
     }
-    
-    
+
     func imageForCategory(_ category: String) -> UIImage? {
         switch category {
         case "Security":
@@ -130,5 +130,31 @@ final class FirebaseDataViewModel: ObservableObject {
             print("Invalid department")
             return nil
         }
+    }
+    
+    func filterJobByCategory(_ category: String) {
+        switch category {
+        case "Development":
+            jobs = allJobs.filter { $0.category == "Development" }
+        case "Data Science":
+            jobs = allJobs.filter { $0.category == "Data Science" }
+        case "Design":
+            jobs = allJobs.filter { $0.category == "Design" }
+        case "Data Engineering":
+            jobs = allJobs.filter { $0.category == "Data Engineering" }
+        case "Architecture":
+            jobs = allJobs.filter { $0.category == "Architecture" }
+        case "Infrastructure":
+            jobs = allJobs.filter { $0.category == "Infrastructure" }
+        case "Security":
+            jobs = allJobs.filter { $0.category == "Security" }
+        case "Product Management":
+            jobs = allJobs.filter { $0.category == "Product Management" }
+        case "All Jobs":
+            jobs = allJobs
+        default:
+            jobs = allJobs
+        }
+        delegate?.didUpdateJobs()
     }
 }

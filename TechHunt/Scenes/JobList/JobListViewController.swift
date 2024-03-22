@@ -13,10 +13,26 @@ final class JobListViewController: UIViewController {
     private let viewModel = FirebaseDataViewModel()
     private var jobs: [Job] = []
     
+    private let categories = [
+        "All Jobs", "Development", "Architecture", "Data Science", "Design",
+        "Data Engineering", "Infrastructure", "Product Management",
+    ]
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
+    }()
+    
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "categoryCell")
+        collectionView.backgroundColor = .systemBackground
+        collectionView.showsHorizontalScrollIndicator = false
+        return collectionView
     }()
     
     private let searchController: UISearchController = {
@@ -40,6 +56,7 @@ final class JobListViewController: UIViewController {
         setupTableView()
         
         setDelegates()
+        selectDefaultItem()
         setupSearchController()
         setupNavigationItems()
     }
@@ -47,6 +64,13 @@ final class JobListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.viewWillAppear()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = CGRect(x: 6, y: 80,
+                                      width: view.frame.size.width,
+                                      height: 80)
     }
     
     // MARK: - Private Methods
@@ -57,6 +81,13 @@ final class JobListViewController: UIViewController {
     private func setDelegates() {
         viewModel.delegate = self
         searchController.searchBar.delegate = self
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+    private func selectDefaultItem() {
+        collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .left)
     }
     
     private func setupSearchController() {
@@ -78,12 +109,18 @@ final class JobListViewController: UIViewController {
     }
     
     private func setupSubviews() {
+        view.addSubview(collectionView)
         view.addSubview(tableView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: 80),
+            
+            tableView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
@@ -130,12 +167,18 @@ extension JobListViewController: UITableViewDelegate {
     }
 }
 
-
 // MARK: - JobListViewModelDelegate
 extension JobListViewController: JobListViewModelDelegate {
-    func didFetchJobs() {
+    func didUpdateJobs() {
         DispatchQueue.main.async {
             self.jobs = self.viewModel.jobs
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didFetchJobs() {
+        DispatchQueue.main.async {
+            self.jobs = self.viewModel.allJobs
             self.tableView.reloadData()
         }
     }
@@ -147,5 +190,33 @@ extension JobListViewController: UISearchBarDelegate {
         if searchText.isEmpty {
             viewModel.fetchJobs()
         }
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension JobListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+        cell.configure(with: categories[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCategory = categories[indexPath.row]
+        viewModel.filterJobByCategory(selectedCategory)
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension JobListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let label = UILabel()
+        label.text = categories[indexPath.row]
+        label.sizeToFit()
+        return CGSize(width: label.frame.width + 40, height: 50)
     }
 }

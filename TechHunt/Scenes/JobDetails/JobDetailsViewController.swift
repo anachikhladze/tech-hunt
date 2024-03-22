@@ -46,6 +46,7 @@ final class JobDetailsViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = UIColor.jobsFont
+        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.customRoundedFont(size: 17, weight: .light)
         return label
     }()
@@ -59,15 +60,8 @@ final class JobDetailsViewController: UIViewController {
         return stackView
     }()
     
-    private let sendButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Send Resume", for: .normal)
-        button.titleLabel?.textColor = .white
-        button.titleLabel?.font = UIFont.customRoundedFont(size: 17, weight: .black)
-        button.backgroundColor = UIColor.accent
-        button.layer.cornerRadius = 10
-        button.heightAnchor.constraint(equalToConstant: 46).isActive = true
-        
+    private lazy var sendButton: MainButtonComponent = {
+        let button = MainButtonComponent (text: "Send Resume")
         return button
     }()
     
