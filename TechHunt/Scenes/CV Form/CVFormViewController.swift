@@ -26,7 +26,8 @@ final class CVFormViewController: UIViewController {
     let contactNumberField = CustomTextField()
     let emailField = CustomTextField()
     let linkedInField = CustomTextField()
-    let saveButton = UIButton(type: .system)
+    let saveButton = MainButtonComponent(text: "Save Info")
+    let backgroundImageView = UIImageView()
     let stackView = UIStackView()
     
     var fullName: String { return fullNameField.text ?? "" }
@@ -55,16 +56,18 @@ final class CVFormViewController: UIViewController {
         
         addSubviews()
         configureStackView()
-        setStackViewConstraints()
+        setConstraints()
         setBackgroundColor()
         setNavigationTitle()
         configureTextFields()
         configureSaveButton()
+        configureBackgroundImageView()
         setLabelsWithCurrentInfo()
     }
     
     // MARK: - Private Methods
     private func addSubviews() {
+        view.addSubview(backgroundImageView)
         view.addSubview(stackView)
     }
     
@@ -76,8 +79,12 @@ final class CVFormViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func setStackViewConstraints() {
+    private func setConstraints() {
         NSLayoutConstraint.activate([
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -113,14 +120,15 @@ final class CVFormViewController: UIViewController {
     }
     
     private func configureSaveButton() {
-        saveButton.setTitle("Save Info", for: .normal)
-        saveButton.setTitleColor(.white, for: .normal)
-        saveButton.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
-        saveButton.backgroundColor = UIColor.accent
-        saveButton.layer.cornerRadius = 14
-        saveButton.heightAnchor.constraint(equalToConstant: 46).isActive = true
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         stackView.addArrangedSubview(saveButton)
+    }
+    
+    private func configureBackgroundImageView() {
+        backgroundImageView.image = UIImage(named: "working-lady")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.alpha = 0.2
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setLabelsWithCurrentInfo() {
