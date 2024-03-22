@@ -17,16 +17,17 @@ final class CVFormViewController: UIViewController {
     // MARK: - Properties
     weak var delegate: CVFormViewControllerDelegate?
     
-    let fullNameField = UITextField()
-    let schoolField = UITextField()
-    let experienceField1 = UITextField()
-    let experienceField2 = UITextField()
-    let experienceField3 = UITextField()
-    let languagesField = UITextField()
-    let contactNumberField = UITextField()
-    let emailField = UITextField()
-    let linkedInField = UITextField()
-    let saveButton = UIButton(type: .system)
+    let fullNameField = CustomTextField()
+    let schoolField = CustomTextField()
+    let experienceField1 = CustomTextField()
+    let experienceField2 = CustomTextField()
+    let experienceField3 = CustomTextField()
+    let languagesField = CustomTextField()
+    let contactNumberField = CustomTextField()
+    let emailField = CustomTextField()
+    let linkedInField = CustomTextField()
+    let saveButton = MainButtonComponent(text: "Save Info")
+    let backgroundImageView = UIImageView()
     let stackView = UIStackView()
     
     var fullName: String { return fullNameField.text ?? "" }
@@ -55,16 +56,18 @@ final class CVFormViewController: UIViewController {
         
         addSubviews()
         configureStackView()
-        setStackViewConstraints()
+        setConstraints()
         setBackgroundColor()
         setNavigationTitle()
         configureTextFields()
         configureSaveButton()
+        configureBackgroundImageView()
         setLabelsWithCurrentInfo()
     }
     
     // MARK: - Private Methods
     private func addSubviews() {
+        view.addSubview(backgroundImageView)
         view.addSubview(stackView)
     }
     
@@ -76,8 +79,12 @@ final class CVFormViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func setStackViewConstraints() {
+    private func setConstraints() {
         NSLayoutConstraint.activate([
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -96,26 +103,32 @@ final class CVFormViewController: UIViewController {
     
     private func configureTextFields() {
         let fields = [fullNameField, schoolField, experienceField1, experienceField2, experienceField3, languagesField, contactNumberField, emailField, linkedInField]
-        let placeholders = ["Full Name", "School/University", "Experience 1", "Experience 2", "Experience 3", "Languages", "Contact Number", "Email Address", "LinkedIn Profile"]
         
-        for (field, placeholder) in zip(fields, placeholders) {
-            field.borderStyle = .roundedRect
-            field.placeholder = placeholder
-            field.textColor = UIColor.label
-            field.backgroundColor = UIColor.systemBackground
+        fullNameField.configure(placeholder: "Full Name", keyboardType: .default, icon: UIImage(systemName: "person.fill"), isSecure: false)
+        schoolField.configure(placeholder: "School/University", keyboardType: .default, icon: UIImage(systemName: "graduationcap.fill"), isSecure: false)
+        experienceField1.configure(placeholder: "Full Name", keyboardType: .default, icon: UIImage(systemName: "briefcase.fill"), isSecure: false)
+        experienceField2.configure(placeholder: "Experience 1", keyboardType: .default, icon: UIImage(systemName: "briefcase.fill"), isSecure: false)
+        experienceField3.configure(placeholder: "Experience 2", keyboardType: .default, icon: UIImage(systemName: "briefcase.fill"), isSecure: false)
+        languagesField.configure(placeholder: "Experience 3", keyboardType: .default, icon: UIImage(systemName: "globe"), isSecure: false)
+        contactNumberField.configure(placeholder: "Languages", keyboardType: .default, icon: UIImage(systemName: "phone.fill"), isSecure: false)
+        emailField.configure(placeholder: "Email Address", keyboardType: .default, icon: UIImage(systemName: "envelope.fill"), isSecure: false)
+        linkedInField.configure(placeholder: "LinkedIn Profile", keyboardType: .default, icon: UIImage(systemName: "rectangle.stack.fill.badge.person.crop"), isSecure: false)
+        
+        for field in fields {
             stackView.addArrangedSubview(field)
         }
     }
     
     private func configureSaveButton() {
-        saveButton.setTitle("Save Info", for: .normal)
-        saveButton.setTitleColor(.white, for: .normal)
-        saveButton.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
-        saveButton.backgroundColor = UIColor.accent
-        saveButton.layer.cornerRadius = 14
-        saveButton.heightAnchor.constraint(equalToConstant: 46).isActive = true
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         stackView.addArrangedSubview(saveButton)
+    }
+    
+    private func configureBackgroundImageView() {
+        backgroundImageView.image = UIImage(named: "working-lady")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.alpha = 0.2
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setLabelsWithCurrentInfo() {

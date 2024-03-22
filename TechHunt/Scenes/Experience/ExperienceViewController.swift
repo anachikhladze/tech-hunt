@@ -28,17 +28,6 @@ final class ExperienceViewController: UIViewController {
         return stackView
     }()
     
-    private let editButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Edit Info", for: .normal)
-        button.titleLabel?.textColor = .white
-        button.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
-        button.backgroundColor = UIColor.accent
-        button.layer.cornerRadius = 14
-        button.heightAnchor.constraint(equalToConstant: 46).isActive = true
-        return button
-    }()
-    
     private let fullNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -119,6 +108,8 @@ final class ExperienceViewController: UIViewController {
         label.font = UIFont.customRoundedFont(size: 16, weight: .light)
         return label
     }()
+    
+    private let editButton = MainButtonComponent(text: "Edit Info")
     
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {

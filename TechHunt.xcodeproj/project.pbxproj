@@ -18,6 +18,7 @@
 		A11217F02B6FE23A00F5B3A6 /* CustomSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */; };
 		A11217F92B714CAC00F5B3A6 /* AppliedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11217F82B714CAC00F5B3A6 /* AppliedJobsViewController.swift */; };
 		A11781AE2B6BDCDF00385CC8 /* CVFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */; };
+		A11AA6492BADD66100E78EC8 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11AA6482BADD66100E78EC8 /* CustomTextField.swift */; };
 		A11CC0E72B5C2CBE0079688D /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E62B5C2CBE0079688D /* Job.swift */; };
 		A11CC0EA2B5C2D230079688D /* JobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0E92B5C2D230079688D /* JobListViewController.swift */; };
 		A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC0EB2B5C2DB00079688D /* JobTableViewCell.swift */; };
@@ -67,6 +68,7 @@
 		A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInButton.swift; sourceTree = "<group>"; };
 		A11217F82B714CAC00F5B3A6 /* AppliedJobsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedJobsViewController.swift; sourceTree = "<group>"; };
 		A11781AD2B6BDCDF00385CC8 /* CVFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVFormViewController.swift; sourceTree = "<group>"; };
+		A11AA6482BADD66100E78EC8 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		A11CC0E62B5C2CBE0079688D /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A11CC0E92B5C2D230079688D /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
 		A11CC0EB2B5C2DB00079688D /* JobTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */,
 				A1D709512B6AAB7A00DAC3D7 /* InfoStackViewComponent.swift */,
 				A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */,
+				A11AA6482BADD66100E78EC8 /* CustomTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */,
 				A11217EC2B6FE12300F5B3A6 /* PasswordConditionView.swift in Sources */,
 				A1F9052D2B790BD700EB348C /* ExperienceViewModel.swift in Sources */,
+				A11AA6492BADD66100E78EC8 /* CustomTextField.swift in Sources */,
 				A1AAF8382B72749A00E1CEDD /* SupportViewController.swift in Sources */,
 				A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */,
 				A128A6862BAA334F008F6D1E /* MainButtonComponent.swift in Sources */,
