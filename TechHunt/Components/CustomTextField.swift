@@ -14,7 +14,7 @@ final class CustomTextField: UITextField {
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .center
-        imageView.tintColor = .customSecondaryColor
+        imageView.tintColor = .jobsFont
         return imageView
     }()
     
@@ -31,10 +31,10 @@ final class CustomTextField: UITextField {
     
     // MARK: - Setup
     private func setupTextField() {
-        textColor = .customSecondaryColor.withAlphaComponent(0.6)
+        textColor = .jobsFont
         font = UIFont.systemFont(ofSize: 16)
         backgroundColor = .clear
-        layer.borderColor = UIColor.customSecondaryColor.cgColor
+        layer.borderColor = UIColor.jobsFont.cgColor
         layer.borderWidth = 1.0
         layer.cornerRadius = 10
         
@@ -51,14 +51,14 @@ final class CustomTextField: UITextField {
             iconImageView.heightAnchor.constraint(equalToConstant: 24)
         ])
         
-        tintColor = .customSecondaryColor
+        tintColor = .accent
     }
     
     // MARK: - Configure
     func configure(placeholder: String?, keyboardType: UIKeyboardType, icon: UIImage?, isSecure: Bool) {
         attributedPlaceholder = NSAttributedString(
             string: placeholder ?? "",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.customSecondaryColor.withAlphaComponent(0.6)]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.jobsFont.withAlphaComponent(0.6)]
         )
         self.keyboardType = keyboardType
         iconImageView.image = icon
