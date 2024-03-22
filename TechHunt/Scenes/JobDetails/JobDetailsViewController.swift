@@ -46,6 +46,7 @@ final class JobDetailsViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = UIColor.jobsFont
+        label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.customRoundedFont(size: 17, weight: .light)
         return label
     }()

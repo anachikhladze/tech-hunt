@@ -21,7 +21,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationManager.navigateToInitialScreen()
         
 //        window?.rootViewController = UINavigationController(rootViewController: OnboardingViewController(navigationManager: NavigationManager(window: window!)) )
-        
+//        
         
         window?.makeKeyAndVisible()
     }
