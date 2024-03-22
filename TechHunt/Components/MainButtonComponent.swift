@@ -16,7 +16,7 @@ final class MainButtonComponent: UIButton {
         titleLabel?.font = .customRoundedFont(size: 18, weight: .black)
         setTitleColor(.white, for: .normal)
         backgroundColor = .accent
-        heightAnchor.constraint(equalToConstant: 48).isActive = true
+        heightAnchor.constraint(equalToConstant: 46).isActive = true
         layer.cornerRadius = 24
         clipsToBounds = true
     }
