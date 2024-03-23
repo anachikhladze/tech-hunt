@@ -1,5 +1,5 @@
 //
-//  CustomSettingsView.swift
+//  CustomSettingsViewComponent.swift
 //  TechHunt
 //
 //  Created by Anna Sumire on 23.03.24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CustomSettingsView: UIView {
+final class CustomSettingsViewComponent: UIView {
     
     var titleLabel: UILabel = {
         let label = UILabel()
@@ -50,12 +50,12 @@ final class CustomSettingsView: UIView {
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 8),
-            stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -8),
+            stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            lineView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor, constant: 8),
-            lineView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -8),
+            lineView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             lineView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 24),
             lineView.heightAnchor.constraint(equalToConstant: 1)
         ])

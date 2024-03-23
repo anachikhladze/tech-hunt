@@ -52,7 +52,7 @@
 		A1F33CAF2B68009A003DBAEB /* UICollectionView+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */; };
 		A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */; };
 		A1F5BAF02BAF236600128D43 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F5BAEF2BAF236600128D43 /* SettingsViewController.swift */; };
-		A1F5BAF22BAF23A800128D43 /* CustomSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F5BAF12BAF23A800128D43 /* CustomSettingsView.swift */; };
+		A1F5BAF22BAF23A800128D43 /* CustomSettingsViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F5BAF12BAF23A800128D43 /* CustomSettingsViewComponent.swift */; };
 		A1F905252B78FF5A00EB348C /* JobDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F905242B78FF5A00EB348C /* JobDetailsViewModel.swift */; };
 		A1F905292B7906DC00EB348C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F905282B7906DC00EB348C /* HomeViewModel.swift */; };
 		A1F9052D2B790BD700EB348C /* ExperienceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9052C2B790BD700EB348C /* ExperienceViewModel.swift */; };
@@ -102,7 +102,7 @@
 		A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Identifier.swift"; sourceTree = "<group>"; };
 		A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+CleanUp.swift"; sourceTree = "<group>"; };
 		A1F5BAEF2BAF236600128D43 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A1F5BAF12BAF23A800128D43 /* CustomSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingsView.swift; sourceTree = "<group>"; };
+		A1F5BAF12BAF23A800128D43 /* CustomSettingsViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingsViewComponent.swift; sourceTree = "<group>"; };
 		A1F905242B78FF5A00EB348C /* JobDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewModel.swift; sourceTree = "<group>"; };
 		A1F905282B7906DC00EB348C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A1F9052C2B790BD700EB348C /* ExperienceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceViewModel.swift; sourceTree = "<group>"; };
@@ -379,7 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F5BAEF2BAF236600128D43 /* SettingsViewController.swift */,
-				A1F5BAF12BAF23A800128D43 /* CustomSettingsView.swift */,
+				A1F5BAF12BAF23A800128D43 /* CustomSettingsViewComponent.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -499,7 +499,7 @@
 				A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */,
 				A11217E72B6FE07900F5B3A6 /* AuthViewModel.swift in Sources */,
 				A1F5BAF02BAF236600128D43 /* SettingsViewController.swift in Sources */,
-				A1F5BAF22BAF23A800128D43 /* CustomSettingsView.swift in Sources */,
+				A1F5BAF22BAF23A800128D43 /* CustomSettingsViewComponent.swift in Sources */,
 				A19162E12B84ED8D0031C94D /* FavoriteJobsViewController.swift in Sources */,
 				A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */,
 				A11217E52B6FE04B00F5B3A6 /* LoginView.swift in Sources */,

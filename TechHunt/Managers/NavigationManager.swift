@@ -219,12 +219,20 @@ final class NavigationManager: ObservableObject {
         return navController
     }
     
+    func createSettingsNavigationController() -> UINavigationController {
+        let settingsVC = SettingsViewController()
+        settingsVC.title = "Settings"
+        settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape.fill"), tag: 3)
+        
+        return UINavigationController(rootViewController: settingsVC)
+    }
+    
     func createTabbar() -> UITabBarController {
         let tabbar = UITabBarController()
         
         UITabBar.appearance().tintColor = UIColor.accent
         UITabBar.appearance().unselectedItemTintColor = .darkGray
-        tabbar.viewControllers = [createHomeNavigationController(), createJobsNavigationController(), createProfileNavigationController()]
+        tabbar.viewControllers = [createHomeNavigationController(), createJobsNavigationController(), createProfileNavigationController(), createSettingsNavigationController()]
         
         return tabbar
     }
