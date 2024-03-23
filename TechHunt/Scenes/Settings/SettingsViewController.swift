@@ -9,6 +9,8 @@ import UIKit
 
 final class SettingsViewController: UIViewController {
     
+    var isDarkMode = false
+    
     let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -58,6 +60,7 @@ final class SettingsViewController: UIViewController {
         label.text = "Dark Mode"
         label.font = .customRoundedFont(size: 18, weight: .medium)
         let switchControl = UISwitch()
+        switchControl.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         
         let stackView = UIStackView(arrangedSubviews: [label, switchControl])
         stackView.axis = .horizontal
@@ -117,4 +120,17 @@ final class SettingsViewController: UIViewController {
             mainStackView.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
+    
+    func updateStyle() {
+            UIView.animate(withDuration: 0.4, animations: {
+               if let window = UIApplication.shared.windows.first {
+                   window.overrideUserInterfaceStyle = self.isDarkMode ? .dark : .light
+               }
+            })
+        }
+    
+    @objc func switchValueChanged(_ sender: UISwitch) {
+           isDarkMode = sender.isOn
+           updateStyle()
+       }
 }
