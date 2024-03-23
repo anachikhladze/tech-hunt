@@ -77,4 +77,20 @@ final class AuthViewModel: ObservableObject {
             self.currentUser = try? snapshot.data(as: User.self)
         }
     }
+    
+    func deleteAccount(completion: @escaping (Bool) -> Void) {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        user.delete { error in
+            if let error = error {
+                print("DEBUG: Failed to delete user with error: \(error.localizedDescription)")
+                completion(false)
+            } else {
+                print("DEBUG: User deleted successfully.")
+                self.userSession = nil
+                self.currentUser = nil
+                completion(true)
+            }
+        }
+    }
 }
