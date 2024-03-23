@@ -12,28 +12,28 @@ final class SettingsViewController: UIViewController {
     let emailCustomView: CustomSettingsView = {
         let emailCustomView = CustomSettingsView()
         emailCustomView.translatesAutoresizingMaskIntoConstraints = false
-        emailCustomView.configure(with: "Email", with: "test@gmail.com")
+        emailCustomView.configure(with: "Email", with: "test@gmail.com", showEditButton: false)
         return emailCustomView
     }()
     
     let fullNameCustomView: CustomSettingsView = {
         let emailCustomView = CustomSettingsView()
         emailCustomView.translatesAutoresizingMaskIntoConstraints = false
-        emailCustomView.configure(with: "Full Name", with: "Ana Chikhladze")
+        emailCustomView.configure(with: "Full Name", with: "Ana Chikhladze", showEditButton: true)
         return emailCustomView
     }()
     
     let mobileNumberCustomView: CustomSettingsView = {
         let emailCustomView = CustomSettingsView()
         emailCustomView.translatesAutoresizingMaskIntoConstraints = false
-        emailCustomView.configure(with: "Mobile Number", with: "+995557773047")
+        emailCustomView.configure(with: "Mobile Number", with: "+995557773047", showEditButton: false)
         return emailCustomView
     }()
     
     let passwordCustomView: CustomSettingsView = {
         let emailCustomView = CustomSettingsView()
         emailCustomView.translatesAutoresizingMaskIntoConstraints = false
-        emailCustomView.configure(with: "Password", with: "********")
+        emailCustomView.configure(with: "Password", with: "********", showEditButton: true)
         return emailCustomView
     }()
     
@@ -58,8 +58,8 @@ final class SettingsViewController: UIViewController {
     private func setConstraints() {
         view.addSubview(stackView)
         stackView.addArrangedSubview(emailCustomView)
-        stackView.addArrangedSubview(fullNameCustomView)
         stackView.addArrangedSubview(mobileNumberCustomView)
+        stackView.addArrangedSubview(fullNameCustomView)
         stackView.addArrangedSubview(passwordCustomView)
         
         stackView.spacing = 30

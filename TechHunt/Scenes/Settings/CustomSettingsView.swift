@@ -30,6 +30,13 @@ final class CustomSettingsView: UIView {
         return view
     }()
     
+    var editButton: UIButton? = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -58,8 +65,21 @@ final class CustomSettingsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with title: String, with name: String) {
-        self.titleLabel.text = title
-        self.nameLabel.text = name
-    }
+    func configure(with title: String, with name: String, showEditButton: Bool) {
+            self.titleLabel.text = title
+            self.nameLabel.text = name
+            
+            if showEditButton {
+                guard let editButton = self.editButton else { return }
+                addSubview(editButton)
+                
+                NSLayoutConstraint.activate([
+                    editButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -8),
+                    editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+                ])
+            } else {
+                editButton?.removeFromSuperview()
+                editButton = nil
+            }
+        }
 }
