@@ -112,4 +112,16 @@ final class AuthViewModel: ObservableObject {
             throw error
         }
     }
+    
+    func updatePassword(newPassword: String, completion: @escaping (Bool) -> Void) {
+        Auth.auth().currentUser?.updatePassword(to: newPassword) { error in
+            if let error = error {
+                print("DEBUG: Failed to update password with error: \(error.localizedDescription)")
+                completion(false)
+            } else {
+                print("DEBUG: Password updated successfully.")
+                completion(true)
+            }
+        }
+    }
 }

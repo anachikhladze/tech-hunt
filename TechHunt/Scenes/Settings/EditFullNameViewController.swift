@@ -22,7 +22,7 @@ final class EditFullNameViewController: UIViewController {
     
     let customTextField: CustomTextField = {
         let textField = CustomTextField()
-        textField.configure(placeholder: "Full Name",
+        textField.configure(placeholder: "Update your name",
                             keyboardType: .default,
                             icon: UIImage(systemName: "person.fill"),
                             isSecure: false)
@@ -37,6 +37,14 @@ final class EditFullNameViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setConstraints()
         saveButtonAction()
+        
+        Task {
+          await viewModel.fetchUser()
+            customTextField.text = viewModel.currentUser?.fullname
+        }
+        
+        navigationItem.title = "Update your name"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func setConstraints() {
