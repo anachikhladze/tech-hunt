@@ -10,6 +10,7 @@ import UIKit
 final class SettingsViewController: UIViewController {
     
     var isDarkMode = false
+    private let authViewModel = AuthViewModel()
     
     let mainStackView: UIStackView = {
         let stackView = UIStackView()
@@ -22,29 +23,25 @@ final class SettingsViewController: UIViewController {
     let emailCustomView: CustomSettingsViewComponent = {
         let emailCustomView = CustomSettingsViewComponent()
         emailCustomView.translatesAutoresizingMaskIntoConstraints = false
-        emailCustomView.configure(with: "Email", with: "test@gmail.com", showEditButton: false)
         return emailCustomView
     }()
     
     let fullNameCustomView: CustomSettingsViewComponent = {
-        let emailCustomView = CustomSettingsViewComponent()
-        emailCustomView.translatesAutoresizingMaskIntoConstraints = false
-        emailCustomView.configure(with: "Full Name", with: "Ana Chikhladze", showEditButton: true)
-        return emailCustomView
+        let fullNameCustomView = CustomSettingsViewComponent()
+        fullNameCustomView.translatesAutoresizingMaskIntoConstraints = false
+        return fullNameCustomView
     }()
     
     let mobileNumberCustomView: CustomSettingsViewComponent = {
-        let emailCustomView = CustomSettingsViewComponent()
-        emailCustomView.translatesAutoresizingMaskIntoConstraints = false
-        emailCustomView.configure(with: "Mobile Number", with: "+995557773047", showEditButton: false)
-        return emailCustomView
+        let mobileCustomView = CustomSettingsViewComponent()
+        mobileCustomView.translatesAutoresizingMaskIntoConstraints = false
+        return mobileCustomView
     }()
     
     let passwordCustomView: CustomSettingsViewComponent = {
-        let emailCustomView = CustomSettingsViewComponent()
-        emailCustomView.translatesAutoresizingMaskIntoConstraints = false
-        emailCustomView.configure(with: "Password", with: "********", showEditButton: true)
-        return emailCustomView
+        let passwordCustomView = CustomSettingsViewComponent()
+        passwordCustomView.translatesAutoresizingMaskIntoConstraints = false
+        return passwordCustomView
     }()
     
     let personalInfoStackView: UIStackView = {
@@ -60,7 +57,7 @@ final class SettingsViewController: UIViewController {
         label.text = "Dark Mode"
         label.font = .customRoundedFont(size: 18, weight: .medium)
         let switchControl = UISwitch()
-        switchControl.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
+        switchControl.addTarget(SettingsViewController.self, action: #selector(switchValueChanged), for: .valueChanged)
         
         let stackView = UIStackView(arrangedSubviews: [label, switchControl])
         stackView.axis = .horizontal
@@ -80,7 +77,6 @@ final class SettingsViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [label, button])
         stackView.axis = .horizontal
         stackView.distribution = .fill
-        //        stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -100,6 +96,17 @@ final class SettingsViewController: UIViewController {
         
         navigationItem.title = "Settings"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        configureCustomViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Task {
+          await authViewModel.fetchUser()
+        }
+        
     }
     
     private func setConstraints() {
@@ -133,4 +140,18 @@ final class SettingsViewController: UIViewController {
            isDarkMode = sender.isOn
            updateStyle()
        }
+    
+    func configureCustomViews() {
+        emailCustomView.configure(with: "Email", with: authViewModel.currentUser?.email ?? "zaza@gmail.com", showEditButton: false)
+        mobileNumberCustomView.configure(with: "Mobile Number", with: "+995557773047", showEditButton: false)
+        fullNameCustomView.configure(with: "Full Name", with: authViewModel.currentUser?.fullname ?? "Test Test", showEditButton: true) {
+            self.navigateToEditFullName()
+        }
+        passwordCustomView.configure(with: "Password", with: "********", showEditButton: true)
+    }
+    
+    private func navigateToEditFullName() {
+        let editFullNameVC = EditFullNameViewController()
+        navigationController?.pushViewController(editFullNameVC, animated: true)
+    }
 }

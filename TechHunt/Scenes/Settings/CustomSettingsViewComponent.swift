@@ -65,21 +65,27 @@ final class CustomSettingsViewComponent: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with title: String, with name: String, showEditButton: Bool) {
-            self.titleLabel.text = title
-            self.nameLabel.text = name
+    func configure(with title: String, with name: String, showEditButton: Bool, buttonAction: (() -> Void)? = nil) {
+        self.titleLabel.text = title
+        self.nameLabel.text = name
+        
+        if showEditButton {
+            guard let editButton = self.editButton else { return }
+            addSubview(editButton)
             
-            if showEditButton {
-                guard let editButton = self.editButton else { return }
-                addSubview(editButton)
-                
-                NSLayoutConstraint.activate([
-                    editButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -8),
-                    editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-                ])
-            } else {
-                editButton?.removeFromSuperview()
-                editButton = nil
+            editButton.removeTarget(nil, action: nil, for: .allEvents)
+            
+            if let action = buttonAction {
+                editButton.addTarget(for: .touchUpInside, action: action)
             }
+            
+            NSLayoutConstraint.activate([
+                editButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor, constant: -8),
+                editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            ])
+        } else {
+            editButton?.removeFromSuperview()
+            editButton = nil
         }
+    }
 }

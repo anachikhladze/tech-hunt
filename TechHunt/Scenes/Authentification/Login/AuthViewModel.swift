@@ -93,4 +93,23 @@ final class AuthViewModel: ObservableObject {
             }
         }
     }
+    
+    func updateFullName(newFullName: String) async throws {
+        guard let userId = self.currentUser?.id else {
+            print("DEBUG: No current user found.")
+            return
+        }
+        
+        do {
+            let userRef = Firestore.firestore().collection("users").document(userId)
+            try await userRef.updateData(["fullname": newFullName])
+            await MainActor.run {
+                self.currentUser?.fullname = newFullName
+            }
+            await fetchUser()
+        } catch {
+            print("DEBUG: Failed to update user's full name with error: \(error.localizedDescription)")
+            throw error
+        }
+    }
 }
