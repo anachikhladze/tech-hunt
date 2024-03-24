@@ -180,11 +180,11 @@ final class NavigationManager: ObservableObject {
     }
     
     func navigateToEditFullName() {
-        let editFullNameVC = EditFullNameViewController()
+        let updateFullNameVC = UpdateFullNameViewController()
         
         if let tabbarController = window.rootViewController as? UITabBarController,
            let navigationController = tabbarController.selectedViewController as? UINavigationController {
-            navigationController.pushViewController(editFullNameVC, animated: true)
+            navigationController.pushViewController(updateFullNameVC, animated: true)
         } else {
             print("Navigation controller not found")
         }

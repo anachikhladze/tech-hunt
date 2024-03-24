@@ -1,5 +1,5 @@
 //
-//  EditFullNameViewController.swift
+//  UpdateFullNameViewController.swift
 //  TechHunt
 //
 //  Created by Anna Sumire on 24.03.24.
@@ -7,11 +7,12 @@
 
 import UIKit
 
-final class EditFullNameViewController: UIViewController {
+final class UpdateFullNameViewController: UIViewController {
     
-    private let viewModel = AuthViewModel()
+    // MARK: - Properties
+    private let authViewModel = AuthViewModel()
     
-    let mainStackView: UIStackView = {
+    private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
@@ -20,7 +21,7 @@ final class EditFullNameViewController: UIViewController {
         return stackView
     }()
     
-    let customTextField: CustomTextField = {
+    private let customTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.configure(placeholder: "Update your name",
                             keyboardType: .default,
@@ -30,21 +31,37 @@ final class EditFullNameViewController: UIViewController {
         return textField
     }()
     
-    let saveButton = MainButtonComponent(text: "Save Name")
+    private let saveButton = MainButtonComponent(text: "Save Name")
     
+    // MARK: - ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        setup()
+    }
+    
+    // MARK: - Private methods
+    private func setup() {
+        setupBackground()
+        setupNavigationTitle()
         setConstraints()
-        saveButtonAction()
-        
-        Task {
-          await viewModel.fetchUser()
-            customTextField.text = viewModel.currentUser?.fullname
-        }
-        
+        setTextFieldDefaultText()
+        saveButtonPressed()
+    }
+    
+    private func setupBackground() {
+        view.backgroundColor = .systemBackground
+    }
+    
+    private func setupNavigationTitle() {
         navigationItem.title = "Update your name"
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func setTextFieldDefaultText() {
+        Task {
+            await authViewModel.fetchUser()
+            customTextField.text = authViewModel.currentUser?.fullname
+        }
     }
     
     private func setConstraints() {
@@ -59,7 +76,7 @@ final class EditFullNameViewController: UIViewController {
         ])
     }
     
-    private func saveButtonAction() {
+    private func saveButtonPressed() {
         saveButton.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }
             guard let newFullName = self.customTextField.text, !newFullName.isEmpty else {
@@ -67,7 +84,7 @@ final class EditFullNameViewController: UIViewController {
             }
             Task {
                 do {
-                    try await self.viewModel.updateFullName(newFullName: newFullName)
+                    try await self.authViewModel.updateFullName(newFullName: newFullName)
                     self.showSuccessAlert()
                 } catch {
                     self.showErrorAlert()

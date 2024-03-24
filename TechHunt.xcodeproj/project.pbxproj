@@ -53,7 +53,7 @@
 		A1F33CB12B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */; };
 		A1F5BAF02BAF236600128D43 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F5BAEF2BAF236600128D43 /* SettingsViewController.swift */; };
 		A1F5BAF22BAF23A800128D43 /* CustomSettingsViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F5BAF12BAF23A800128D43 /* CustomSettingsViewComponent.swift */; };
-		A1F890D82BB040B6002C8286 /* EditFullNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F890D72BB040B6002C8286 /* EditFullNameViewController.swift */; };
+		A1F890D82BB040B6002C8286 /* UpdateFullNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F890D72BB040B6002C8286 /* UpdateFullNameViewController.swift */; };
 		A1F890DA2BB05126002C8286 /* UIControl+Ext..swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F890D92BB05126002C8286 /* UIControl+Ext..swift */; };
 		A1F890DC2BB062F3002C8286 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F890DB2BB062F3002C8286 /* UpdatePasswordViewController.swift */; };
 		A1F905252B78FF5A00EB348C /* JobDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F905242B78FF5A00EB348C /* JobDetailsViewModel.swift */; };
@@ -106,7 +106,7 @@
 		A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+CleanUp.swift"; sourceTree = "<group>"; };
 		A1F5BAEF2BAF236600128D43 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A1F5BAF12BAF23A800128D43 /* CustomSettingsViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingsViewComponent.swift; sourceTree = "<group>"; };
-		A1F890D72BB040B6002C8286 /* EditFullNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFullNameViewController.swift; sourceTree = "<group>"; };
+		A1F890D72BB040B6002C8286 /* UpdateFullNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFullNameViewController.swift; sourceTree = "<group>"; };
 		A1F890D92BB05126002C8286 /* UIControl+Ext..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Ext..swift"; sourceTree = "<group>"; };
 		A1F890DB2BB062F3002C8286 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		A1F905242B78FF5A00EB348C /* JobDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -320,6 +320,7 @@
 				A1D709512B6AAB7A00DAC3D7 /* InfoStackViewComponent.swift */,
 				A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */,
 				A11AA6482BADD66100E78EC8 /* CustomTextField.swift */,
+				A1F5BAF12BAF23A800128D43 /* CustomSettingsViewComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -386,8 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				A1F5BAEF2BAF236600128D43 /* SettingsViewController.swift */,
-				A1F5BAF12BAF23A800128D43 /* CustomSettingsViewComponent.swift */,
-				A1F890D72BB040B6002C8286 /* EditFullNameViewController.swift */,
+				A1F890D72BB040B6002C8286 /* UpdateFullNameViewController.swift */,
 				A1F890DB2BB062F3002C8286 /* UpdatePasswordViewController.swift */,
 			);
 			path = Settings;
@@ -476,7 +476,7 @@
 			files = (
 				A128A6842BAA28F2008F6D1E /* UIColor+Ext..swift in Sources */,
 				A11217E32B6FD36100F5B3A6 /* User.swift in Sources */,
-				A1F890D82BB040B6002C8286 /* EditFullNameViewController.swift in Sources */,
+				A1F890D82BB040B6002C8286 /* UpdateFullNameViewController.swift in Sources */,
 				A11217EE2B6FE14E00F5B3A6 /* InputView.swift in Sources */,
 				A1D709542B6AABF800DAC3D7 /* ExperienceViewController.swift in Sources */,
 				A1D709522B6AAB7A00DAC3D7 /* InfoStackViewComponent.swift in Sources */,
