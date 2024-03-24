@@ -68,11 +68,17 @@ final class EditFullNameViewController: UIViewController {
             Task {
                 do {
                     try await self.viewModel.updateFullName(newFullName: newFullName)
+                    self.showSuccessAlert()
                 } catch {
                     print(error.localizedDescription)
                 }
             }
-            self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
+    }
+    
+    private func showSuccessAlert() {
+        let alert = UIAlertController(title: "Name has changed successfully", message: "Your full name has been successfully updated. You can change it again anytime you want", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

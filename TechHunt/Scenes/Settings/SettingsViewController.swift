@@ -147,11 +147,19 @@ final class SettingsViewController: UIViewController {
         fullNameCustomView.configure(with: "Full Name", with: authViewModel.currentUser?.fullname ?? "Test Test", showEditButton: true) {
             self.navigateToEditFullName()
         }
-        passwordCustomView.configure(with: "Password", with: "********", showEditButton: true)
+        passwordCustomView.configure(with: "Password", with: "********", showEditButton: true) {
+            self.navigateToUpdatePasswordVC()
+        }
     }
     
     private func navigateToEditFullName() {
         let editFullNameVC = EditFullNameViewController()
         navigationController?.pushViewController(editFullNameVC, animated: true)
     }
+    
+    private func navigateToUpdatePasswordVC() {
+        let updatePasswordVC = UpdatePasswordViewController()
+        navigationController?.pushViewController(updatePasswordVC, animated: true)
+    }
+    
 }

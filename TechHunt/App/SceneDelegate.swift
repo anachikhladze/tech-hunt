@@ -20,7 +20,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         navigationManager.navigateToInitialScreen()
         
-//        window?.rootViewController = UINavigationController(rootViewController: EditFullNameViewController() )
+//        window?.rootViewController = UINavigationController(rootViewController: UpdatePasswordViewController() )
         
         
         window?.makeKeyAndVisible()
