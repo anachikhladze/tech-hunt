@@ -11,6 +11,7 @@ final class SettingsViewController: UIViewController {
     
     var isDarkMode = false
     private let authViewModel = AuthViewModel()
+    let navigationManager: NavigationManager
     
     let mainStackView: UIStackView = {
         let stackView = UIStackView()
@@ -73,6 +74,7 @@ final class SettingsViewController: UIViewController {
         label.font = .customRoundedFont(size: 18, weight: .medium)
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "trash"), for: .normal)
+        button.addTarget(self, action: #selector(showDeletionAlert), for: .touchUpInside)
         
         let stackView = UIStackView(arrangedSubviews: [label, button])
         stackView.axis = .horizontal
@@ -107,6 +109,15 @@ final class SettingsViewController: UIViewController {
           await authViewModel.fetchUser()
             configureCustomViews()
         }
+    }
+    
+    init(navigationManager: NavigationManager) {
+        self.navigationManager = navigationManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setConstraints() {
@@ -162,4 +173,24 @@ final class SettingsViewController: UIViewController {
         navigationController?.pushViewController(updatePasswordVC, animated: true)
     }
     
+    @objc private func showDeletionAlert() {
+        let alertController = UIAlertController(title: "Delete Account", message: "Are you sure you want to delete your account? This action cannot be undone.", preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            self.authViewModel.deleteAccount { success in
+                if success {
+                    self.navigationManager.showRootView()
+                } else {
+                    print("Error")
+                }
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true)
+    }
 }

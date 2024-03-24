@@ -220,7 +220,7 @@ final class NavigationManager: ObservableObject {
     }
     
     func createSettingsNavigationController() -> UINavigationController {
-        let settingsVC = SettingsViewController()
+        let settingsVC = SettingsViewController(navigationManager: self)
         settingsVC.title = "Settings"
         settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape.fill"), tag: 3)
         

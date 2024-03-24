@@ -16,8 +16,6 @@ struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var navigationManager: NavigationManager
     
-    @State private var showingDeleteAlert = false
-
     // MARK: - Body
     var body: some View {
         List {
@@ -132,29 +130,8 @@ struct ProfileView: View {
                                 title: "Support",
                                 tintColor: Color.sectionAccent)
             }
-
-            Button {
-                showingDeleteAlert = true
-            } label: {
-                SettingsRowView(imageName: "trash",
-                                title: "Delete account",
-                                tintColor: Color.sectionAccent)
-            }
-            .alert(isPresented: $showingDeleteAlert) {
-                Alert(title: Text("Delete Account"),
-                      message: Text("Are you sure you want to delete your account? This action cannot be undone."),
-                      primaryButton: .destructive(Text("Delete")) {
-                        authViewModel.deleteAccount { success in
-                            if success {
-                                navigationManager.showRootView()
-                            } else {
-                                print("Error")
-                            }
-                        }
-                      },
-                      secondaryButton: .cancel())
-            }
-
+            
+            
             Button {
                 authViewModel.signOut { success in
                     if success {

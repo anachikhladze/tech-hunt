@@ -70,6 +70,7 @@ final class EditFullNameViewController: UIViewController {
                     try await self.viewModel.updateFullName(newFullName: newFullName)
                     self.showSuccessAlert()
                 } catch {
+                    self.showErrorAlert()
                     print(error.localizedDescription)
                 }
             }
@@ -77,7 +78,13 @@ final class EditFullNameViewController: UIViewController {
     }
     
     private func showSuccessAlert() {
-        let alert = UIAlertController(title: "Name has changed successfully", message: "Your full name has been successfully updated. You can change it again anytime you want", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Name has changed successfully", message: "Your full name has been successfully updated. You can change it again anytime you want.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "Error has occurred", message: "Error has occurred. Please try changing name again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
