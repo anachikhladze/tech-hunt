@@ -9,11 +9,11 @@ import UIKit
 
 final class SettingsViewController: UIViewController {
     
-    var isDarkMode = false
-    private let authViewModel = AuthViewModel()
     let navigationManager: NavigationManager
+    private let authViewModel = AuthViewModel()
+    private var isDarkMode = false
     
-    let mainStackView: UIStackView = {
+    private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 70
@@ -21,31 +21,31 @@ final class SettingsViewController: UIViewController {
         return stackView
     }()
     
-    let emailCustomView: CustomSettingsViewComponent = {
+    private let emailCustomView: CustomSettingsViewComponent = {
         let emailCustomView = CustomSettingsViewComponent()
         emailCustomView.translatesAutoresizingMaskIntoConstraints = false
         return emailCustomView
     }()
     
-    let fullNameCustomView: CustomSettingsViewComponent = {
+    private let fullNameCustomView: CustomSettingsViewComponent = {
         let fullNameCustomView = CustomSettingsViewComponent()
         fullNameCustomView.translatesAutoresizingMaskIntoConstraints = false
         return fullNameCustomView
     }()
     
-    let mobileNumberCustomView: CustomSettingsViewComponent = {
+    private let mobileNumberCustomView: CustomSettingsViewComponent = {
         let mobileCustomView = CustomSettingsViewComponent()
         mobileCustomView.translatesAutoresizingMaskIntoConstraints = false
         return mobileCustomView
     }()
     
-    let passwordCustomView: CustomSettingsViewComponent = {
+    private let passwordCustomView: CustomSettingsViewComponent = {
         let passwordCustomView = CustomSettingsViewComponent()
         passwordCustomView.translatesAutoresizingMaskIntoConstraints = false
         return passwordCustomView
     }()
     
-    let personalInfoStackView: UIStackView = {
+    private let personalInfoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 40
@@ -53,7 +53,7 @@ final class SettingsViewController: UIViewController {
         return stackView
     }()
     
-    let switchStackView: UIStackView = {
+    private lazy var switchStackView: UIStackView = {
         let label = UILabel()
         label.text = "Dark Mode"
         label.font = .customRoundedFont(size: 18, weight: .medium)
@@ -68,7 +68,7 @@ final class SettingsViewController: UIViewController {
         return stackView
     }()
     
-    let trashButtonStackView: UIStackView = {
+    private lazy var trashButtonStackView: UIStackView = {
         let label = UILabel()
         label.text = "Delete Account"
         label.font = .customRoundedFont(size: 18, weight: .medium)
@@ -83,7 +83,7 @@ final class SettingsViewController: UIViewController {
         return stackView
     }()
     
-    let bottomStackView: UIStackView = {
+    private let bottomStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 30
@@ -93,12 +93,9 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        setupBackground()
+        setupNavigationTitle()
         setConstraints()
-        
-        navigationItem.title = "Settings"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
         configureCustomViews()
     }
     
@@ -106,7 +103,7 @@ final class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Task {
-          await authViewModel.fetchUser()
+            await authViewModel.fetchUser()
             configureCustomViews()
         }
     }
@@ -118,6 +115,15 @@ final class SettingsViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupBackground() {
+        view.backgroundColor = .systemBackground
+    }
+    
+    private func setupNavigationTitle() {
+        navigationItem.title = "Settings"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func setConstraints() {
@@ -139,38 +145,15 @@ final class SettingsViewController: UIViewController {
         ])
     }
     
-    func updateStyle() {
-            UIView.animate(withDuration: 0.4, animations: {
-               if let window = UIApplication.shared.windows.first {
-                   window.overrideUserInterfaceStyle = self.isDarkMode ? .dark : .light
-               }
-            })
-        }
-    
-    @objc func switchValueChanged(_ sender: UISwitch) {
-           isDarkMode = sender.isOn
-           updateStyle()
-       }
-    
-    func configureCustomViews() {
+    private func configureCustomViews() {
         emailCustomView.configure(with: "Email", with: authViewModel.currentUser?.email ?? "zaza@gmail.com", showEditButton: false)
         mobileNumberCustomView.configure(with: "Mobile Number", with: "+995557773047", showEditButton: false)
         fullNameCustomView.configure(with: "Full Name", with: authViewModel.currentUser?.fullname ?? "Test Test", showEditButton: true) {
-            self.navigateToEditFullName()
+            self.navigationManager.navigateToEditFullName()
         }
         passwordCustomView.configure(with: "Password", with: "********", showEditButton: true) {
-            self.navigateToUpdatePasswordVC()
+            self.navigationManager.navigateToUpdatePasswordVC()
         }
-    }
-    
-    private func navigateToEditFullName() {
-        let editFullNameVC = EditFullNameViewController()
-        navigationController?.pushViewController(editFullNameVC, animated: true)
-    }
-    
-    private func navigateToUpdatePasswordVC() {
-        let updatePasswordVC = UpdatePasswordViewController()
-        navigationController?.pushViewController(updatePasswordVC, animated: true)
     }
     
     @objc private func showDeletionAlert() {
@@ -192,5 +175,18 @@ final class SettingsViewController: UIViewController {
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true)
+    }
+    
+    @objc private func switchValueChanged(_ sender: UISwitch) {
+        isDarkMode = sender.isOn
+        updateTheme()
+    }
+    
+    private func updateTheme() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let window = windowScene.windows.first {
+                window.overrideUserInterfaceStyle = self.isDarkMode ? .dark : .light
+            }
+        }
     }
 }

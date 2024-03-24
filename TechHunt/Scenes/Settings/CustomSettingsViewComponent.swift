@@ -9,20 +9,21 @@ import UIKit
 
 final class CustomSettingsViewComponent: UIView {
     
-    var titleLabel: UILabel = {
+    // MARK: - Properties
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
         label.font = .customRoundedFont(size: 18, weight: .bold)
         return label
     }()
     
-    var nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = .customRoundedFont(size: 18, weight: .light)
         return label
     }()
     
-    let lineView: UIView = {
+    private let lineView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .systemGray
@@ -30,13 +31,14 @@ final class CustomSettingsViewComponent: UIView {
         return view
     }()
     
-    var editButton: UIButton? = {
+    private var editButton: UIButton? = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -65,6 +67,7 @@ final class CustomSettingsViewComponent: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Configure
     func configure(with title: String, with name: String, showEditButton: Bool, buttonAction: (() -> Void)? = nil) {
         self.titleLabel.text = title
         self.nameLabel.text = name
