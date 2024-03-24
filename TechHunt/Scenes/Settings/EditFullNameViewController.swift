@@ -37,7 +37,6 @@ final class EditFullNameViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setConstraints()
         saveButtonAction()
-        
     }
     
     private func setConstraints() {
@@ -56,20 +55,16 @@ final class EditFullNameViewController: UIViewController {
         saveButton.addAction(UIAction(handler: { [weak self] _ in
             guard let self = self else { return }
             guard let newFullName = self.customTextField.text, !newFullName.isEmpty else {
-                print("DEBUG: Text field is empty.")
                 return
             }
             Task {
                 do {
                     try await self.viewModel.updateFullName(newFullName: newFullName)
-                    print("DEBUG: Full name updated successfully.")
                 } catch {
-                    print("DEBUG: Failed to update full name with error: \(error.localizedDescription)")
+                    print(error.localizedDescription)
                 }
             }
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
     }
 }
-
-

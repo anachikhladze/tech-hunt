@@ -57,7 +57,7 @@ final class SettingsViewController: UIViewController {
         label.text = "Dark Mode"
         label.font = .customRoundedFont(size: 18, weight: .medium)
         let switchControl = UISwitch()
-        switchControl.addTarget(SettingsViewController.self, action: #selector(switchValueChanged), for: .valueChanged)
+        switchControl.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         
         let stackView = UIStackView(arrangedSubviews: [label, switchControl])
         stackView.axis = .horizontal
@@ -105,8 +105,8 @@ final class SettingsViewController: UIViewController {
         
         Task {
           await authViewModel.fetchUser()
+            configureCustomViews()
         }
-        
     }
     
     private func setConstraints() {
