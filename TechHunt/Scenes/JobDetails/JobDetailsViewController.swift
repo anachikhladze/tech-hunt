@@ -60,8 +60,8 @@ final class JobDetailsViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var sendButton: MainButtonComponent = {
-        let button = MainButtonComponent (text: "Send Resume")
+    private lazy var sendButton: PrimaryButtonComponent = {
+        let button = PrimaryButtonComponent (text: "Send Resume")
         return button
     }()
     

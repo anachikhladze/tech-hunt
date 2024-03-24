@@ -31,7 +31,7 @@ final class UpdateFullNameViewController: UIViewController {
         return textField
     }()
     
-    private let saveButton = MainButtonComponent(text: "Save Name")
+    private let saveButton = PrimaryButtonComponent(text: "Save Name")
     
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {

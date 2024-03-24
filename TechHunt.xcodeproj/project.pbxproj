@@ -30,7 +30,7 @@
 		A11CC1272B5C48B50079688D /* FirebaseDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */; };
 		A128A6822BAA1371008F6D1E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */; };
 		A128A6842BAA28F2008F6D1E /* UIColor+Ext..swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */; };
-		A128A6862BAA334F008F6D1E /* MainButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */; };
+		A128A6862BAA334F008F6D1E /* PrimaryButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6852BAA334F008F6D1E /* PrimaryButtonComponent.swift */; };
 		A14D1D772BAB48AA00F93993 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D1D762BAB48AA00F93993 /* CategoryCollectionViewCell.swift */; };
 		A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14DB82E2B60316C00EF545D /* HomeView.swift */; };
 		A17C43592B6D62EE00BB9600 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C43582B6D62EE00BB9600 /* RulesViewController.swift */; };
@@ -81,7 +81,7 @@
 		A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataViewModel.swift; sourceTree = "<group>"; };
 		A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext..swift"; sourceTree = "<group>"; };
-		A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonComponent.swift; sourceTree = "<group>"; };
+		A128A6852BAA334F008F6D1E /* PrimaryButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonComponent.swift; sourceTree = "<group>"; };
 		A14D1D762BAB48AA00F93993 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		A14DB82E2B60316C00EF545D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A17C43582B6D62EE00BB9600 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
@@ -312,15 +312,8 @@
 		A181BBFC2B59A79E00E68302 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A1A12E902B62A342005DD9EC /* CustomButton.swift */,
-				A191190B2B65535A001E1D61 /* SettingsRowView.swift */,
-				A11217EB2B6FE12300F5B3A6 /* PasswordConditionView.swift */,
-				A11217ED2B6FE14E00F5B3A6 /* InputView.swift */,
-				A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */,
-				A1D709512B6AAB7A00DAC3D7 /* InfoStackViewComponent.swift */,
-				A128A6852BAA334F008F6D1E /* MainButtonComponent.swift */,
-				A11AA6482BADD66100E78EC8 /* CustomTextField.swift */,
-				A1F5BAF12BAF23A800128D43 /* CustomSettingsViewComponent.swift */,
+				A1F890E32BB08404002C8286 /* UIKit Components */,
+				A1F890E22BB083B8002C8286 /* SwiftUI Components */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -407,6 +400,29 @@
 				A1F5BAEF2BAF236600128D43 /* SettingsViewController.swift */,
 			);
 			path = SettingsScene;
+			sourceTree = "<group>";
+		};
+		A1F890E22BB083B8002C8286 /* SwiftUI Components */ = {
+			isa = PBXGroup;
+			children = (
+				A1A12E902B62A342005DD9EC /* CustomButton.swift */,
+				A191190B2B65535A001E1D61 /* SettingsRowView.swift */,
+				A11217EB2B6FE12300F5B3A6 /* PasswordConditionView.swift */,
+				A11217ED2B6FE14E00F5B3A6 /* InputView.swift */,
+				A11217EF2B6FE23A00F5B3A6 /* CustomSignInButton.swift */,
+			);
+			path = "SwiftUI Components";
+			sourceTree = "<group>";
+		};
+		A1F890E32BB08404002C8286 /* UIKit Components */ = {
+			isa = PBXGroup;
+			children = (
+				A1D709512B6AAB7A00DAC3D7 /* InfoStackViewComponent.swift */,
+				A128A6852BAA334F008F6D1E /* PrimaryButtonComponent.swift */,
+				A11AA6482BADD66100E78EC8 /* CustomTextField.swift */,
+				A1F5BAF12BAF23A800128D43 /* CustomSettingsViewComponent.swift */,
+			);
+			path = "UIKit Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,7 +525,7 @@
 				A11AA6492BADD66100E78EC8 /* CustomTextField.swift in Sources */,
 				A1AAF8382B72749A00E1CEDD /* SupportViewController.swift in Sources */,
 				A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */,
-				A128A6862BAA334F008F6D1E /* MainButtonComponent.swift in Sources */,
+				A128A6862BAA334F008F6D1E /* PrimaryButtonComponent.swift in Sources */,
 				A11CC0EC2B5C2DB00079688D /* JobTableViewCell.swift in Sources */,
 				A1D709582B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift in Sources */,
 				A10B865D2B5D4DFE00422E06 /* JobDetailsViewController.swift in Sources */,

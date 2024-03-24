@@ -53,8 +53,8 @@ final class OnboardingViewController: UIViewController {
         return label
     }()
     
-    private lazy var getStartedButton: MainButtonComponent = {
-        let button = MainButtonComponent (text: "GET STARTED")
+    private lazy var getStartedButton: PrimaryButtonComponent = {
+        let button = PrimaryButtonComponent (text: "GET STARTED")
         button.addTarget(self, action: #selector(getStartedButtonDidTap), for: .touchUpInside)
         return button
     }()
