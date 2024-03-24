@@ -386,11 +386,27 @@
 		A1F5BAEE2BAF235100128D43 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A1F5BAEF2BAF236600128D43 /* SettingsViewController.swift */,
+				A1F890E12BB08231002C8286 /* SettingsScene */,
+				A1F890E02BB08202002C8286 /* UpdateInfo */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A1F890E02BB08202002C8286 /* UpdateInfo */ = {
+			isa = PBXGroup;
+			children = (
 				A1F890D72BB040B6002C8286 /* UpdateFullNameViewController.swift */,
 				A1F890DB2BB062F3002C8286 /* UpdatePasswordViewController.swift */,
 			);
-			path = Settings;
+			path = UpdateInfo;
+			sourceTree = "<group>";
+		};
+		A1F890E12BB08231002C8286 /* SettingsScene */ = {
+			isa = PBXGroup;
+			children = (
+				A1F5BAEF2BAF236600128D43 /* SettingsViewController.swift */,
+			);
+			path = SettingsScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
