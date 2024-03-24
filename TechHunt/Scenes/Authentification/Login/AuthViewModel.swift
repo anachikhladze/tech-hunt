@@ -77,4 +77,51 @@ final class AuthViewModel: ObservableObject {
             self.currentUser = try? snapshot.data(as: User.self)
         }
     }
+    
+    func deleteAccount(completion: @escaping (Bool) -> Void) {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        user.delete { error in
+            if let error = error {
+                print("DEBUG: Failed to delete user with error: \(error.localizedDescription)")
+                completion(false)
+            } else {
+                print("DEBUG: User deleted successfully.")
+                self.userSession = nil
+                self.currentUser = nil
+                completion(true)
+            }
+        }
+    }
+    
+    func updateFullName(newFullName: String) async throws {
+        guard let userId = self.currentUser?.id else {
+            print("DEBUG: No current user found.")
+            return
+        }
+        
+        do {
+            let userRef = Firestore.firestore().collection("users").document(userId)
+            try await userRef.updateData(["fullname": newFullName])
+            await MainActor.run {
+                self.currentUser?.fullname = newFullName
+            }
+            await fetchUser()
+        } catch {
+            print("DEBUG: Failed to update user's full name with error: \(error.localizedDescription)")
+            throw error
+        }
+    }
+    
+    func updatePassword(newPassword: String, completion: @escaping (Bool) -> Void) {
+        Auth.auth().currentUser?.updatePassword(to: newPassword) { error in
+            if let error = error {
+                print("DEBUG: Failed to update password with error: \(error.localizedDescription)")
+                completion(false)
+            } else {
+                print("DEBUG: Password updated successfully.")
+                completion(true)
+            }
+        }
+    }
 }

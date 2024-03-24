@@ -131,6 +131,7 @@ struct ProfileView: View {
                                 tintColor: Color.sectionAccent)
             }
             
+            
             Button {
                 authViewModel.signOut { success in
                     if success {

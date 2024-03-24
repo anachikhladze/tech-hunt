@@ -8,6 +8,7 @@
 import UIKit
 
 final class CustomTextField: UITextField {
+    
     // MARK: - Properties
     private let paddingWidth: CGFloat = 44
     

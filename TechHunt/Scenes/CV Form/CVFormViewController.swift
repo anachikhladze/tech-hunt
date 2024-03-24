@@ -26,7 +26,7 @@ final class CVFormViewController: UIViewController {
     let contactNumberField = CustomTextField()
     let emailField = CustomTextField()
     let linkedInField = CustomTextField()
-    let saveButton = MainButtonComponent(text: "Save Info")
+    let saveButton = PrimaryButtonComponent(text: "Save Info")
     let backgroundImageView = UIImageView()
     let stackView = UIStackView()
     

@@ -179,6 +179,28 @@ final class NavigationManager: ObservableObject {
         }
     }
     
+    func navigateToEditFullName() {
+        let updateFullNameVC = UpdateFullNameViewController()
+        
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
+            navigationController.pushViewController(updateFullNameVC, animated: true)
+        } else {
+            print("Navigation controller not found")
+        }
+    }
+    
+   func navigateToUpdatePasswordVC() {
+       let updatePasswordVC = UpdatePasswordViewController()
+       
+       if let tabbarController = window.rootViewController as? UITabBarController,
+          let navigationController = tabbarController.selectedViewController as? UINavigationController {
+           navigationController.pushViewController(updatePasswordVC, animated: true)
+       } else {
+           print("Navigation controller not found")
+       }
+    }
+    
     func createHomeNavigationController() -> UINavigationController {
         let homeView = HomeView()
             .environmentObject(self)
@@ -219,12 +241,20 @@ final class NavigationManager: ObservableObject {
         return navController
     }
     
+    func createSettingsNavigationController() -> UINavigationController {
+        let settingsVC = SettingsViewController(navigationManager: self)
+        settingsVC.title = "Settings"
+        settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gearshape.fill"), tag: 3)
+        
+        return UINavigationController(rootViewController: settingsVC)
+    }
+    
     func createTabbar() -> UITabBarController {
         let tabbar = UITabBarController()
         
         UITabBar.appearance().tintColor = UIColor.accent
         UITabBar.appearance().unselectedItemTintColor = .darkGray
-        tabbar.viewControllers = [createHomeNavigationController(), createJobsNavigationController(), createProfileNavigationController()]
+        tabbar.viewControllers = [createHomeNavigationController(), createJobsNavigationController(), createProfileNavigationController(), createSettingsNavigationController()]
         
         return tabbar
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainButtonComponent: UIButton {
+final class PrimaryButtonComponent: UIButton {
     // MARK: - Init
     init(text: String) {
         super.init(frame: .zero)

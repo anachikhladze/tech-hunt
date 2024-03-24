@@ -109,7 +109,7 @@ final class ExperienceViewController: UIViewController {
         return label
     }()
     
-    private let editButton = MainButtonComponent(text: "Edit Info")
+    private let editButton = PrimaryButtonComponent(text: "Edit Info")
     
     // MARK: - ViewLifeCycle
     override func viewDidLoad() {
