@@ -1,43 +1,47 @@
-# TechHunt
+# TechHunt - Your Tech Career Companion
 
-TechHunt is an iOS application developed using both SwiftUI and UIKit frameworks. The app uses Firebase as its backend, providing a robust and scalable solution for data storage and retrieval. The app supports both dark and light modes.
+TechHunt is an iOS app designed to streamline the tech job hunting experience for users. With TechHunt, users can discover exciting tech vacancies, apply effortlessly, build a professional CV, earn referral bonuses, and manage their job search – all in one convenient platform.
 
-## Sign Up and Login
+<img src="https://github.com/anachikhladze/tech-hunt/assets/145837681/aae33a3f-0a61-40e1-958f-c1be5130187b" alt="TechHunt Screenshot" width="900" height="auto">
 
-Users can sign up using their email. During the sign-up process, users are required to confirm their password. We have implemented several validations to ensure the security and integrity of user information.
+# Features
 
-![App Screenshot](https://i.ibb.co/ZdT3G3q/Screenshot-2024-02-12-at-14-28-00.png)
+- **Powerful Job Search**: Users can easily search for jobs by keyword, location, or category. Filters for experience level, salary, job type, and more ensure targeted results.
 
-## Home Page
+- **Detailed Job Listings**: Each job posting provides comprehensive information about the company, responsibilities, and requirements.
 
-The home page provides a brief introduction on how to use the TechHunt app. It features two buttons:
+- **Seamless Applications**: Users can apply for jobs directly within the app, streamlining the process.
 
-- **Read More**: Presents a FAQ window when pressed.
-- **Referral Info**: Presents a referral page when pressed.
+- **Robust CV Builder**: Users can create a standout tech CV highlighting their skills, experience, education, and accomplishments.
 
-The home page also showcases a "Trending Job" section. Users can apply for jobs immediately by pressing the "Apply Now" button.
+- **My Experience**: Users can maintain and update their CV effortlessly, ensuring it reflects their latest qualifications.
 
-![App Screenshot](https://i.ibb.co/QnFZHHP/Screenshot-2024-02-12-at-14-28-29.png)
+- **Applied Jobs**: Users can track their applications and their current status.
 
-## Jobs Tab
+- **Favorite Jobs**: Users can save interesting job opportunities for future reference.
 
-The Jobs tab lists available jobs. Users can search for jobs using the search bar. Selecting a job navigates to a detailed job page, where users can apply for the job.
+- **Refer and Earn**: Users can refer friends to TechHunt and earn exciting rewards.
 
-![App Screenshot](https://i.ibb.co/5B1w26t/Screenshot-2024-02-12-at-14-28-46.png)
+- **User-Friendly Support**: Users can get help with an in-app FAQ section and have ability to contact support via email.
 
-## Profile Tab
+# Job Search:
+![Simulator Screen Recording - iPhone 15 Pro - 2024-03-26 at 01 46 56-2](https://github.com/anachikhladze/tech-hunt/assets/145837681/beb42124-febf-46ba-a674-ef7ea54adda8)
+ ![Simulator Screen Recording - iPhone 15 Pro - 2024-03-26 at 01 52 22](https://github.com/anachikhladze/tech-hunt/assets/145837681/3f7394e1-f4ca-419c-9957-ddacfdccfd26)
 
-The Profile tab allows users to change their profile picture and access various categories:
+# Profile & Settings
+![Simulator Screen Recording - iPhone 15 Pro - 2024-03-26 at 02 05 01](https://github.com/anachikhladze/tech-hunt/assets/145837681/5e7ab9c4-48d7-429b-829e-bf294af1aaa9) ![Simulator Screen Recording - iPhone 15 Pro - 2024-03-26 at 02 05 43](https://github.com/anachikhladze/tech-hunt/assets/145837681/b1caf1ba-fad2-4280-bdee-393809044957) 
 
-- **My Experience**: Displays the user's CV, including experience, education, contact info, and languages. Users can edit this information.
-- **Applied Jobs**: Lists the jobs that the user has applied for.
-- **Refer a Friend**: Provides information on how users can refer someone and earn tickets in a giveaway. Users have a personal referral code that can be copied or shared.
-- **Support**: Informs users that they can read the FAQ or contact app support via email for further questions.
-- **How to Use/FAQ**: Contains frequently asked questions and their answers.
-- **Log Out**: Allows users to log out of the app.
+# Dark Mode
+![Simulator Screen Recording - iPhone 15 Pro - 2024-03-26 at 02 14 09](https://github.com/anachikhladze/tech-hunt/assets/145837681/3812e5d2-6296-4711-a0f9-e9228ec31861)![Simulator Screen Recording - iPhone 15 Pro - 2024-03-26 at 02 14 52](https://github.com/anachikhladze/tech-hunt/assets/145837681/2eca5fb2-872f-46a2-b410-c48292751454)
 
-![App Screenshot](https://i.ibb.co/dpnbKxh/Screenshot-2024-02-12-at-14-29-04.png)
+# Settings:
+- Users can customize their profile information (name, password).
+- Users can switch between light and dark modes.
+- Users can delete their account if needed.
 
-![App Screenshot](https://i.ibb.co/nzVckpZ/Screenshot-2024-02-12-at-14-29-24.png)
+Hope you enjoy using TechHunt!
 
-We hope you enjoy using TechHunt!
+# Clone the project
+
+```bash
+git clone https://github.com/anachikhladze/tech-hunt
