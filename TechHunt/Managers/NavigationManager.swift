@@ -21,7 +21,7 @@ final class NavigationManager: ObservableObject {
         if viewModel.userSession != nil {
             navigateToMainViewScreen()
         } else {
-            showRootView()
+            showOnboardingVC()
         }
     }
     
@@ -41,6 +41,14 @@ final class NavigationManager: ObservableObject {
         let navigationController = UINavigationController(rootViewController: rootViewHosting)
         navigationController.navigationBar.isHidden = true
         window.rootViewController = navigationController
+    }
+    
+    func showOnboardingVC() {
+        DispatchQueue.main.async {
+            let onboardingVC = OnboardingViewController(navigationManager: self)
+            self.window.rootViewController = onboardingVC
+            self.window.makeKeyAndVisible()
+        }
     }
     
     func showRegistrationPage() {
