@@ -190,15 +190,15 @@ final class NavigationManager: ObservableObject {
         }
     }
     
-   func navigateToUpdatePasswordVC() {
-       let updatePasswordVC = UpdatePasswordViewController()
-       
-       if let tabbarController = window.rootViewController as? UITabBarController,
-          let navigationController = tabbarController.selectedViewController as? UINavigationController {
-           navigationController.pushViewController(updatePasswordVC, animated: true)
-       } else {
-           print("Navigation controller not found")
-       }
+    func navigateToUpdatePasswordVC() {
+        let updatePasswordVC = UpdatePasswordViewController()
+        
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
+            navigationController.pushViewController(updatePasswordVC, animated: true)
+        } else {
+            print("Navigation controller not found")
+        }
     }
     
     func createHomeNavigationController() -> UINavigationController {

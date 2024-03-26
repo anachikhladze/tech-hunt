@@ -43,16 +43,7 @@ final class SupportViewController: UIViewController {
         return stackView
     }()
     
-    private let dismissButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("FAQ", for: .normal)
-        button.titleLabel?.textColor = .white
-        button.titleLabel?.font = UIFont.customRoundedFont(size: 18, weight: .black)
-        button.backgroundColor = UIColor.accent
-        button.layer.cornerRadius = 14
-        button.heightAnchor.constraint(equalToConstant: 46).isActive = true
-        return button
-    }()
+    private let dismissButton = PrimaryButtonComponent(text: "FAQ")
     
     private let needHelpLabel: UILabel = {
         let label = UILabel()
