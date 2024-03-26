@@ -21,7 +21,7 @@ final class NavigationManager: ObservableObject {
         if viewModel.userSession != nil {
             navigateToMainViewScreen()
         } else {
-            showRootView()
+            showOnboardingVC()
         }
     }
     
@@ -41,6 +41,14 @@ final class NavigationManager: ObservableObject {
         let navigationController = UINavigationController(rootViewController: rootViewHosting)
         navigationController.navigationBar.isHidden = true
         window.rootViewController = navigationController
+    }
+    
+    func showOnboardingVC() {
+        DispatchQueue.main.async {
+            let onboardingVC = OnboardingViewController(navigationManager: self)
+            self.window.rootViewController = onboardingVC
+            self.window.makeKeyAndVisible()
+        }
     }
     
     func showRegistrationPage() {
@@ -190,15 +198,15 @@ final class NavigationManager: ObservableObject {
         }
     }
     
-   func navigateToUpdatePasswordVC() {
-       let updatePasswordVC = UpdatePasswordViewController()
-       
-       if let tabbarController = window.rootViewController as? UITabBarController,
-          let navigationController = tabbarController.selectedViewController as? UINavigationController {
-           navigationController.pushViewController(updatePasswordVC, animated: true)
-       } else {
-           print("Navigation controller not found")
-       }
+    func navigateToUpdatePasswordVC() {
+        let updatePasswordVC = UpdatePasswordViewController()
+        
+        if let tabbarController = window.rootViewController as? UITabBarController,
+           let navigationController = tabbarController.selectedViewController as? UINavigationController {
+            navigationController.pushViewController(updatePasswordVC, animated: true)
+        } else {
+            print("Navigation controller not found")
+        }
     }
     
     func createHomeNavigationController() -> UINavigationController {

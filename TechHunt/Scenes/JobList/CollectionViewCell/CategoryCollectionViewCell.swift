@@ -9,8 +9,9 @@ import UIKit
 
 final class CategoryCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Properties
     static let identifier = "categoryCell"
-
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -24,7 +25,8 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
             contentView.backgroundColor = isSelected ? .accent : .systemGray5
         }
     }
-
+    
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(titleLabel)
@@ -32,16 +34,17 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 26
         contentView.clipsToBounds = true
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         titleLabel.frame = contentView.bounds.insetBy(dx: 10, dy: 5)
     }
-
+    
+    // MARK: - Configure
     func configure(with title: String) {
         titleLabel.text = title
     }

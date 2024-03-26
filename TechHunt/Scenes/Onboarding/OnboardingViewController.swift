@@ -29,7 +29,7 @@ final class OnboardingViewController: UIViewController {
     }()
     
     private lazy var welcomeTextStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [welcomeLabel, appBenefitLabel])
+        let stackView = UIStackView(arrangedSubviews: [welcomeLabel, appInfoLabel])
         stackView.axis = .vertical
         stackView.spacing = 12
         return stackView
@@ -44,7 +44,7 @@ final class OnboardingViewController: UIViewController {
         return label
     }()
     
-    private let appBenefitLabel: UILabel = {
+    private let appInfoLabel: UILabel = {
         let label = UILabel()
         label.text = "Explore a wide range of job opportunities in the tech industry, from startups to tech giants."
         label.font = .customRoundedFont(size: 22, weight: .medium)

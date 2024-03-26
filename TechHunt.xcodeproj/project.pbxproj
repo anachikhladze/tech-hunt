@@ -28,7 +28,6 @@
 		A11CC1232B5C3EDB0079688D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A11CC1222B5C3EDB0079688D /* FirebaseStorage */; };
 		A11CC1272B5C48B50079688D /* FirebaseDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */; };
 		A128A6822BAA1371008F6D1E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */; };
-		A128A6842BAA28F2008F6D1E /* UIColor+Ext..swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */; };
 		A128A6862BAA334F008F6D1E /* PrimaryButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A6852BAA334F008F6D1E /* PrimaryButtonComponent.swift */; };
 		A14D1D772BAB48AA00F93993 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D1D762BAB48AA00F93993 /* CategoryCollectionViewCell.swift */; };
 		A14DB82F2B60316C00EF545D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14DB82E2B60316C00EF545D /* HomeView.swift */; };
@@ -78,7 +77,6 @@
 		A11CC0ED2B5C3CDA0079688D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A11CC1262B5C48B50079688D /* FirebaseDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataViewModel.swift; sourceTree = "<group>"; };
 		A128A6812BAA1371008F6D1E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext..swift"; sourceTree = "<group>"; };
 		A128A6852BAA334F008F6D1E /* PrimaryButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonComponent.swift; sourceTree = "<group>"; };
 		A14D1D762BAB48AA00F93993 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		A14DB82E2B60316C00EF545D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 		A181BBF82B59A70B00E68302 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A1F5BAEE2BAF235100128D43 /* Settings */,
 				A128A6802BAA1268008F6D1E /* Onboarding */,
 				A181BBFD2B59A7C100E68302 /* Authentification */,
 				A14DB82D2B60313200EF545D /* Home */,
@@ -272,6 +269,7 @@
 				A1AAF8362B72748200E1CEDD /* Support */,
 				A17C43572B6D62C900BB9600 /* Rules */,
 				A1AAF8392B72A76700E1CEDD /* Referral */,
+				A1F5BAEE2BAF235100128D43 /* Settings */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -299,7 +297,6 @@
 				A1F33CAE2B68009A003DBAEB /* UICollectionView+Identifier.swift */,
 				A1F33CB02B68013C003DBAEB /* UICollectionViewCell+CleanUp.swift */,
 				A1D709572B6AB64400DAC3D7 /* UIFont+CustomRoundedFont.swift */,
-				A128A6832BAA28F2008F6D1E /* UIColor+Ext..swift */,
 				A1AAF83C2B72A7BF00E1CEDD /* View.swift */,
 				A1F890D92BB05126002C8286 /* UIControl+Ext..swift */,
 			);
@@ -502,7 +499,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A128A6842BAA28F2008F6D1E /* UIColor+Ext..swift in Sources */,
 				A11217E32B6FD36100F5B3A6 /* User.swift in Sources */,
 				A1F890D82BB040B6002C8286 /* UpdateFullNameViewController.swift in Sources */,
 				A11217EE2B6FE14E00F5B3A6 /* InputView.swift in Sources */,
