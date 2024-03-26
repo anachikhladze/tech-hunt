@@ -258,7 +258,6 @@
 		A181BBF82B59A70B00E68302 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				A1F5BAEE2BAF235100128D43 /* Settings */,
 				A128A6802BAA1268008F6D1E /* Onboarding */,
 				A181BBFD2B59A7C100E68302 /* Authentification */,
 				A14DB82D2B60313200EF545D /* Home */,
@@ -272,6 +271,7 @@
 				A1AAF8362B72748200E1CEDD /* Support */,
 				A17C43572B6D62C900BB9600 /* Rules */,
 				A1AAF8392B72A76700E1CEDD /* Referral */,
+				A1F5BAEE2BAF235100128D43 /* Settings */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
