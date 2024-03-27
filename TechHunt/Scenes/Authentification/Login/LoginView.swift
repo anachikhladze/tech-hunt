@@ -20,11 +20,16 @@ struct LoginView: View {
     
     // MARK: - Body
     var body: some View {
-        bankImageView
-        mainVStack
-        signInButton
-        Spacer()
-        registrationLink
+        VStack {
+            bankImageView
+            mainVStack
+            signInButton
+            Spacer()
+            registrationLink
+        }
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
     
     // MARK: - View Components
