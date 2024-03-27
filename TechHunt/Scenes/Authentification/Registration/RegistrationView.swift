@@ -47,6 +47,9 @@ struct RegistrationView: View {
                 }
             )
         }
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
     
     // MARK: - View Components
