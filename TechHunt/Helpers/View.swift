@@ -58,5 +58,9 @@ extension View {
     func buttonFont() -> some View {
         self.font(.system(size: 17, weight: .black, design: .rounded))
     }
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
 
